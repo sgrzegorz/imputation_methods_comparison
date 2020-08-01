@@ -1,1 +1,7 @@
-<p>predixcan works {{ koala}}!</p>
+<h1>PrediXcan</h1>
+
+<ul class="data">
+  <li *ngFor="let result of data1">
+    <span class="badge">{{result.gene}}</span> {{result.beta}}, {{result.t}}, {{result.p}}, {{result.se_beta}}
+  </li>
+</ul>

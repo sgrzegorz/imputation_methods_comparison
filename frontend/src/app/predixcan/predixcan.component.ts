@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataItem} from "../dataitem";
+import {DATA} from "../mock-data";
+import {TableService} from "../table.service";
+
 
 @Component({
   selector: 'app-predixcan',
@@ -6,11 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./predixcan.component.css']
 })
 export class PredixcanComponent implements OnInit {
-  koala = 'koala';
 
-  constructor() { }
+  data1: DataItem [];
+
+
+  constructor(private tableService : TableService) {
+  }
 
   ngOnInit(): void {
+    this.getMyTable();
+
+  }
+
+  getMyTable(): void {
+    this.tableService.getTable().subscribe(data => this.data1 = data);
   }
 
 }

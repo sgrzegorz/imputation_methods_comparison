@@ -2,9 +2,9 @@ from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-db = SQLAlchemy(app)
+server = Flask(__name__)
+server.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+db = SQLAlchemy(server)
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -15,7 +15,7 @@ class Todo(db.Model):
         return '<Task %r>' % self.id
 
 
-@app.route('/', methods=['POST', 'GET'])
+@server.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
         task_content = request.form['content']
@@ -33,7 +33,7 @@ def index():
         return render_template('index.html', tasks=tasks)
 
 
-@app.route('/delete/<int:id>')
+@server.route('/delete/<int:id>')
 def delete(id):
     task_to_delete = Todo.query.get_or_404(id)
 
@@ -44,7 +44,7 @@ def delete(id):
     except:
         return 'There was a problem deleting that task'
 
-@app.route('/update/<int:id>', methods=['GET', 'POST'])
+@server.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
     task = Todo.query.get_or_404(id)
 
@@ -62,4 +62,4 @@ def update(id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    server.run(debug=True)

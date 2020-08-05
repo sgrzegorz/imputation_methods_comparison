@@ -22,6 +22,11 @@ export class PredixcanComponent implements OnInit {
 
   }
 
+  getPredixcanResults(): void {
+    console.log('nfiaofnaof');
+    this.getMyTable();
+  }
+
   getMyTable(): void {
     this.tableService.getTable().subscribe(data => this.data1 = data);
   }

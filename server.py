@@ -1,8 +1,17 @@
+from json import JSONEncoder
+from predixcan import PREDIX_PATH, execute_predixcan_method,parse_predixcan_results
+
 from flask import Flask, render_template, url_for, request, redirect, jsonify
+import json
+from flask_cors import CORS
+
 # from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 server = Flask(__name__)
+# without line below angular my throw an error: 'Access-Control-Allow-Origin' header is present on the requested resource. angular'
+CORS(server)
+
 # server.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 # db = SQLAlchemy(server)
 
@@ -14,21 +23,32 @@ server = Flask(__name__)
 #     def __repr__(self):
 #         return '<Task %r>' % self.id
 
-class Message():
-    gene = 'ENSG00000000457.9'
-    beta = '2970.08804905987'
-    t ='0.492865446389667'
-    p = '0.622828377402499'
-    se_beta ='0.622828377402499'
+# class Message(JSONEncoder):
+#     def __init__(self,gene,beta,t,p,se_beta):
+#         self.gene = gene
+#         self.beta = beta
+#         self.t = t
+#         self.p = p
+#         self.se_beta = se_beta
+#
+#     def default(self, o):
+#         return o.__dict__
+#
+#     def toJSON(self):
+#         return json.dumps(self, default=lambda o: o.__dict__,
+#                           sort_keys=False, indent=4)
 
 
-@server.route('/', methods=['POST', 'GET'])
+
+@server.route('/predixcan', methods=['POST', 'GET'])
 def index():
     print('Received message')
-    m = Message()
-    m1 = Message()
-    array = [m,m1]
-    jsonify(array)
+
+    gene_list = parse_predixcan_results()
+    json_string = json.dumps([ob.__dict__ for ob in gene_list])
+    print(json_string)
+
+    return (json_string)
     # if request.method == 'POST':
     #     task_content = request.form['content']
     #     new_task = Todo(content=task_content)
@@ -74,4 +94,5 @@ def index():
 
 
 if __name__ == "__main__":
+    # execute_predixcan_method()
     server.run(debug=True)

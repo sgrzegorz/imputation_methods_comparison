@@ -1,20 +1,21 @@
-# Metaxcan 
-conda create -n metaxcan python=3.5
-conda install pip 
-conda activate metaxcan
-pip install h5py==2.8.0 numpy==1.15.4 pandas==0.23.4 patsy==0.5.1 pyarrow==0.9.0 pyliftover==0.3 rpy2 scipy==1.1.0 statsmodels==0.9.0
-     
-https://github.com/hakyimlab/MetaXcan/wiki/Tutorial:-GTEx-v8-MASH-models-integration-with-a-Coronary-Artery-Disease-GWAS
+#Download the code
+git clone git@github.com:hakyimlab/summary-gwas-imputation.git
+git clone git@github.com:hakyimlab/MetaXcan.git
 
-https://zenodo.org/record/3657902#.Xj2Zh-F7m90
-NALEŻY DOWNLOAD CAŁĄ ZAWARTOŚĆ [OK 16GB] I WYPAKOWAĆ FOLDER data DO FOLDERU ./software/DANE/data
+# At the HPC cluster available to me, I load conda this way module load gcc/6.2.0 miniconda2/4.4.10
+conda create -n metaxcan python=3.6
+source activate metaxcan
+conda install scipy numpy pandas -y
+conda install -c conda-forge pyarrow -y
+conda install -c bioconda pyliftover -y
 
-cd Metaxcan
-GWAS_TOOLS=./software/GWAS_TOOLS
-METAXCAN=./software
-DATA=./software/DANE/data
-OUTPUT=RESULTS
-
+wget  https://zenodo.org/record/3657902/files/sample_data.tar?download=1
+tar -xvpf sample_data.tar\?download\=1
+rm sample_data.tar\?download\=1
+export DATA=data
+export GWAS_TOOLS=summary-gwas-imputation/src
+export METAXCAN=MetaXcan/software
+export OUTPUT=results
 
 # harmonize input gWAS to our reference
 python $GWAS_TOOLS/gwas_parsing.py \
@@ -37,7 +38,7 @@ python $GWAS_TOOLS/gwas_parsing.py \
 # The following imputes a portion of the imput GWAS.
 # The imputation is meant to be split over many executions to improve paralellism
 # so you would have to iterate `-chromosome` between [1,22] and `-sub_batch` between [0,_sub_batches],
-# ideally in an HPVC environment ZADZIAŁAŁO Z CONDA METAXCAN
+# ideally in an HPVC environment
 python $GWAS_TOOLS/gwas_summary_imputation.py \
 -by_region_file $DATA/eur_ld.bed.gz \
 -gwas_file $OUTPUT/harmonized_gwas/CARDIoGRAM_C4D_CAD_ADDITIVE.txt.gz \
@@ -69,6 +70,3 @@ python $METAXCAN/SPrediXcan.py \
 --keep_non_rsid --additional_output --model_db_snp_key varID \
 --throw \
 --output_file $OUTPUT/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv
-
-
-

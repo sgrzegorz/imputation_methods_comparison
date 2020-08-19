@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {DataItem} from "./dataitem";
-import {Observable, of, throwError} from 'rxjs';
+import {Observable, Observer, of, throwError} from 'rxjs';
 import {catchError, retry, tap} from 'rxjs/operators';
 import {DATA} from "./mock-data";
 
@@ -24,10 +24,10 @@ export class TableService {
   constructor(private  http: HttpClient) {
   }
 
-  getTable(methodName : string): Observable<DataItem[]> {
+  getTable(methodName: string): Observable<DataItem[]> {
     console.log('hej');
     // get request
-    return this.http.get<DataItem[]>(this.url+'/'+methodName).pipe(
+    return this.http.get<DataItem[]>(this.url + '/' + methodName).pipe(
       tap(_ => {
         this.log('fetched heroes');
         console.log('nfnaiofnaof');
@@ -37,13 +37,6 @@ export class TableService {
   }
 
 
-  // askForTable() {
-  //   // return this.http.get<DataItem[]>(this.apUrl);
-  //   return this.http.post<DataItem[]>(this.url, DATA[0], httpOptions)
-  //   .pipe(
-  //     catchError(this.handleError('addHero', hero))
-  //   );
-  // }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -64,6 +57,5 @@ export class TableService {
     console.log(message);
     // this.messageService.add(`HeroService: ${message}`);
   }
-
 
 }

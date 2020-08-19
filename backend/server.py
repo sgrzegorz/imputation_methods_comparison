@@ -1,6 +1,6 @@
 from backend.predixcan import parse_predixcan_results
 
-from flask import Flask
+from flask import Flask, request,send_file
 import json
 from flask_cors import CORS
 
@@ -22,9 +22,16 @@ def index():
 
     return (json_string)
 
+#http://example.com/metaxcan?id=1
 @server.route('/metaxcan', methods=['POST', 'GET'])
 def metaxcan():
-    pass
+    if request.args.get('id') == '1':
+        id =request.args.get('id')
+        filename = f'pictures/metaxcan{id}.png'
+    else:
+        filename = 'error.gif'
+    return send_file(filename, mimetype='image/png')
+
 
 @server.route('/tigar', methods=['POST', 'GET'])
 def tigar():

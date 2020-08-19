@@ -7,7 +7,7 @@ import {ImageService} from "../image.service";
   styleUrls: ['./metaxcan.component.css']
 })
 export class MetaxcanComponent implements OnInit {
-  imgUrl: string = 'https://picsum.photos/200/300/?random';
+  imgUrl: string = 'metaxcan?id=1';
 
   imageToShow: any;
   isImageLoading: boolean;

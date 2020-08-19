@@ -3,14 +3,24 @@ from backend.predixcan import parse_predixcan_results
 from flask import Flask, request,send_file
 import json
 from flask_cors import CORS
-
+import backend.plots
 # from flask_sqlalchemy import SQLAlchemy
 
 server = Flask(__name__)
 # without line below angular my throw an error: 'Access-Control-Allow-Origin' header is present on the requested resource. angular'
 CORS(server)
 
-
+#_run_plots_function('metaxcan2')
+def _run_plots_function(function_beginning):
+    function_name = 'not_found'
+    for name in dir(backend.plots):
+        if name.startswith(function_beginning):
+            function_name = name
+            break
+    if function_name!='not_found':
+        getattr(backend.plots, function_name)()
+        return 0
+    return -1
 
 @server.route('/predixcan', methods=['POST', 'GET'])
 def index():
@@ -27,6 +37,8 @@ def index():
 def metaxcan():
     if request.args.get('id') == '1':
         id =request.args.get('id')
+        if _run_plots_function(f'metaxcan{id}') == -1:
+            print('No function for picture found')
         filename = f'pictures/metaxcan{id}.png'
     else:
         filename = 'error.gif'
@@ -41,6 +53,16 @@ def tigar():
 def fusion():
     pass
 
+
+
+
 if __name__ == "__main__":
     # execute_predixcan_method()
     server.run(debug=True)
+    # _run_plots_function('metaxcan2')
+    # result = getattr(backend.plots,'metaxcan1_pvalue_and_pred_perf_r2_plot')()
+    # result = getattr(backend.plots,'metaxcan2_pvalue_histogram_plot')()
+    #
+
+
+    print()

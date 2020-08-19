@@ -8,7 +8,7 @@ import codecs
 METAXCAN_RESULTS_PATH = 'methods/MetaXcan/RESULTS/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv'
 FUSION_RESULTS_PATH = 'methods/fusion_twas-master/PGC2.SCZ.22.dat'
 
-def metaxcan_pvalue_and_pred_perf_r2_plot():
+def metaxcan1_pvalue_and_pred_perf_r2_plot():
     data = pd.read_csv(METAXCAN_RESULTS_PATH)
     data['pvalue'].plot(kind='line',color='brown')
     plt.title('metaxcan pvalue')
@@ -25,7 +25,7 @@ def metaxcan_pvalue_and_pred_perf_r2_plot():
     # plt.ylabel('pred_perf_r2')
     # plt.show()
 
-def metaxcan_pvalue_histogram_plot():
+def metaxcan2_pvalue_histogram_plot():
     data = pd.read_csv(METAXCAN_RESULTS_PATH)
     histogram = data['pvalue'].hist(bins=100)
     # pvalues are from 0 to 1
@@ -36,7 +36,7 @@ def metaxcan_pvalue_histogram_plot():
     plt.show()
 
 
-def metaxcan_pvalue_best_gwas_p_difference_plot():
+def metaxcan3_pvalue_best_gwas_p_difference_plot():
     data = pd.read_csv(METAXCAN_RESULTS_PATH)
     data1 = pd.DataFrame()
     data1['difference between pvalue and best_gwas_p'] = data['pvalue'] - data[
@@ -46,7 +46,7 @@ def metaxcan_pvalue_best_gwas_p_difference_plot():
     plt.show()
 
 # powinien wyjsc rozklad normalny
-def fusion_best_gwas_z_plot(): #TODO ma niewlasciwy ksztalt
+def fusion1_best_gwas_z_plot(): #TODO ma niewlasciwy ksztalt
     data = pd.read_csv(FUSION_RESULTS_PATH, sep='\t', header=(0))
     data['BEST.GWAS.Z'].plot(kind='line')
     plt.title('fusion best gwas z plot')
@@ -56,7 +56,7 @@ def fusion_best_gwas_z_plot(): #TODO ma niewlasciwy ksztalt
     plt.show()
 
 # ma ładnie spadać do wypłaszczonej krzywej
-def fusion_twas_p_plot(): #TODO Na raze nie chce spadać...
+def fusion2_twas_p_plot(): #TODO Na raze nie chce spadać...
     data = pd.read_csv(FUSION_RESULTS_PATH, sep='\t', header=(0))
     data['TWAS.P'].plot(kind='line')
     plt.title('fusion twas p plot')
@@ -64,7 +64,7 @@ def fusion_twas_p_plot(): #TODO Na raze nie chce spadać...
     plt.ylabel('twas p')
     plt.show()
 
-def fusion_lasso_vs_enet_diagram():
+def fusion3_lasso_vs_enet_diagram():
     data = pd.read_csv(FUSION_RESULTS_PATH, sep='\t', header=(0))
 
     labels = 'lasso', 'enet'
@@ -101,4 +101,5 @@ def print_full_fusion(x):
     pd.reset_option('display.float_format')
     pd.reset_option('display.max_colwidth')
 
-metaxcan_pvalue_and_pred_perf_r2_plot()
+# metaxcan_pvalue_and_pred_perf_r2_plot()
+

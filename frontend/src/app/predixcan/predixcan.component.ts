@@ -14,12 +14,11 @@ export class PredixcanComponent implements OnInit {
   data1: DataItem [];
 
 
-  constructor(private tableService : TableService) {
+  constructor(private tableService: TableService) {
   }
 
   ngOnInit(): void {
     this.getMyTable();
-
   }
 
   getPredixcanResults(): void {
@@ -28,7 +27,7 @@ export class PredixcanComponent implements OnInit {
   }
 
   getMyTable(): void {
-    this.tableService.getTable().subscribe(data => this.data1 = data);
+    this.tableService.getTable('predixcan').subscribe(data => this.data1 = data);
   }
 
 }

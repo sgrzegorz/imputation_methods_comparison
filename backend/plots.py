@@ -14,6 +14,7 @@ def metaxcan_pvalue_and_pred_perf_r2_plot():
     plt.title('metaxcan pvalue')
     plt.xlabel('gene number')
     plt.ylabel('pvalue')
+    plt.savefig('backend/pictures/metaxcan1')
     plt.show()
     # data['pred_perf_r2'].plot(color='red') TODO
     #plt.plot(data['pred_perf_r2'])
@@ -31,6 +32,7 @@ def metaxcan_pvalue_histogram_plot():
     plt.title('metaxcan pvalue histogram')
     plt.xlabel('bins')
     plt.ylabel('number of pvalue\'s')
+    plt.savefig('backend/pictures/metaxcan2')
     plt.show()
 
 
@@ -40,6 +42,7 @@ def metaxcan_pvalue_best_gwas_p_difference_plot():
     data1['difference between pvalue and best_gwas_p'] = data['pvalue'] - data[
         'best_gwas_p']
     data1.plot()
+    plt.savefig('backend/pictures/metaxcan3')
     plt.show()
 
 # powinien wyjsc rozklad normalny
@@ -49,6 +52,7 @@ def fusion_best_gwas_z_plot(): #TODO ma niewlasciwy ksztalt
     plt.title('fusion best gwas z plot')
     plt.xlabel('gene number')
     plt.ylabel('best gwas z')
+    plt.savefig('backend/pictures/fusion1')
     plt.show()
 
 # ma ładnie spadać do wypłaszczonej krzywej
@@ -97,3 +101,4 @@ def print_full_fusion(x):
     pd.reset_option('display.float_format')
     pd.reset_option('display.max_colwidth')
 
+metaxcan_pvalue_and_pred_perf_r2_plot()

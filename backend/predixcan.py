@@ -1,7 +1,23 @@
 import os
+import json
+from json import JSONEncoder
 
 PREDIX_PATH = 'methods/PrediXcanExample'
 
+class Message(JSONEncoder):
+    def __init__(self,gene,beta,t,p,se_beta):
+        self.gene = gene
+        self.beta = beta
+        self.t = t
+        self.p = p
+        self.se_beta = se_beta
+
+    def default(self, o):
+        return o.__dict__
+
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.__dict__,
+                          sort_keys=False, indent=4)
 
 
 def parse_predixcan_results(filename = f'{PREDIX_PATH}/results/Cells_EBV-transformed_lymphocytes_association.txt'):

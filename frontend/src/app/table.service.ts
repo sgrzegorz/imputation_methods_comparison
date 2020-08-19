@@ -24,10 +24,10 @@ export class TableService {
   constructor(private  http: HttpClient) {
   }
 
-  getTable(): Observable<DataItem[]> {
+  getTable(methodName : string): Observable<DataItem[]> {
     console.log('hej');
     // get request
-    return this.http.get<DataItem[]>(this.url).pipe(
+    return this.http.get<DataItem[]>(this.url+'/'+methodName).pipe(
       tap(_ => {
         this.log('fetched heroes');
         console.log('nfnaiofnaof');

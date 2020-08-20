@@ -1,1 +1,24 @@
-<p>fusion works!</p>
+<p>fusion</p>
+<button type="button" (click)="getPicturesFromService()">Get Image</button>
+
+<img [src]="pictures[0]"
+     alt="fusion1"
+     *ngIf="!isImageLoading[0]; else noImageFound0">
+<ng-template #noImageFound0>
+  <img src="fallbackImage0.png" alt="Fallbackimage0">
+</ng-template>
+
+<img [src]="pictures[1]"
+     alt="fusion2"
+     *ngIf="!isImageLoading[1]; else noImageFound1">
+
+<ng-template #noImageFound1>
+  <img src="fallbackImage1.png" alt="Fallbackimage1">
+</ng-template>
+
+<img [src]="pictures[2]"
+     alt="fusion3"
+     *ngIf="!isImageLoading[2]; else noImageFound2">
+<ng-template #noImageFound2>
+  <img src="fallbackImage2.png" alt="Fallbackimage2">
+</ng-template>

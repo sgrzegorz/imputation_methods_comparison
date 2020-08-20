@@ -51,7 +51,14 @@ def tigar():
 
 @server.route('/fusion', methods=['POST', 'GET'])
 def fusion():
-    pass
+    if isinstance(int(request.args.get('id')), int):
+        id = request.args.get('id')
+        if _run_plots_function(f'fusion{id}') == -1:
+            print('No function for picture found')
+        filename = f'pictures/fusion{id}.png'
+    else:
+        filename = 'pictures/error.png'
+    return send_file(filename, mimetype='image/png')
 
 
 

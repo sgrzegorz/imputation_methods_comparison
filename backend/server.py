@@ -35,13 +35,13 @@ def index():
 #http://example.com/metaxcan?id=1
 @server.route('/metaxcan', methods=['POST', 'GET'])
 def metaxcan():
-    if request.args.get('id') == '1':
+    if isinstance(int(request.args.get('id')),int):
         id =request.args.get('id')
         if _run_plots_function(f'metaxcan{id}') == -1:
             print('No function for picture found')
         filename = f'pictures/metaxcan{id}.png'
     else:
-        filename = 'error.gif'
+        filename = 'pictures/error.png'
     return send_file(filename, mimetype='image/png')
 
 

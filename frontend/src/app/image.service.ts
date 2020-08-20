@@ -13,7 +13,7 @@ export class ImageService {
   }
 
   getImage(imageUrl: string): Observable<Blob> {
-    imageUrl = this.url + '/' + imageUrl;
+    imageUrl = this.url + imageUrl;
     return this.httpClient.get(imageUrl, {responseType: 'blob'});
   }
 }

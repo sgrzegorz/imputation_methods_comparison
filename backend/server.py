@@ -1,3 +1,4 @@
+import time
 from backend.predixcan import parse_predixcan_results
 
 from flask import Flask, request,send_file
@@ -5,7 +6,8 @@ import json
 from flask_cors import CORS
 import backend.plots
 # from flask_sqlalchemy import SQLAlchemy
-
+import threading
+lock = threading.Lock()
 server = Flask(__name__)
 # without line below angular my throw an error: 'Access-Control-Allow-Origin' header is present on the requested resource. angular'
 CORS(server)
@@ -18,7 +20,9 @@ def _run_plots_function(function_beginning):
             function_name = name
             break
     if function_name!='not_found':
+        lock.acquire()  # matplotlib is not thread save, musimy uzyć lock, żeby obrazki się nie urywały/sklejały ze sobą
         getattr(backend.plots, function_name)()
+        lock.release()
         return 0
     return -1
 
@@ -35,6 +39,7 @@ def index():
 #http://example.com/metaxcan?id=1
 @server.route('/metaxcan', methods=['POST', 'GET'])
 def metaxcan():
+
     if isinstance(int(request.args.get('id')),int):
         id =request.args.get('id')
         if _run_plots_function(f'metaxcan{id}') == -1:
@@ -51,6 +56,7 @@ def tigar():
 
 @server.route('/fusion', methods=['POST', 'GET'])
 def fusion():
+
     if isinstance(int(request.args.get('id')), int):
         id = request.args.get('id')
         if _run_plots_function(f'fusion{id}') == -1:
@@ -58,6 +64,7 @@ def fusion():
         filename = f'pictures/fusion{id}.png'
     else:
         filename = 'pictures/error.png'
+
     return send_file(filename, mimetype='image/png')
 
 

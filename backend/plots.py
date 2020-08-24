@@ -1,12 +1,25 @@
+import os
+import time
+
 import matplotlib.pyplot as plt
 import csv
 import pandas as pd
 import numpy as np
 import codecs
 
-
 METAXCAN_RESULTS_PATH = 'methods/MetaXcan/RESULTS/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv'
 FUSION_RESULTS_PATH = 'methods/fusion_twas-master/PGC2.SCZ.22.dat'
+
+def _save_picture(filename):
+    if os.path.isfile(f'backend/pictures/{filename}.png'):
+        os.remove(f'backend/pictures/{filename}.png')
+
+    plt.savefig(f'backend/pictures/{filename}')
+
+    # plt.show()
+    plt.close()
+
+
 
 def metaxcan0_pvalue_and_pred_perf_r2_plot():
     data = pd.read_csv(METAXCAN_RESULTS_PATH)
@@ -14,8 +27,11 @@ def metaxcan0_pvalue_and_pred_perf_r2_plot():
     plt.title('metaxcan pvalue')
     plt.xlabel('gene number')
     plt.ylabel('pvalue')
-    plt.savefig('backend/pictures/metaxcan0')
-    plt.show()
+
+    # if os.path.isfile('backend/pictures/metaxcan0.png'):
+    #     os.remove('backend/pictures/metaxcan0.png')
+    # plt.savefig('backend/pictures/metaxcan0')
+    _save_picture('metaxcan0')
     # data['pred_perf_r2'].plot(color='red') TODO
     #plt.plot(data['pred_perf_r2'])
     # data.plot(y='pred_perf_r2',color='red')
@@ -32,8 +48,7 @@ def metaxcan1_pvalue_histogram_plot():
     plt.title('metaxcan pvalue histogram')
     plt.xlabel('bins')
     plt.ylabel('number of pvalue\'s')
-    plt.savefig('backend/pictures/metaxcan1')
-    plt.show()
+    _save_picture('metaxcan1')
 
 
 def metaxcan2_pvalue_best_gwas_p_difference_plot():
@@ -42,8 +57,8 @@ def metaxcan2_pvalue_best_gwas_p_difference_plot():
     data1['difference between pvalue and best_gwas_p'] = data['pvalue'] - data[
         'best_gwas_p']
     data1.plot()
-    plt.savefig('backend/pictures/metaxcan2')
-    plt.show()
+    _save_picture('metaxcan2')
+
 
 # powinien wyjsc rozklad normalny
 def fusion0_best_gwas_z_plot(): #TODO ma niewlasciwy ksztalt
@@ -52,8 +67,10 @@ def fusion0_best_gwas_z_plot(): #TODO ma niewlasciwy ksztalt
     plt.title('fusion best gwas z plot')
     plt.xlabel('gene number')
     plt.ylabel('best gwas z')
-    plt.savefig('backend/pictures/fusion0')
-    plt.show()
+
+    _save_picture('fusion0')
+
+
 
 # ma ładnie spadać do wypłaszczonej krzywej
 def fusion1_twas_p_plot(): #TODO Na raze nie chce spadać...
@@ -62,8 +79,8 @@ def fusion1_twas_p_plot(): #TODO Na raze nie chce spadać...
     plt.title('fusion twas p plot')
     plt.xlabel('gene number')
     plt.ylabel('twas p')
-    plt.savefig('backend/pictures/fusion1')
-    plt.show()
+    _save_picture('fusion1')
+
 
 def fusion2_lasso_vs_enet_diagram():
     data = pd.read_csv(FUSION_RESULTS_PATH, sep='\t', header=(0))
@@ -79,8 +96,8 @@ def fusion2_lasso_vs_enet_diagram():
             shadow=True, startangle=90)
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     plt.title('Fusion: lasso vs enet statistics')
-    plt.savefig('backend/pictures/fusion2')
-    plt.show()
+
+    _save_picture('fusion2')
 
 
 def fusion_metaxcan_compare_modelcvr2_predictive_performance_r2_plot(): #TODO
@@ -88,7 +105,6 @@ def fusion_metaxcan_compare_modelcvr2_predictive_performance_r2_plot(): #TODO
     fusion_data = pd.read_csv(FUSION_RESULTS_PATH, sep='\t', header=(0))
     fusion_data['MODELCV.R2']
     print(metaxcan_data['pred_perf_r2'])
-    pass
 
 # function which prints full pandas dataframe without dots (...) very usefull. Eg print_full(dataframe) Używać zamiast print(dataframe)!
 def print_full_fusion(x):

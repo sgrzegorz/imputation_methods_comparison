@@ -96,7 +96,7 @@ else
         mkdir -p ${out_prefix}/TIGAR_TWAS_Type_One
         mkdir -p ${out_prefix}/TIGAR_TWAS_Type_One/log_file
         
-        python3 ./TWAS/TWAS.py ONE \
+        python ./TWAS/TWAS.py ONE \
         --Gene_Exp_Path ${Gene_Exp} \
         --PED ${PED} \
         --Asso_Info ${Asso_Info} \
@@ -128,7 +128,7 @@ else
         ### Extract Header of Z-score File
         zcat ${Zscore} | grep 'CHROM' > ${out_prefix}/CHR${chr_num}_Zscore_header.txt
 
-        python3 ./TWAS/TWAS.py TWO \
+        python ./TWAS/TWAS.py TWO \
         --Gene ${out_prefix}/CHR${chr_num}_Gene_Annotation.txt \
         --Zscore ${Zscore} \
         --Zscore_header ${out_prefix}/CHR${chr_num}_Zscore_header.txt \
@@ -150,6 +150,39 @@ else
 ######################################################################################
     fi
 fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

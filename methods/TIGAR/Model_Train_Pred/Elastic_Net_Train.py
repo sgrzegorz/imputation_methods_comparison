@@ -34,7 +34,7 @@ from CHR_Reform import CHR_Reform
 
 ###############################################################################################
 # Hide Warnings from Python
-warnings.filterwarnings("ignore")
+# warnings.filterwarnings("ignore")
 ###############################################################################################
 ### Time Calculation
 start_time=time()

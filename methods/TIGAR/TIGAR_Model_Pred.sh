@@ -71,9 +71,10 @@ else
     ### Store Results
     mkdir -p ${out_prefix}/${model}_CHR${chr_num}
     mkdir -p ${out_prefix}/${model}_CHR${chr_num}/log_file
-    
+
+
     ### Prediction
-    python3 ./Model_Train_Pred/Prediction.py \
+    python ./Model_Train_Pred/Prediction.py \
     --model ${model} \
     --chr_num ${chr_num} \
     --train_weight_path ${train_weight_path} \
@@ -93,6 +94,10 @@ else
     rm ${out_prefix}/CHR${chr_num}_${genofile_type}_header.txt
 
 fi
+
+
+
+
 
 
 

@@ -114,7 +114,7 @@ else
         echo "Using Elastic Net Model for Training."
 
         ### 3.1 Elastic Net Regression
-        python3 ./Model_Train_Pred/Elastic_Net_Train.py \
+        python ./Model_Train_Pred/Elastic_Net_Train.py \
         --Gene_Exp_path ${out_prefix}/CHR${chr_num}_Gene_Exp_combination.txt \
         --sampleID ${sampleID} \
         --chr_num ${chr_num} \
@@ -152,13 +152,13 @@ else
         mkdir -p ${out_prefix}/${model}_CHR${chr_num}/DPR_input/SNP_annot
 
         ### Store cross validation result
-        mkdir -p ${out_prefix}/${model}_CHR${chr_num}/DPR_input/CV
+        mkdir -p ${out_prefix}/${model}_CHR${chr_num}/DPR_input/CV 
         mkdir -p ${out_prefix}/${model}_CHR${chr_num}/DPR_input/CV/bimbam
         mkdir -p ${out_prefix}/${model}_CHR${chr_num}/DPR_input/CV/pheno
         mkdir -p ${out_prefix}/${model}_CHR${chr_num}/DPR_input/CV/SNP_annot
 
         ### 3.4 DPR
-        python3 ./Model_Train_Pred/DPR_Train.py \
+        python ./Model_Train_Pred/DPR_Train.py \
         --Gene_Exp_path ${out_prefix}/CHR${chr_num}_Gene_Exp_combination.txt \
         --sampleID ${sampleID} \
         --chr_num ${chr_num} \
@@ -186,3 +186,14 @@ fi
 ### Remove Files
 rm ${out_prefix}/CHR${chr_num}_${genofile_type}_header.txt
 rm ${out_prefix}/CHR${chr_num}_Gene_Exp_combination.txt
+
+
+
+
+
+
+
+
+
+
+

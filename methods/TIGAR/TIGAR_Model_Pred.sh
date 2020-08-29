@@ -71,8 +71,7 @@ else
     ### Store Results
     mkdir -p ${out_prefix}/${model}_CHR${chr_num}
     mkdir -p ${out_prefix}/${model}_CHR${chr_num}/log_file
-
-
+    
     ### Prediction
     python ./Model_Train_Pred/Prediction.py \
     --model ${model} \

@@ -61,12 +61,12 @@ train_weight_path=./Result/DPR_CHR1/CHR1_DPR_training_weight.txt
 train_info_path=./Result/DPR_CHR1/CHR1_DPR_training_info.txt
 
 ./TIGAR_Model_Pred.sh --model DPR \
--- chr 1 \
+--chr 1 \
 --train_weight_path ${train_weight_path} \
 --train_info_path ${train_info_path} \
 --genofile_type vcf \
 --genofile ${genofile} \
---sampleID {sampleID} \
+--sampleID ${sampleID} \
 --Format GT \
 --out ${out_prefix}
 

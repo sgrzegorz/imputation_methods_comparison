@@ -1,5 +1,7 @@
 import os
 import json
+import subprocess
+import sys
 from json import JSONEncoder
 
 PREDIX_PATH = 'methods/PrediXcanExample'
@@ -44,10 +46,24 @@ def parse_predixcan_results(filename = f'{PREDIX_PATH}/results/Cells_EBV-transfo
     # take only first 50 elements
     return my_list[:50]
 
-def execute_predixcan_method():
-    predixcan_command =  f'cd {PREDIX_PATH} && python3 PrediXcan.py --predict --assoc --linear  --weights weights/TW_Cells_EBV-transformed_lymphocytes_0.5.db    --dosages genotype       --samples samples.txt       --pheno phenotype/igrowth.txt       --output_prefix results/Cells_EBV-transformed_lymphocytes '
-    os.system(predixcan_command)
+
+def execute_bash_script(filename, relative_path):
+    origWD = os.getcwd()  # remember our original working directory
+    os.chdir(os.path.join(os.path.abspath(sys.path[0]),
+                          relative_path))
+    process = subprocess.Popen([filename], stdout=subprocess.PIPE,
+                               shell=True)
+
+    # print stdout child processu
+    for line in iter(process.stdout.readline, b''):
+        print(line)
+    process.stdout.close()
+    process.wait()
+
+    os.chdir(origWD)  # get back to our original working directory
+
 
 if __name__ == "__main__":
-    execute_predixcan_method()
+    execute_bash_script("./predixcan.sh",'../methods/PrediXcanExample/SRC')
+
 

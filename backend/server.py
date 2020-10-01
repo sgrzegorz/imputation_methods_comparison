@@ -77,6 +77,3 @@ if __name__ == "__main__":
     # result = getattr(backend.plots,'metaxcan1_pvalue_and_pred_perf_r2_plot')()
     # result = getattr(backend.plots,'metaxcan2_pvalue_histogram_plot')()
     #
-
-
-    print()

@@ -1,12 +1,15 @@
 #!/bin/bash
 
+# pobierz plik : https://zenodo.org/record/3657902#.Xj2Zh-F7m90
+# i wypakuj go do folderu input1
+# pomysl na ten plik wzialem z https://github.com/hakyimlab/MetaXcan/wiki/Tutorial:-GTEx-v8-MASH-models-integration-with-a-Coronary-Artery-Disease-GWAS
+
 cd ..
 
 GWAS_TOOLS=./GWAS_TOOLS
 METAXCAN=./software
 DATA=./INPUT/input1
 OUTPUT=./OUTPUT
-
 
 # ---------------------------------------------------------------------------------------------
 # harmonize input gWAS to our reference

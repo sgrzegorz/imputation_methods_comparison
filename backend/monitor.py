@@ -6,6 +6,7 @@ import time
 import psutil
 import pandas as pd
 import matplotlib.pyplot as plt
+import traceback
 
 
 from threading import Thread
@@ -21,7 +22,7 @@ def execute_bash_script(filename, relative_path):
                                shell=True)
     print("PID " ,process.pid)
 
-    observer = Thread(target=observer_function, args=(10,process.pid,))
+    observer = Thread(target=observer_function, args=(process.pid,))
     observer.start()
 
 
@@ -38,24 +39,33 @@ def execute_bash_script(filename, relative_path):
     # end = time.time()
     # print('Total time [s]: ', end-start)
 
-def observer_function(arg,pid):
+def sum_for_children(process):
+    mem = process.memory_percent()
+    for child in process.children(recursive=True):
+        mem += child.memory_percent()
+
+
+def observer_function(pid):
     with open('/tmp/rss.txt', 'w') as file:
         try:
-            file.write(f"rss\ttime\n")
-            while(True):
-                process = psutil.Process(pid)
+            file.write(f"rss\ttime\tswap\tcpu\n")
+            while(psutil.pid_exists(pid)):
+                process = psutil.Process(pid=pid)
                 print(process.create_time())
-                print(process.memory_full_info(), process.cpu_percent())  # in bytes
+                print(process.memory_full_info(), process.cpu_percent(interval=0.1),process.memory_percent())  # in bytes
                 now =datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
                 rss_mb = process.memory_full_info().rss /1000000
-                swap =process.memory_full_info().swap /1000000
-                file.write(f"{rss_mb}\t{now}\t{swap}\n")
+                swap_mb =process.memory_full_info().swap /1000000
+                cpu = process.cpu_times()
+                print(cpu)
+                file.write(f"{rss_mb}\t{now}\t{swap_mb}\t{cpu}\n")
                 print(process.cpu_times())
                 # p=resource.getrusage(pid).ru_maxrss
                 # print("running", p)
                 sleep(1)
         except Exception as e:
             # Proces który obserwuejmy sie zakonczyl albo wystapil nieoczekiwany blad
+            print(traceback.format_exc())
             print('Observer returns')
             pass
 
@@ -72,8 +82,8 @@ def print_rss_chart():
     
 
 if __name__ == "__main__":
-    execute_bash_script("./predixcan.sh",'../methods/PrediXcanExample/SRC')
-
+    # execute_bash_script("./predixcan.sh",'../methods/PrediXcanExample/SRC')
+    execute_bash_script("./tigar.sh", '../methods/TIGAR/SRC')
     # execute_bash_script("./metaxcan.sh",'../methods/MetaXcan/SRC')
     # execute_bash_script("./script.sh",'.')
 

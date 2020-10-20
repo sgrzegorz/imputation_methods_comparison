@@ -8,17 +8,17 @@ cd ..
 
 GWAS_TOOLS=./GWAS_TOOLS
 METAXCAN=./software
-DATA=./INPUT/input1
-OUTPUT=./OUTPUT
+input=./INPUT/input1
+output=./OUTPUT
 
 # ---------------------------------------------------------------------------------------------
 # harmonize input gWAS to our reference
 echo harmonize input gWAS to our reference
 
 python $GWAS_TOOLS/gwas_parsing.py \
--gwas_file $DATA/gwas/cad.add.160614.website.txt.gz \
--liftover $DATA/liftover/hg19ToHg38.over.chain.gz \
--snp_reference_metadata $DATA/reference_panel_1000G/variant_metadata.txt.gz METADATA \
+-gwas_file ${input}/gwas/cad.add.160614.website.txt.gz \
+-liftover ${input}/liftover/hg19ToHg38.over.chain.gz \
+-snp_reference_metadata ${input}/reference_panel_1000G/variant_metadata.txt.gz METADATA \
 -output_column_map markername variant_id \
 -output_column_map noneffect_allele non_effect_allele \
 -output_column_map effect_allele effect_allele \
@@ -30,7 +30,7 @@ python $GWAS_TOOLS/gwas_parsing.py \
 -output_column_map effect_allele_freq frequency \
 --insert_value sample_size 184305 --insert_value n_cases 60801 \
 -output_order variant_id panel_variant_id chromosome position effect_allele non_effect_allele frequency pvalue zscore effect_size standard_error sample_size n_cases \
--output $OUTPUT/harmonized_gwas/CARDIoGRAM_C4D_CAD_ADDITIVE.txt.gz
+-output ${output}/harmonized_gwas/CARDIoGRAM_C4D_CAD_ADDITIVE.txt.gz
 
 
 
@@ -42,10 +42,10 @@ python $GWAS_TOOLS/gwas_parsing.py \
 echo The following imputes a portion of the imput GWAS
 
 python $GWAS_TOOLS/gwas_summary_imputation.py \
--by_region_file $DATA/eur_ld.bed.gz \
--gwas_file $OUTPUT/harmonized_gwas/CARDIoGRAM_C4D_CAD_ADDITIVE.txt.gz \
--parquet_genotype $DATA/reference_panel_1000G/chr1.variants.parquet \
--parquet_genotype_metadata $DATA/reference_panel_1000G/variant_metadata.parquet \
+-by_region_file ${input}/eur_ld.bed.gz \
+-gwas_file ${output}/harmonized_gwas/CARDIoGRAM_C4D_CAD_ADDITIVE.txt.gz \
+-parquet_genotype ${input}/reference_panel_1000G/chr1.variants.parquet \
+-parquet_genotype_metadata ${input}/reference_panel_1000G/variant_metadata.parquet \
 -window 100000 \
 -parsimony 7 \
 -chromosome 1 \
@@ -54,7 +54,7 @@ python $GWAS_TOOLS/gwas_summary_imputation.py \
 -sub_batches 10 \
 -sub_batch 0 \
 --standardise_dosages \
--output $OUTPUT/summary_imputation_1000G/CARDIoGRAM_C4D_CAD_ADDITIVE_chr1_sb0_reg0.1_ff0.01_by_region.txt.gz
+-output ${output}/summary_imputation_1000G/CARDIoGRAM_C4D_CAD_ADDITIVE_chr1_sb0_reg0.1_ff0.01_by_region.txt.gz
 
 
 
@@ -64,22 +64,22 @@ echo Finally, postprocess the harmonized input GWAs and all of the imputation ba
 echo part1
 
 python $GWAS_TOOLS/gwas_summary_imputation_postprocess.py \
--gwas_file $OUTPUT/harmonized_gwas/CARDIoGRAM_C4D_CAD_ADDITIVE.txt.gz \
--folder $OUTPUT/summary_imputation_1000G \
+-gwas_file ${output}/harmonized_gwas/CARDIoGRAM_C4D_CAD_ADDITIVE.txt.gz \
+-folder ${output}/summary_imputation_1000G \
 -pattern "CARDIoGRAM_C4D_CAD_ADDITIVE.*" \
 -parsimony 7 \
--output $OUTPUT/processed_summary_imputation_1000G/imputed_CARDIoGRAM_C4D_CAD_ADDITIVE.txt.gz
+-output ${output}/processed_summary_imputation_1000G/imputed_CARDIoGRAM_C4D_CAD_ADDITIVE.txt.gz
 
 echo part2
 
 python $METAXCAN/SPrediXcan.py \
---gwas_file  $OUTPUT/processed_summary_imputation_1000G/imputed_CARDIoGRAM_C4D_CAD_ADDITIVE.txt.gz \
+--gwas_file  ${output}/processed_summary_imputation_1000G/imputed_CARDIoGRAM_C4D_CAD_ADDITIVE.txt.gz \
 --snp_column panel_variant_id --effect_allele_column effect_allele --non_effect_allele_column non_effect_allele --zscore_column zscore \
---model_db_path $DATA/models/eqtl/mashr/mashr_Whole_Blood.db \
---covariance $DATA/models/eqtl/mashr/mashr_Whole_Blood.txt.gz \
+--model_db_path ${input}/models/eqtl/mashr/mashr_Whole_Blood.db \
+--covariance ${input}/models/eqtl/mashr/mashr_Whole_Blood.txt.gz \
 --keep_non_rsid --additional_output --model_db_snp_key varID \
 --throw \
---output_file $OUTPUT/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv
+--output_file ${output}/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv
 
 
 

@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1277</width>
+    <height>728</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label_24">
+   <property name="geometry">
+    <rect>
+     <x>174</x>
+     <y>110</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--chr</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="FPPREFLDCHRLABEL">
+   <property name="geometry">
+    <rect>
+     <x>194</x>
+     <y>340</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>REQUIRED</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="FPPPLOTCORR">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>180</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--plot_corr	</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_23">
+   <property name="geometry">
+    <rect>
+     <x>754</x>
+     <y>450</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--verbose	</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="FPPPLOTSCATTER">
+   <property name="geometry">
+    <rect>
+     <x>764</x>
+     <y>330</y>
+     <width>91</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--plot_scatter	</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="FPPCHR">
+   <property name="geometry">
+    <rect>
+     <x>224</x>
+     <y>110</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>REQUIRED</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="FPPOUTLABEL">
+   <property name="geometry">
+    <rect>
+     <x>194</x>
+     <y>260</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>REQUIRED</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_56">
+   <property name="geometry">
+    <rect>
+     <x>734</x>
+     <y>530</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--omnibus_corr</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="FPPLAUNCH">
+   <property name="geometry">
+    <rect>
+     <x>294</x>
+     <y>50</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>LAUNCH</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="FPPVERBOSE">
+   <property name="geometry">
+    <rect>
+     <x>754</x>
+     <y>470</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QCheckBox" name="FPPPLOT">
+   <property name="geometry">
+    <rect>
+     <x>764</x>
+     <y>150</y>
+     <width>71</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--plot</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_51">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>450</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--locus_win</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="FPPSUMSTATSLABEL">
+   <property name="geometry">
+    <rect>
+     <x>194</x>
+     <y>380</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>REQUIRED</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_52">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>490</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--minp_input</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="FPPMINPINPUT">
+   <property name="geometry">
+    <rect>
+     <x>244</x>
+     <y>490</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>1.0</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="FPPPLOTINDIVIDUAL">
+   <property name="geometry">
+    <rect>
+     <x>764</x>
+     <y>240</y>
+     <width>101</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--plot_individual	</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="FPPPLOTLEGEND">
+   <property name="geometry">
+    <rect>
+     <x>764</x>
+     <y>300</y>
+     <width>131</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--plot_legend	</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="FPPSUMSTATS">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>360</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--sumstats</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="FPPOMNIBUSCORR">
+   <property name="geometry">
+    <rect>
+     <x>734</x>
+     <y>550</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>best</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>blup</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>bslmm</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>enet</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>lasso</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>top1</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="FPPINPUTLABEL">
+   <property name="geometry">
+    <rect>
+     <x>184</x>
+     <y>190</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>REQUIRED</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="FPPLOCUSWIN">
+   <property name="geometry">
+    <rect>
+     <x>234</x>
+     <y>450</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>100,000</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="FPPPLOTEQTL">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>210</y>
+     <width>111</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--plot_eqtl	</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="FPPOUT">
+   <property name="geometry">
+    <rect>
+     <x>194</x>
+     <y>230</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--out</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="FPPMINPJOINT">
+   <property name="geometry">
+    <rect>
+     <x>244</x>
+     <y>530</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.05</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="FPPMAXR2">
+   <property name="geometry">
+    <rect>
+     <x>244</x>
+     <y>570</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.9</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_54">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>570</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--max_r2</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="FPPLDSC">
+   <property name="geometry">
+    <rect>
+     <x>184</x>
+     <y>410</y>
+     <width>71</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--ldsc</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="FPPOMNIBUS">
+   <property name="geometry">
+    <rect>
+     <x>754</x>
+     <y>110</y>
+     <width>71</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--omnibus</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="FPPREPORT">
+   <property name="geometry">
+    <rect>
+     <x>764</x>
+     <y>360</y>
+     <width>91</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--report	</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_55">
+   <property name="geometry">
+    <rect>
+     <x>204</x>
+     <y>610</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--min_r2</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="FPPREFLDCHR">
+   <property name="geometry">
+    <rect>
+     <x>194</x>
+     <y>310</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--ref_ld_chr</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="FPPSAVELOCI">
+   <property name="geometry">
+    <rect>
+     <x>764</x>
+     <y>390</y>
+     <width>71</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--save_loci	</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="FPPINPUT">
+   <property name="geometry">
+    <rect>
+     <x>184</x>
+     <y>160</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--input</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="FPPMINR2">
+   <property name="geometry">
+    <rect>
+     <x>254</x>
+     <y>610</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.008</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_53">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>530</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>--minp_joint</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

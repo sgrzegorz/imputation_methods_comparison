@@ -143,9 +143,9 @@ def print_write_read_operations_chart():
     lock.release()
 
 if __name__ == "__main__":
-    execute_bash_script("./predixcan.sh",'../methods/PrediXcanExample/SRC')
+    execute_bash_script("./predixcan.sh",'../methods/PREDIXCAN/SRC')
     # execute_bash_script("./tigar.sh", '../methods/TIGAR/SRC')
-    # execute_bash_script("./metaxcan.sh",'../methods/MetaXcan/SRC')
+    # execute_bash_script("./metaxcan.sh",'../methods/METAXCAN/SRC')
     # execute_bash_script("./tests/script.sh",'.')
 
     print_rss_chart()

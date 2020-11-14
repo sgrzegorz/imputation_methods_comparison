@@ -11,7 +11,7 @@ before = pd.read_csv('pictures/input_wyniki.csv', usecols=columns,dtype=dtypes,s
 
 columns = ['ID','MODELCV.PV']
 dtypes ={"ID": str,"MODELCV.PV":float}
-after = pd.read_csv('../methods/fusion_twas-master/OUTPUT/PGC2.SCZ.22.dat', usecols=columns,dtype=dtypes,sep='\t',header=(0))
+after = pd.read_csv('../methods/FUSION/OUTPUT/PGC2.SCZ.22.dat', usecols=columns,dtype=dtypes,sep='\t',header=(0))
 
 after['before_pvalue'] = [-1.0 for i in after.ID]
 

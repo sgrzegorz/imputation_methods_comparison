@@ -80,7 +80,7 @@ class FusionAssociationTest(QtWidgets.QWidget):
         command = self.validateFAT()
         print(command)
 
-        with open('./methods/fusion_twas-master/SRC/fusion_tmp.sh', 'w+') as file:
+        with open('./methods/FUSION/SRC/fusion_tmp.sh', 'w+') as file:
             file.write('#!/bin/bash\n')
             file.write('cd ..\n')
             file.write(command)

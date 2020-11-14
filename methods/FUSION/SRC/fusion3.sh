@@ -14,4 +14,7 @@ Rscript FUSION.post_process.R \
 --out ${output}/PGC2.SCZ.22.top.analysis \
 --ref_ld_chr ./LDREF/1000G.EUR. \
 --chr 22 \
---plot --locus_win 100000
+--plot_corr	\
+--report \
+--plot --locus_win 100000 \
+--plot_legend joint

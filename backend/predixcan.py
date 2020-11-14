@@ -4,7 +4,7 @@ import subprocess
 import sys
 from json import JSONEncoder
 
-PREDIX_PATH = 'methods/PrediXcanExample'
+PREDIX_PATH = 'methods/PREDIXCAN'
 
 class Message(JSONEncoder):
     def __init__(self,gene,beta,t,p,se_beta):
@@ -64,6 +64,6 @@ def execute_bash_script(filename, relative_path):
 
 
 if __name__ == "__main__":
-    execute_bash_script("./predixcan.sh",'../methods/PrediXcanExample/SRC')
+    execute_bash_script("./predixcan.sh",'../methods/PREDIXCAN/SRC')
 
 

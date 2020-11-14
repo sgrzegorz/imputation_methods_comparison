@@ -7,8 +7,8 @@ import pandas as pd
 import numpy as np
 import codecs
 
-METAXCAN_RESULTS_PATH = 'methods/MetaXcan/OUTPUT/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv'
-FUSION_RESULTS_PATH = 'methods/fusion_twas-master/OUTPUT/PGC2.SCZ.22.dat'
+METAXCAN_RESULTS_PATH = 'methods/METAXCAN/OUTPUT/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv'
+FUSION_RESULTS_PATH = 'methods/FUSION/OUTPUT/PGC2.SCZ.22.dat'
 
 def _save_picture(filename):
     if os.path.isfile(f'backend/pictures/{filename}.png'):

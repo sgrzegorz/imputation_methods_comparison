@@ -11,7 +11,7 @@ before = pd.read_csv('pictures/input_wyniki.csv', usecols=columns,dtype=dtypes,s
 columns = ['gene_name','pvalue']
 dtypes ={"gene_name": str,"pvalue":float}
 
-after = pd.read_csv('../methods/MetaXcan/OUTPUT/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv', usecols=columns,dtype=dtypes,sep=',',header=(0))
+after = pd.read_csv('../methods/METAXCAN/OUTPUT/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv', usecols=columns,dtype=dtypes,sep=',',header=(0))
 
 after['before_pvalue'] = [-1.0 for i in after.gene_name]
 

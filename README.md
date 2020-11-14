@@ -1,7 +1,7 @@
 # Imputation methods comparison
 
 The idea of the project is to compare following imputation methods:
-- MetaXCan
+- MetaXcan
 - Fusion
 - Tigar
 

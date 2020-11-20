@@ -1041,7 +1041,7 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateSMX()
         print(command)
 
-        with open('./methods/metaxcan/SRC/metaxcan_tmp.sh', 'w+') as file:
+        with open('./methods/METAXCAN/SRC/metaxcan_tmp.sh', 'w+') as file:
             file.write('#!/bin/bash\n')
             file.write('cd ..\n')
             file.write(command)
@@ -1054,7 +1054,7 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateMUL()
         print(command)
 
-        with open('./methods/metaxcan/SRC/metaxcan_tmp.sh', 'w+') as file:
+        with open('./methods/METAXCAN/SRC/metaxcan_tmp.sh', 'w+') as file:
             file.write('#!/bin/bash\n')
             file.write('cd ..\n')
             file.write(command)
@@ -1067,7 +1067,7 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateMSP()
         print(command)
 
-        with open('./methods/metaxcan/SRC/metaxcan_tmp.sh', 'w+') as file:
+        with open('./methods/METAXCAN/SRC/metaxcan_tmp.sh', 'w+') as file:
             file.write('#!/bin/bash\n')
             file.write('cd ..\n')
             file.write(command)
@@ -1080,7 +1080,7 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateMPX()
         print(command)
 
-        with open('./methods/metaxcan/SRC/metaxcan_tmp.sh', 'w+') as file:
+        with open('./methods/METAXCAN/SRC/metaxcan_tmp.sh', 'w+') as file:
             file.write('#!/bin/bash\n')
             file.write('cd ..\n')
             file.write(command)

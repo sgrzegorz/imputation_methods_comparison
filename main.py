@@ -1,6 +1,31 @@
-from PyQt5 import QtWidgets, uic
+import io
+
+from PyQt5 import QtWidgets, uic, QtCore, QtGui
 import sys
 import subprocess
+from backend import monitor
+from threading import Thread
+
+FUSION_DIR = './methods/FUSION'
+METAXCAN_DIR ='./methods/METAXCAN'
+TIGAR_DIR ='./methods/TIGAR'
+METAXCAN_DIR= './methods/METAXCAN/software'
+
+class Stream(QtCore.QObject):
+    newText = QtCore.pyqtSignal(str)
+
+    def write(self, text):
+        self.newText.emit(str(text))
+        sys.__stdout__.write(text)
+        sys.__stdout__.flush()
+
+class Stream1(QtCore.QObject):
+    newText = QtCore.pyqtSignal(str)
+    def write(self, text):
+        import pdb;pdb.set_trace()
+        self.newText.emit(str(text))
+        sys.__stderr__.write(text)
+        sys.__stderr__.flush()
 
 
 class Ui(QtWidgets.QMainWindow):
@@ -22,6 +47,24 @@ class Ui(QtWidgets.QMainWindow):
         self.initMSP()
         self.initMUL()
         self.initSMX()
+        #CONSOLE
+        self.initCONS()
+        sys.stdout = Stream(newText=self.onUpdateText)
+        sys.stderr = Stream1(newText=self.onUpdateText)
+
+    def onUpdateText(self, text):
+        self.CONSSCREEN.insertPlainText(text) #append
+        self.CONSSCREEN.setReadOnly(True)
+
+        # cursor = self.CONSSCREEN.textCursor()
+        # cursor.movePosition(QtGui.QTextCursor.End)
+        # cursor.insertText(text)
+        # self.CONSSCREEN.setTextCursor(cursor)
+        # self.CONSSCREEN.ensureCursorVisible()
+
+    def __del__(self):
+        sys.stdout = sys.__stdout__
+        sys.stderr = sys.__stderr__
 
     def initFCW(self):
         self.FCWLaunch = self.findChild(QtWidgets.QPushButton, 'FCWLAUNCH')
@@ -86,7 +129,7 @@ class Ui(QtWidgets.QMainWindow):
         self.FCWTOP1 = self.findChild(QtWidgets.QCheckBox, 'FCWTOP1')
 
     def validateFCW(self):
-        comm = "Rscript ./methods/FUSION/FUSION.compute_weights.R "
+        comm = "Rscript ./FUSION.compute_weights.R "
         comm = comm + " --bwfile "+str(self.FCWBFILELABEL.text())
         comm = comm + " --out "+str(self.FCWOUTLABEL.text())
         comm = comm + " --tmp "+str(self.FCWTMPLABEL.text())
@@ -174,7 +217,7 @@ class Ui(QtWidgets.QMainWindow):
         self.FATFORCEMODEL = self.findChild(QtWidgets.QComboBox, 'FATFORCEMODEL')
 
     def validateFAT(self):
-        comm = "Rscript ./methods/FUSION/FUSION.assoc_test.R "
+        comm = "Rscript ./FUSION.assoc_test.R "
         comm = comm + " --sumstats " + str(self.FATSUMSTATSLABEL.text())
         comm = comm + " --out " + str(self.FATOUTLABEL.text())
         comm = comm + " --weights " + str(self.FATWEIGHTSLABEL.text())
@@ -259,7 +302,7 @@ class Ui(QtWidgets.QMainWindow):
 
     def validateFPP(self):
         print("abc")
-        comm = "Rscript ./methods/FUSION/FUSION.post_process.R "
+        comm = "Rscript ./FUSION.post_process.R "
         comm = comm + " --chr " + str(self.FPPCHR.text())
         comm = comm + " --sumstats " + str(self.FPPSUMSTATSLABEL.text())
         comm = comm + " --out " + str(self.FPPOUTLABEL.text())
@@ -340,7 +383,7 @@ class Ui(QtWidgets.QMainWindow):
         self.TMTOUTFILE = self.findChild(QtWidgets.QLineEdit, 'TMTOUTFILE')
 
     def validateTMT(self):
-        comm = "./methods/TIGAR/TIGAR_Model_Train.sh "
+        comm = "./TIGAR_Model_Train.sh "
         comm = comm + " --model " + str(self.TMTMODEL.currentText())
         comm = comm + " --Format " + str(self.TMTGENFORMAT.currentText())
         #DPF
@@ -409,7 +452,7 @@ class Ui(QtWidgets.QMainWindow):
         self.TGROUTFILE = self.findChild(QtWidgets.QLineEdit, 'TGROUTFILE')
 
     def validateTGR(self):
-        comm = "./methods/TIGAR/TIGAR_Model_Pred.sh "
+        comm = "./TIGAR_Model_Pred.sh "
         comm = comm + " --model " + str(self.TGRMODEL.currentText())
         comm = comm + " --Format " + str(self.TGRFORMAT.currentText())
         comm = comm + " --genofile_type " + str(self.TGRGENTYPE.currentText())
@@ -480,7 +523,7 @@ class Ui(QtWidgets.QMainWindow):
         self.TTWOUTFILE = self.findChild(QtWidgets.QLineEdit, 'TTWOUTFILE')
 
     def validateTTW(self):
-        comm = "./methods/TIGAR/TIGAR_TWAS.sh "
+        comm = "./TIGAR_TWAS.sh "
         comm = comm + " --asso " + str(self.TTWASSOC.currentText())
         comm = comm + " --thread " + str(self.TTWTHREAD.text())
         comm = comm + " --Gene_Exp " + str(self.TTWGENLABEL.text())
@@ -532,7 +575,7 @@ class Ui(QtWidgets.QMainWindow):
         self.TCMMAF = self.findChild(QtWidgets.QLineEdit, 'TCMMAF')
 
     def validateTCM(self):
-        comm = "./methods/TIGAR/TWAS/Covar/TIGAR_Covar.sh "
+        comm = "./TIGAR_Covar.sh "
         comm = comm + " --block " + str(self.TCMBLOCKLABEL.text())
         comm = comm + " --genofile " + str(self.TCMGENFILELABEL.text())
         comm = comm + " --out " + str(self.TCMOUTLABEL.text()) + "/" + str(self.TCMOUTFILE.text())
@@ -627,7 +670,7 @@ class Ui(QtWidgets.QMainWindow):
         self.MPXTHROW = self.findChild(QtWidgets.QCheckBox, 'MPXTHROW')
 
     def validateMPX(self):
-        comm = "./methods/METAXCAN/software/PrediXcan.py "
+        comm = "./PrediXcan.py "
         comm = comm + " --model_db_path " + str(self.MPXDBPATHLABEL.text())
         if(str(self.MPXLIFTLABEL.text()) not in [""]):
             comm = comm + " --liftover " + str(self.MPXLIFTLABEL.text())
@@ -731,7 +774,7 @@ class Ui(QtWidgets.QMainWindow):
         self.MSPTHROW = self.findChild(QtWidgets.QCheckBox, 'MSPTHROW')
 
     def validateMSP(self):
-            comm = "./methods/METAXCAN/software/SPrediXcan.py "
+            comm = "./SPrediXcan.py "
             comm = comm + " --model_db_path " + str(self.MSPDBPATHLABEL.text())
             if (str(self.MSPGWASFILELABEL.text()) not in [""]):
                 comm = comm + " --gwas_file " + str(self.MSPGWASFILELABEL.text())
@@ -779,6 +822,14 @@ class Ui(QtWidgets.QMainWindow):
                 comm = comm + " --separator " + str(self.MSPSEP.text())
 
             return (comm)
+
+    def initCONS(self):
+        self.CONSCANCEL = self.findChild(QtWidgets.QPushButton, 'CONSCANCEL')
+        self.CONSCANCEL.clicked.connect(lambda: self.runCancel())
+        self.CONSSCREEN = self.findChild(QtWidgets.QPlainTextEdit, 'CONSSCREEN')
+        self.cancel_command = 'None'
+
+
 
     def initMUL(self):
         self.MULLAUNCH = self.findChild(QtWidgets.QPushButton, 'MULLAUNCH')
@@ -843,7 +894,7 @@ class Ui(QtWidgets.QMainWindow):
         self.MULTHROW = self.findChild(QtWidgets.QCheckBox, 'MULTHROW')
 
     def validateMUL(self):
-        comm = "./methods/METAXCAN/software/MultiXcan.py "
+        comm = "./MultiXcan.py "
         if (str(self.MULEXLABEL.text()) not in [""]):
             comm = comm + " --expression_folder " + str(self.MULEXLABEL.text())
         if (str(self.MULHDFLABEL.text()) not in [""]):
@@ -967,7 +1018,7 @@ class Ui(QtWidgets.QMainWindow):
         self.SMXTHROW = self.findChild(QtWidgets.QCheckBox, 'SMXTHROW')
 
     def validateSMX(self):
-        comm = "./methods/METAXCAN/software/SMulTiXcan.py "
+        comm = "./SMulTiXcan.py "
         if (str(self.SMXCLEARLABEL.text()) not in [""]):
             comm = comm + " --cleared_snps " + str(self.SMXCLEARLABEL.text())
         if (str(self.SMXGWASLABEL.text()) not in [""]):
@@ -1037,14 +1088,16 @@ class Ui(QtWidgets.QMainWindow):
 
         return (comm)
 
+    def runCancel(self):
+        subprocess.Popen(self.cancel_command, shell=True)
+        self.CONSSCREEN.setPlainText('')
+
     def runSMX(self):
         command = self.validateSMX()
         print(command)
 
-        with open('./methods/METAXCAN/SRC/metaxcan_tmp.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write('cd ..\n')
-            file.write(command)
+        cwd = METAXCAN_DIR
+        monitor.execute(command,cwd)
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1054,10 +1107,9 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateMUL()
         print(command)
 
-        with open('./methods/METAXCAN/SRC/metaxcan_tmp.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write('cd ..\n')
-            file.write(command)
+        cwd = METAXCAN_DIR
+        monitor.execute(self,command, cwd)
+
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1067,10 +1119,9 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateMSP()
         print(command)
 
-        with open('./methods/METAXCAN/SRC/metaxcan_tmp.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write('cd ..\n')
-            file.write(command)
+        cwd = METAXCAN_DIR
+        monitor.execute(self,command, cwd)
+
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1079,11 +1130,13 @@ class Ui(QtWidgets.QMainWindow):
     def runMPX(self):
         command = self.validateMPX()
         print(command)
+        cwd = METAXCAN_DIR
 
-        with open('./methods/METAXCAN/SRC/metaxcan_tmp.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write('cd ..\n')
-            file.write(command)
+        # monitor.test_predixcan()
+        command = './PrediXcan.py predict --assoc --linear --weights weights/TW_Cells_EBV-transformed_lymphocytes_0.5.db --dosages genotype --samples samples.txt --pheno phenotype/igrowth.txt --output_prefix ./OUTPUT/Cells_EBV-transformed_lymphocytes'
+        cwd = "/home/x/DEVELOPER1/WORK/inzynierka/imputation_methods_comparison/methods/PREDIXCAN"
+        monitor_thread = Thread(target = monitor.execute, args = (self,command, cwd, ))
+        monitor_thread.start()
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1093,36 +1146,33 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateTCM()
         print(command)
 
-        with open('./methods/TIGAR/SRC/tigar_tmp.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write('cd ..\n')
-            file.write(command)
+        cwd = './methods/TIGAR/TWAS/Covar'
+        monitor.execute(self,command, cwd)
+
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
         # monitor.print_rss_chart()
 
     def runTTW(self):
-            command = self.validateTTW()
-            print(command)
+        command = self.validateTTW()
+        print(command)
 
-            with open('./methods/TIGAR/SRC/tigar_tmp.sh', 'w+') as file:
-                file.write('#!/bin/bash\n')
-                file.write('cd ..\n')
-                file.write(command)
+        cwd = TIGAR_DIR
+        monitor.execute(self,command, cwd)
 
-            # monitor.print_cpu_chart()
-            # monitor.print_write_read_operations_chart()
-            # monitor.print_rss_chart()
+
+        # monitor.print_cpu_chart()
+        # monitor.print_write_read_operations_chart()
+        # monitor.print_rss_chart()
 
     def runTGR(self):
         command = self.validateTGR()
         print(command)
 
-        with open('./methods/TIGAR/SRC/tigar_tmp.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write('cd ..\n')
-            file.write(command)
+        cwd = TIGAR_DIR
+        monitor.execute(self,command, cwd)
+
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1132,10 +1182,9 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateTMT()
         print(command)
 
-        with open('./methods/TIGAR/SRC/tigar_tmp.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write('cd ..\n')
-            file.write(command)
+        cwd = TIGAR_DIR
+        monitor.execute(self,command, cwd)
+
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1146,10 +1195,9 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateFAT()
         print(command)
 
-        with open('./methods/FUSION/SRC/fusion_tmp.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write('cd ..\n')
-            file.write(command)
+        cwd = FUSION_DIR
+        monitor.execute(self,command, cwd)
+
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1160,10 +1208,10 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateFCW()
         print(command)
 
-        with open('./methods/FUSION/SRC/fusion_tmp.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write('cd ..\n')
-            file.write(command)
+        self.CONSSCREEN.setPlainText(command+'\n---------------------------------------------------------------\n')
+
+        # cwd = FUSION_DIR
+        # monitor.execute(command, cwd)
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1174,10 +1222,9 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateFPP()
         print(command)
 
-        with open('./methods/FUSION/SRC/fusion_tmp.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write('cd ..\n')
-            file.write(command)
+        cwd = FUSION_DIR
+        monitor.execute(self,command, cwd)
+
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()

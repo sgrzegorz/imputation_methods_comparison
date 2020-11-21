@@ -15,23 +15,27 @@ STATISTICS_FILE_PATH = '/tmp/statistics.txt'
 import threading
 lock = threading.Lock()
 
-def execute_bash_script(filename, relative_path):
+
+
+
+def execute(ui,command,cwd):
     start = time.time()
 
-    origWD = os.getcwd()  # remember our original working directory
-    os.chdir(os.path.join(os.path.abspath(sys.path[0]),
-                          relative_path))
-    imputation_process = subprocess.Popen([filename], stdout=subprocess.PIPE,
-                               shell=True)
+    # filename = filename.split(' ')
+
+    # imputation_process = subprocess.Popen(command, shell=True, cwd=cwd)
+
+    imputation_process = subprocess.Popen(command,shell=True, cwd=cwd, stdout=subprocess.PIPE)
+
+    cancel_command = f"pstree -p {imputation_process.pid} | grep -o '([0-9]\+)' | grep -o '[0-9]\+' | xargs -n1 kill -15"
     print('komenda zabicia procesu imuptacji i wszystkich jego potomkow:')
-    print(f"pstree -p {imputation_process.pid} | grep -o '([0-9]\+)' | grep -o '[0-9]\+' | xargs -n1 kill -15")
+    print(cancel_command)
+    # ui.cancel_command = cancel_command
 
     observer = Thread(target=observe_process, args=(imputation_process.pid,))
     observer.start()
-
-
-    # print stdout
     for line in iter(imputation_process.stdout.readline, b''):
+        # ui.CONSSCREEN.appendPlainText(line)
         print(line)
     imputation_process.stdout.close()
     print('Joining begins')
@@ -39,14 +43,14 @@ def execute_bash_script(filename, relative_path):
     imputation_process.wait()
     print('imputation process joined')
 
-    observer.join()
+    # observer.join()
     print('observer joined')
-    os.chdir(origWD)  # get back to our original working directory
 
     total_time =time.time() -start
 
     print('Total time [s]: ', total_time)
     return total_time
+
 
 def _bytes_to_megabytes(bytes):
     return bytes/1000000
@@ -86,7 +90,7 @@ def stats_with_children(process,file):
     write=_bytes_to_megabytes(write_bytes)
     file_line =f"{now}\t{rss}\t{swap}\t{cpu}\t{read}\t{write}\n"
     file.write(file_line)
-    print(file_line,end='')
+    # print(file_line,end='')
 
 def observe_process(pid):
     with open(STATISTICS_FILE_PATH, 'w+') as file:
@@ -142,14 +146,24 @@ def print_write_read_operations_chart():
     plt.show()
     lock.release()
 
+def test_fusion(ui):
+    command ='Rscript ./FUSION.assoc_test.R --sumstats ./OUTPUT/result.sumstats --weights ./INPUT/input1/WEIGHTS/GTEx.Whole_Blood.pos --weights_dir ./INPUT/input1/WEIGHTS/ --ref_ld_chr ./LDREF/1000G.EUR. --chr 22 --out ./OUTPUT/PGC2.SCZ.22.dat'
+    cwd = "/home/x/DEVELOPER1/WORK/inzynierka/imputation_methods_comparison/methods/FUSION"
+    execute(ui,command, cwd)
+
+def test_predixcan(ui):
+    command = './PrediXcan.py --predict --assoc --linear --weights weights/TW_Cells_EBV-transformed_lymphocytes_0.5.db --dosages genotype --samples samples.txt --pheno phenotype/igrowth.txt --output_prefix ./OUTPUT/Cells_EBV-transformed_lymphocytes'
+    cwd ="/home/x/DEVELOPER1/WORK/inzynierka/imputation_methods_comparison/methods/PREDIXCAN"
+    execute(ui,command,cwd)
+
 if __name__ == "__main__":
-    execute_bash_script("./predixcan.sh",'../methods/PREDIXCAN/SRC')
+    test_fusion()
     # execute_bash_script("./tigar.sh", '../methods/TIGAR/SRC')
     # execute_bash_script("./metaxcan.sh",'../methods/METAXCAN/SRC')
     # execute_bash_script("./tests/script.sh",'.')
 
-    print_rss_chart()
-    print_cpu_chart()
-    print_write_read_operations_chart()
+    # print_rss_chart()
+    # print_cpu_chart()
+    # print_write_read_operations_chart()
 
 

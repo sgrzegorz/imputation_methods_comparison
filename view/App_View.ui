@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -57,19 +57,6 @@
         </property>
         <property name="text">
          <string>--model_db_path</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="MPXLAUNCH">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>20</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>LAUNCH</string>
         </property>
        </widget>
        <widget class="QLabel" name="MPXDBPATHLABEL">
@@ -721,6 +708,19 @@
         </property>
         <property name="text">
          <string>/</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="MPXLAUNCH">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>20</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>LAUNCH</string>
         </property>
        </widget>
       </widget>
@@ -2884,7 +2884,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
@@ -2901,19 +2901,6 @@
         </property>
         <property name="text">
          <string>--bfile</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="FCWOUT">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>120</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>--out</string>
         </property>
        </widget>
        <widget class="QPushButton" name="FCWTMP">
@@ -3344,24 +3331,53 @@
          <string>LAUNCH</string>
         </property>
        </widget>
-      </widget>
-      <widget class="QWidget" name="tab_12">
-       <attribute name="title">
-        <string>Association Test</string>
-       </attribute>
-       <widget class="QPushButton" name="FATOUT">
+       <widget class="QPushButton" name="FCWOUT">
         <property name="geometry">
          <rect>
-          <x>70</x>
+          <x>60</x>
           <y>120</y>
-          <width>75</width>
-          <height>23</height>
+          <width>71</width>
+          <height>21</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>--out</string>
         </property>
        </widget>
+       <widget class="QLineEdit" name="FCWOUTFILE">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>150</y>
+          <width>131</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Result</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="MPXPHENLABEL_27">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>150</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_12">
+       <attribute name="title">
+        <string>Association Test</string>
+       </attribute>
        <widget class="QPushButton" name="FATREFLDCHR">
         <property name="geometry">
          <rect>
@@ -3679,7 +3695,7 @@
         <property name="geometry">
          <rect>
           <x>70</x>
-          <y>150</y>
+          <y>130</y>
           <width>181</width>
           <height>16</height>
          </rect>
@@ -3751,6 +3767,48 @@
         </property>
         <property name="text">
          <string>LAUNCH</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="FATOUT">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>100</y>
+          <width>71</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>--out</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="FATOUTFILE">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>130</y>
+          <width>131</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Result</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="MPXPHENLABEL_26">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>130</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/</string>
         </property>
        </widget>
       </widget>
@@ -3952,25 +4010,12 @@
          <string>REQUIRED</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="FPPOUT">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>190</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>--out</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="FPPOUTLABEL">
         <property name="geometry">
          <rect>
           <x>110</x>
           <y>220</y>
-          <width>301</width>
+          <width>231</width>
           <height>16</height>
          </rect>
         </property>
@@ -4257,6 +4302,48 @@
          <string>LAUNCH</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="FPPOUT">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>190</y>
+          <width>71</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>--out</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="FPPOUTFILE">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>220</y>
+          <width>131</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Result</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="MPXPHENLABEL_25">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>220</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -4274,7 +4361,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab_16">
        <attribute name="title">

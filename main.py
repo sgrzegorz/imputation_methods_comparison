@@ -64,9 +64,9 @@ class Ui(QtWidgets.QMainWindow):
         self.FCWBFILE = self.findChild(QtWidgets.QPushButton, 'FCWBFILE')
         self.FCWBFILE.clicked.connect(lambda: self.FCWBFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
 
-        self.FCWOUTLABEL= self.findChild(QtWidgets.QLabel,'FCWOUTLABEL')
+        self.FCWOUTLABEL = self.findChild(QtWidgets.QLabel, 'FCWOUTLABEL')
         self.FCWOUT = self.findChild(QtWidgets.QPushButton, 'FCWOUT')
-        self.FCWOUT.clicked.connect(lambda: self.FCWOUTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.FCWOUT.clicked.connect(lambda: self.FCWOUTLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
 
         self.FCWTMPLABEL= self.findChild(QtWidgets.QLabel,'FCWTMPLABEL')
         self.FCWTMP = self.findChild(QtWidgets.QPushButton, 'FCWTMP')
@@ -121,7 +121,7 @@ class Ui(QtWidgets.QMainWindow):
     def validateFCW(self):
         comm = "Rscript ./FUSION.compute_weights.R "
         comm = comm + " --bwfile "+str(self.FCWBFILELABEL.text())
-        comm = comm + " --out "+str(self.FCWOUTLABEL.text())
+        comm = comm + " --out "+str(self.FCWOUTLABEL.text())+"/"+str(self.FCWOUTFILE.text())
         comm = comm + " --tmp "+str(self.FCWTMPLABEL.text())
         if(str(self.FCWCOVARLABEL.text()) not in ["","OPTIONAL"]):
             comm = comm + " --covar "+str(self.FCWCOVARLABEL.text())
@@ -167,7 +167,7 @@ class Ui(QtWidgets.QMainWindow):
         self.FATOUTLABEL = self.findChild(QtWidgets.QLabel, 'FATOUTLABEL')
         self.FATOUT = self.findChild(QtWidgets.QPushButton, 'FATOUT')
         self.FATOUT.clicked.connect(
-            lambda: self.FATOUTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.FATOUTLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
 
         self.FATREFLDCHRLABEL = self.findChild(QtWidgets.QLabel, 'FATREFLDCHRLABEL')
         self.FATREFLDCHR = self.findChild(QtWidgets.QPushButton, 'FATREFLDCHR')
@@ -209,7 +209,7 @@ class Ui(QtWidgets.QMainWindow):
     def validateFAT(self):
         comm = "Rscript ./FUSION.assoc_test.R "
         comm = comm + " --sumstats " + str(self.FATSUMSTATSLABEL.text())
-        comm = comm + " --out " + str(self.FATOUTLABEL.text())
+        comm = comm + " --out " + str(self.FATOUTLABEL.text())+"/"+str(self.FATOUTFILE.text())
         comm = comm + " --weights " + str(self.FATWEIGHTSLABEL.text())
         comm = comm + " --weights_dir " + str(self.FATWEIGHTSDIRLABEL.text())
         comm = comm + " --ref_ld_chr " + str(self.FATREFLDCHRLABEL.text())
@@ -238,7 +238,7 @@ class Ui(QtWidgets.QMainWindow):
         self.FPPOUTLABEL = self.findChild(QtWidgets.QLabel, 'FPPOUTLABEL')
         self.FPPOUT = self.findChild(QtWidgets.QPushButton, 'FPPOUT')
         self.FPPOUT.clicked.connect(
-            lambda: self.FPPOUTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.FPPOUTLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
 
         self.FPPREFLDCHRLABEL = self.findChild(QtWidgets.QLabel, 'FPPREFLDCHRLABEL')
         self.FPPREFLDCHR = self.findChild(QtWidgets.QPushButton, 'FPPREFLDCHR')
@@ -295,7 +295,7 @@ class Ui(QtWidgets.QMainWindow):
         comm = "Rscript ./FUSION.post_process.R "
         comm = comm + " --chr " + str(self.FPPCHR.text())
         comm = comm + " --sumstats " + str(self.FPPSUMSTATSLABEL.text())
-        comm = comm + " --out " + str(self.FPPOUTLABEL.text())
+        comm = comm + " --out " + str(self.FPPOUTLABEL.text())+"/"+str(self.FPPOUTFILE.text())
         comm = comm + " --input " + str(self.FPPINPUTLABEL.text())
         comm = comm + " --ref_ld_chr " + str(self.FPPREFLDCHRLABEL.text())
         if (self.FPPPLOT.isChecked()):

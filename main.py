@@ -7,24 +7,8 @@ from backend import monitor
 from threading import Thread
 
 FUSION_DIR = './methods/FUSION'
-METAXCAN_DIR ='./methods/METAXCAN'
 TIGAR_DIR ='./methods/TIGAR'
 METAXCAN_DIR= './methods/METAXCAN/software'
-
-class Stream(QtCore.QObject):
-    newText = QtCore.pyqtSignal(str)
-
-    def write(self, text):
-        self.newText.emit(str(text))
-        sys.__stdout__.write(text)
-        sys.__stdout__.flush()
-
-class Stream1(QtCore.QObject):
-    newText = QtCore.pyqtSignal(str)
-    def write(self, text):
-        self.newText.emit(str(text))
-        sys.__stderr__.write(text)
-        sys.__stderr__.flush()
 
 
 class Ui(QtWidgets.QMainWindow):
@@ -900,7 +884,7 @@ class Ui(QtWidgets.QMainWindow):
         self.MULTHROW = self.findChild(QtWidgets.QCheckBox, 'MULTHROW')
 
     def validateMUL(self):
-        comm = "./MultiXcan.py "
+        comm = "./MulTiXcan.py "
         if (str(self.MULEXLABEL.text()) not in [""]):
             comm = comm + " --expression_folder " + str(self.MULEXLABEL.text())
         if (str(self.MULHDFLABEL.text()) not in [""]):
@@ -1095,19 +1079,26 @@ class Ui(QtWidgets.QMainWindow):
         return (comm)
 
     def runCancel(self):
+        # print(self.process.pid())
+
+        self.CONSSCREEN.clear()
         if self.process.pid()>0: #If its running, the pid will be > 0
+            print('Canceled')
             self.process.terminate()
             self.process.waitForFinished()
-            self.CONSSCREEN.clear()
+
 
 
     def runSMX(self):
         command = self.validateSMX()
         print(command)
-
         cwd = METAXCAN_DIR
-        monitor.execute(command,cwd)
 
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
+        self.process.setWorkingDirectory(cwd)
+        self.process.start(command)
+        # monitor.execute(command,cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
         # monitor.print_rss_chart()
@@ -1115,11 +1106,14 @@ class Ui(QtWidgets.QMainWindow):
     def runMUL(self):
         command = self.validateMUL()
         print(command)
-
         cwd = METAXCAN_DIR
-        monitor.execute(self,command, cwd)
 
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
+        self.process.setWorkingDirectory(cwd)
+        self.process.start(command)
 
+        # monitor.execute(self, command, cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
         # monitor.print_rss_chart()
@@ -1127,11 +1121,14 @@ class Ui(QtWidgets.QMainWindow):
     def runMSP(self):
         command = self.validateMSP()
         print(command)
-
         cwd = METAXCAN_DIR
-        monitor.execute(self,command, cwd)
 
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
+        self.process.setWorkingDirectory(cwd)
+        self.process.start(command)
 
+        # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
         # monitor.print_rss_chart()
@@ -1141,19 +1138,22 @@ class Ui(QtWidgets.QMainWindow):
         command = self.validateMPX()
         print(command)
         cwd = METAXCAN_DIR
+
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
-        self.process.setWorkingDirectory("/home/x/DEVELOPER1/WORK/inzynierka/imputation_methods_comparison/methods/PREDIXCAN")
-        command = './PrediXcan.py --predict --assoc --linear --weights weights/TW_Cells_EBV-transformed_lymphocytes_0.5.db --dosages genotype --samples samples.txt --pheno phenotype/igrowth.txt --output_prefix ./OUTPUT/Cells_EBV-transformed_lymphocytes'
+        self.process.setWorkingDirectory(cwd)
         self.process.start(command)
 
     def runTCM(self):
         command = self.validateTCM()
         print(command)
-
         cwd = './methods/TIGAR/TWAS/Covar'
+
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
+
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
         # monitor.print_rss_chart()
@@ -1161,11 +1161,14 @@ class Ui(QtWidgets.QMainWindow):
     def runTTW(self):
         command = self.validateTTW()
         print(command)
-
         cwd = TIGAR_DIR
-        monitor.execute(self,command, cwd)
 
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
+        self.process.setWorkingDirectory(cwd)
+        self.process.start(command)
 
+        # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
         # monitor.print_rss_chart()
@@ -1173,11 +1176,14 @@ class Ui(QtWidgets.QMainWindow):
     def runTGR(self):
         command = self.validateTGR()
         print(command)
-
         cwd = TIGAR_DIR
-        monitor.execute(self,command, cwd)
 
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
+        self.process.setWorkingDirectory(cwd)
+        self.process.start(command)
 
+        # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
         # monitor.print_rss_chart()
@@ -1185,11 +1191,13 @@ class Ui(QtWidgets.QMainWindow):
     def runTMT(self):
         command = self.validateTMT()
         print(command)
-
         cwd = TIGAR_DIR
-        monitor.execute(self,command, cwd)
 
-
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
+        self.process.setWorkingDirectory(cwd)
+        self.process.start(command)
+        # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
         # monitor.print_rss_chart()
@@ -1198,22 +1206,25 @@ class Ui(QtWidgets.QMainWindow):
 
         command = self.validateFAT()
         print(command)
-
         cwd = FUSION_DIR
-        monitor.execute(self,command, cwd)
 
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
+        self.process.setWorkingDirectory(cwd)
+        self.process.start(command)
 
+        # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
         # monitor.print_rss_chart()
 
     def run_FCW(self):
-        self.runCancel()
+
         command = self.validateFCW()
         print(command)
+        cwd = FUSION_DIR
 
-        command = 'Rscript ./FUSION.assoc_test.R --sumstats ./OUTPUT/result.sumstats --weights ./INPUT/input1/WEIGHTS/GTEx.Whole_Blood.pos --weights_dir ./INPUT/input1/WEIGHTS/ --ref_ld_chr ./LDREF/1000G.EUR. --chr 22 --out ./OUTPUT/PGC2.SCZ.22.dat'
-        cwd = "/home/x/DEVELOPER1/WORK/inzynierka/imputation_methods_comparison/methods/FUSION"
+        self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
@@ -1228,10 +1239,14 @@ class Ui(QtWidgets.QMainWindow):
 
         command = self.validateFPP()
         print(command)
-
         cwd = FUSION_DIR
-        # monitor.execute(self,command, cwd)
 
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
+        self.process.setWorkingDirectory(cwd)
+        self.process.start(command)
+
+        # monitor.execute(self,command, cwd)
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()

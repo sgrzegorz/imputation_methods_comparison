@@ -22,13 +22,15 @@ class Stream(QtCore.QObject):
 class Stream1(QtCore.QObject):
     newText = QtCore.pyqtSignal(str)
     def write(self, text):
-        import pdb;pdb.set_trace()
         self.newText.emit(str(text))
         sys.__stderr__.write(text)
         sys.__stderr__.flush()
 
 
 class Ui(QtWidgets.QMainWindow):
+    errorSignal = QtCore.pyqtSignal(str)
+    outputSignal = QtCore.pyqtSignal(str)
+
     def __init__(self):
         super(Ui, self).__init__()
         uic.loadUi('view/App_View.ui', self)
@@ -49,18 +51,22 @@ class Ui(QtWidgets.QMainWindow):
         self.initSMX()
         #CONSOLE
         self.initCONS()
-        sys.stdout = Stream(newText=self.onUpdateText)
-        sys.stderr = Stream1(newText=self.onUpdateText)
+        #Proces which is running imputation commands
+        self.errorSignal.connect(lambda error: print(error))
+        self.outputSignal.connect(lambda output: print(output))
+        self.process = QtCore.QProcess()
+        self.process.readyReadStandardError.connect(self.onReadyReadStandardError)
+        self.process.readyReadStandardOutput.connect(self.onReadyReadStandardOutput)
 
-    def onUpdateText(self, text):
-        self.CONSSCREEN.insertPlainText(text) #append
-        self.CONSSCREEN.setReadOnly(True)
+    def onReadyReadStandardError(self):
+        error = self.process.readAllStandardError().data().decode()
+        self.CONSSCREEN.appendPlainText(error)
+        self.errorSignal.emit(error)
 
-        # cursor = self.CONSSCREEN.textCursor()
-        # cursor.movePosition(QtGui.QTextCursor.End)
-        # cursor.insertText(text)
-        # self.CONSSCREEN.setTextCursor(cursor)
-        # self.CONSSCREEN.ensureCursorVisible()
+    def onReadyReadStandardOutput(self):
+        result = self.process.readAllStandardOutput().data().decode()
+        self.CONSSCREEN.appendPlainText(result)
+        self.outputSignal.emit(result)
 
     def __del__(self):
         sys.stdout = sys.__stdout__
@@ -1089,8 +1095,11 @@ class Ui(QtWidgets.QMainWindow):
         return (comm)
 
     def runCancel(self):
-        subprocess.Popen(self.cancel_command, shell=True)
-        self.CONSSCREEN.setPlainText('')
+        if self.process.pid()>0: #If its running, the pid will be > 0
+            self.process.terminate()
+            self.process.waitForFinished()
+            self.CONSSCREEN.clear()
+
 
     def runSMX(self):
         command = self.validateSMX()
@@ -1128,28 +1137,23 @@ class Ui(QtWidgets.QMainWindow):
         # monitor.print_rss_chart()
 
     def runMPX(self):
+
         command = self.validateMPX()
         print(command)
         cwd = METAXCAN_DIR
-
-        # monitor.test_predixcan()
-        command = './PrediXcan.py predict --assoc --linear --weights weights/TW_Cells_EBV-transformed_lymphocytes_0.5.db --dosages genotype --samples samples.txt --pheno phenotype/igrowth.txt --output_prefix ./OUTPUT/Cells_EBV-transformed_lymphocytes'
-        cwd = "/home/x/DEVELOPER1/WORK/inzynierka/imputation_methods_comparison/methods/PREDIXCAN"
-        monitor_thread = Thread(target = monitor.execute, args = (self,command, cwd, ))
-        monitor_thread.start()
-
-        # monitor.print_cpu_chart()
-        # monitor.print_write_read_operations_chart()
-        # monitor.print_rss_chart()
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
+        self.process.setWorkingDirectory("/home/x/DEVELOPER1/WORK/inzynierka/imputation_methods_comparison/methods/PREDIXCAN")
+        command = './PrediXcan.py --predict --assoc --linear --weights weights/TW_Cells_EBV-transformed_lymphocytes_0.5.db --dosages genotype --samples samples.txt --pheno phenotype/igrowth.txt --output_prefix ./OUTPUT/Cells_EBV-transformed_lymphocytes'
+        self.process.start(command)
 
     def runTCM(self):
         command = self.validateTCM()
         print(command)
 
         cwd = './methods/TIGAR/TWAS/Covar'
-        monitor.execute(self,command, cwd)
-
-
+        self.process.setWorkingDirectory(cwd)
+        self.process.start(command)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
         # monitor.print_rss_chart()
@@ -1204,13 +1208,16 @@ class Ui(QtWidgets.QMainWindow):
         # monitor.print_rss_chart()
 
     def run_FCW(self):
-
+        self.runCancel()
         command = self.validateFCW()
         print(command)
 
-        self.CONSSCREEN.setPlainText(command+'\n---------------------------------------------------------------\n')
+        command = 'Rscript ./FUSION.assoc_test.R --sumstats ./OUTPUT/result.sumstats --weights ./INPUT/input1/WEIGHTS/GTEx.Whole_Blood.pos --weights_dir ./INPUT/input1/WEIGHTS/ --ref_ld_chr ./LDREF/1000G.EUR. --chr 22 --out ./OUTPUT/PGC2.SCZ.22.dat'
+        cwd = "/home/x/DEVELOPER1/WORK/inzynierka/imputation_methods_comparison/methods/FUSION"
+        self.CONSSCREEN.appendPlainText(command)
+        self.process.setWorkingDirectory(cwd)
+        self.process.start(command)
 
-        # cwd = FUSION_DIR
         # monitor.execute(command, cwd)
 
         # monitor.print_cpu_chart()
@@ -1223,7 +1230,7 @@ class Ui(QtWidgets.QMainWindow):
         print(command)
 
         cwd = FUSION_DIR
-        monitor.execute(self,command, cwd)
+        # monitor.execute(self,command, cwd)
 
 
         # monitor.print_cpu_chart()

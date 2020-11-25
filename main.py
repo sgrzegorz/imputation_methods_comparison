@@ -5,10 +5,11 @@ import sys
 import subprocess
 from backend import monitor
 from threading import Thread
+from definitions import ROOT_DIR
 
-FUSION_DIR = './methods/FUSION'
-TIGAR_DIR ='./methods/TIGAR'
-METAXCAN_DIR= './methods/METAXCAN/software'
+FUSION_DIR = f'{ROOT_DIR}/methods/FUSION'
+TIGAR_DIR =f'{ROOT_DIR}/methods/TIGAR'
+METAXCAN_DIR= f'{ROOT_DIR}/methods/METAXCAN/software'
 
 
 class Ui(QtWidgets.QMainWindow):
@@ -1098,6 +1099,8 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
+        monitor.observe_imputation_process(self.process.pid(), 'metaxcan')
+
         # monitor.execute(command,cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1112,6 +1115,8 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
+        monitor.observe_imputation_process(self.process.pid(), 'metaxcan')
+
 
         # monitor.execute(self, command, cwd)
         # monitor.print_cpu_chart()
@@ -1127,6 +1132,8 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
+        monitor.observe_imputation_process(self.process.pid(), 'metaxcan')
+
 
         # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
@@ -1143,6 +1150,8 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
+        monitor.observe_imputation_process(self.process.pid(), 'metaxcan')
+
 
     def runTCM(self):
         command = self.validateTCM()
@@ -1153,6 +1162,8 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
+        monitor.observe_imputation_process(self.process.pid(), 'tigar')
+
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1167,6 +1178,8 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
+        monitor.observe_imputation_process(self.process.pid(), 'tigar')
+
 
         # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
@@ -1182,6 +1195,8 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
+        monitor.observe_imputation_process(self.process.pid(), 'tigar')
+
 
         # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
@@ -1197,6 +1212,7 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
+        monitor.observe_imputation_process(self.process.pid(), 'tigar')
         # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1212,6 +1228,7 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
+        monitor.observe_imputation_process(self.process.pid(), 'fusion')
 
         # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
@@ -1228,7 +1245,7 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
-
+        monitor.observe_imputation_process(self.process.pid(), 'fusion')
         # monitor.execute(command, cwd)
 
         # monitor.print_cpu_chart()
@@ -1245,8 +1262,7 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
-
-        # monitor.execute(self,command, cwd)
+        monitor.observe_imputation_process(self.process.pid(),'fusion')
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()

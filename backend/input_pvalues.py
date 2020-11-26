@@ -3,82 +3,80 @@ import os
 import math
 import vcfpy
 import pandas as pd
-
-# from configparser import ConfigParser
-# config_object = ConfigParser()
-# config_object.read("global.config")
-# path =config_object["PATH"]
-def achieve_min_pvalue(data,gene_name,rsy):
-    min_val = math.inf
-
-    for rs in rsy[gene_name]:
-        try:
-            candidate = data[rs]
-            if candidate < min_val:
-                min_val = candidate
-        except Exception as e:
-            print(e)
-    return min_val
+from definitions import ROOT_DIR
+OUTPUT_PATH =f'{ROOT_DIR}/output/pvalues_input.csv'
 
 
-
-print('Reading snps')
+print('Reading snps from input GWAS file')
+GWAS_PATH='/home/x/Downloads/GWAS2/27989323-GCST004430-EFO_0008173.h.tsv'
 columns = ["hm_rsid","p_value"]
 dtypes ={'hm_rsid': str,'p_value':float}
-data = pd.read_csv('/home/x/Downloads/GWAS2/27989323-GCST004430-EFO_0008173.h.tsv', usecols=columns,dtype=dtypes,sep='\t', header=(0))
-# data = pd.read_csv('fusion01_wyniki.sumstats.gz',compression='gzip', sep='\t', header=(0))
-# data = data.sort_values('hm_rsid')
+gwas = pd.read_csv(GWAS_PATH, usecols=columns, dtype=dtypes,sep='\t', header=(0))
+gwas.columns = ['rs', 'p_value']
 
-print('Converting')
-dataSNP = set(data.hm_rsid)
-data = dict(zip(data.hm_rsid, data.p_value))  # dictionary get() has complexity O(1)
+# gwas = pd.read_csv('fusion01_wyniki.sumstats.gz',compression='gzip', sep='\t', header=(0))
+# gwas = gwas.sort_values('hm_rsid')
+print('Converting snps from input GWAS file')
+gwas_rs = set(gwas.rs)
+gwas = dict(zip(gwas.rs, gwas.p_value))  # dictionary get() has complexity O(1)
+
+def get_min_pvalue(gwas,current_gene,RS):
+    min_pvalue = math.inf
+
+    for rs in RS[current_gene]:
+        try:
+            candidate = gwas[rs]
+            if candidate < min_pvalue:
+                min_pvalue = candidate
+        except Exception as e:
+            print(e)
+    return min_pvalue
 
 
-print('Starts loop')
-genes = set()  # nazwy_genów
-rsy = {} # rsy przyporządkowane każdemu genowi rs['nazwa_genu] = { zbiór wszystkich rsów przyporządkowanych danemu genowi
-min_pvalues = {}
+print('Load gwas reference')
+g_reference = pd.read_csv(f'{ROOT_DIR}/methods/gene_snp_mapping.csvfile',sep='\t', header=(0))
+g_rows_count = g_reference.shape[0]
 
 
-reader = vcfpy.Reader.from_path('../methods/00-common_all.vcf')
-genes.add('INITIAL')
-rsy['INITIAL']=set()
-current_gene_name ='INITIAL'  # nazwa poprzedniego genu
-for i,record in enumerate(reader): #iteruj po wierszach vcf-a
-    try:
-        gene_name = record.INFO['GENEINFO']
-    except KeyError:
-        continue
+print('Main loop starts')
+GENES = set()  # nazwy_genów
+RS = {} # rs['nazwa_genu] = { zbiór wszystkich rs przyporządkowanych danemu genowi}
+MIN_PVALUES = {}
+GENES.add('INITIAL')
+RS['INITIAL']=set()
+len(g_reference)
+current_gene ='INITIAL'  # nazwa poprzedniego genu
+for i, (g_gene,g_rs) in g_reference.iterrows():
 
-    if current_gene_name !=gene_name: # zmienil sie gen
-        rsy[current_gene_name] = dataSNP.intersection(rsy[current_gene_name]) # wez przeciecie rs-ow
+    if current_gene !=g_gene: # zmienil sie gen
+        RS[current_gene] = gwas_rs.intersection(RS[current_gene]) # wez przeciecie rs-ow
 
-        if len(rsy[current_gene_name]) ==0: # jesli przeciecie jest puste gen nas nie interesuje wiec zapomnij go
-            genes.remove(current_gene_name)
-            rsy.pop(current_gene_name)
+        if len(RS[current_gene]) ==0: # jesli przeciecie jest puste gen nas nie interesuje wiec zapomnij go
+            GENES.remove(current_gene)
+            RS.pop(current_gene)
         else:
-            min_pvalues[current_gene_name] =achieve_min_pvalue(data, current_gene_name,rsy)
-        current_gene_name = gene_name
+            MIN_PVALUES[current_gene] =get_min_pvalue(gwas, current_gene,RS)
+        current_gene = g_gene
 
-    # iterujac po wierszach vcf-a dodawaj kazdej nazwie genu jego rs-y
-    snp = record.ID[0]
-    genes.add(gene_name)
-    if gene_name in rsy:
-        rsy[gene_name].add(snp)
+    # iterujac po wierszach pliku gwas reference przyporzadkowuj kazdej nazwie genu wszystkie jego rs
+    GENES.add(g_gene)
+    if g_gene in RS:
+        RS[g_gene].add(g_rs)
     else:
-        rsy[gene_name] = set()
-        rsy[gene_name].add(snp)
+        RS[g_gene] = set()
+        RS[g_gene].add(g_rs)
 
     if i%3000000==0:
-        print(f'{i/37303035*100}%') # print progress in percents
+        print(f'{i/g_rows_count*100}%') # print progress in percents
 
 
-with open('pictures/input_wyniki.csv', 'w+') as csvfile:
+
+with open(OUTPUT_PATH, 'w+') as csvfile:
     writer = csv.writer(csvfile, delimiter='\t')
     writer.writerow(("gene", "min_pvalue"))
-    for gene_name in genes:
+    for gene_name in GENES:
         try:
-            writer.writerow((gene_name ,min_pvalues[gene_name]))
+            writer.writerow((gene_name ,MIN_PVALUES[gene_name]))
         except KeyError as e:
             print(e)
 

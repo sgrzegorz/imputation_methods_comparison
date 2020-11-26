@@ -2,13 +2,16 @@ import math
 
 import plotly.express as px
 import pandas as pd
+from definitions import ROOT_DIR
 # df = px.data.tips()
 # fig = px.histogram(df, x="total_bill")
 
 
+chart_file=f'{ROOT_DIR}/output/fusion_before_after.csv'
+
 columns = ["gene","before","after"]
 dtypes ={"gene": str,"before":float,"after":float}
-data = pd.read_csv('pictures/fusion_before_after.csv', usecols=columns,dtype=dtypes,sep='\t',header=(0))
+data = pd.read_csv(chart_file, usecols=columns,dtype=dtypes,sep='\t',header=(0))
 data =data.sort_values(by=['gene'])
 
 y = []

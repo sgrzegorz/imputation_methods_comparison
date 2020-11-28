@@ -5,7 +5,7 @@ import sys
 import subprocess
 from backend import monitor
 from threading import Thread
-from definitions import ROOT_DIR
+from definitions import ROOT_DIR, CONDA
 from backend.fusion_output_pvalues import fusion_output_pvalues
 from backend.metaxcan_output_pvalues import metaxcan_output_pvalues
 from backend.input_pvalues import input_pvalues
@@ -1322,7 +1322,7 @@ class Ui(QtWidgets.QMainWindow):
 
         with open('script.sh', 'w+') as file:
             file.write('#!/bin/bash\n')
-            file.write('source /home/x/anaconda3/etc/profile.d/conda.sh\n')
+            file.write(f'source {CONDA}\n')
             file.write('conda activate inzynierka\n')
             file.write(f'python {ROOT_DIR}/backend/input_pvalues.py {GWAS_PATH} {OUTPUT_PATH}')
 
@@ -1334,7 +1334,7 @@ class Ui(QtWidgets.QMainWindow):
         with open('script.sh', 'w+') as file:
             method = self.PLT2METHOD.currentText()
             file.write('#!/bin/bash\n')
-            file.write('source /home/x/anaconda3/etc/profile.d/conda.sh\n')
+            file.write(f'source {CONDA}\n')
             file.write('conda activate inzynierka\n')
 
             before =self.PLT2STEPFILELABEL.text()
@@ -1367,7 +1367,7 @@ class Ui(QtWidgets.QMainWindow):
 
         with open('script.sh', 'w+') as file:
             file.write('#!/bin/bash\n')
-            file.write('source /home/x/anaconda3/etc/profile.d/conda.sh\n')
+            file.write(f'source {CONDA}\n')
             file.write('conda activate inzynierka\n')
 
             file.write(f'python {ROOT_DIR}/backend/{method}_print_chart.py {self.PLT3FILELABEL.text()}')

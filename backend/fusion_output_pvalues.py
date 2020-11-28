@@ -4,6 +4,7 @@ import math
 import pandas as pd
 import re
 from definitions import ROOT_DIR
+import sys
 
 
 def fusion_output_pvalues(before,after,output):
@@ -44,7 +45,12 @@ def fusion_output_pvalues(before,after,output):
 
 
 if __name__ == '__main__':
-    before=f'{ROOT_DIR}/output/pvalues_input.csv'
-    after =f'{ROOT_DIR}/methods/FUSION/OUTPUT/PGC2.SCZ.22.dat'
-    output=f'{ROOT_DIR}/output/fusion_before_after.csv'
+    # before=f'{ROOT_DIR}/output/pvalues_input.csv'
+    # after =f'{ROOT_DIR}/methods/FUSION/OUTPUT/PGC2.SCZ.22.dat'
+    # output=f'{ROOT_DIR}/output/fusion_before_after.csv'
+
+    before = sys.argv[1]
+    after = sys.argv[2]
+    output = sys.argv[3]
+    print(before,after,output)
     fusion_output_pvalues(before, after,output)

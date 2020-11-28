@@ -5,8 +5,10 @@ import pandas as pd
 # df = px.data.tips()
 # fig = px.histogram(df, x="total_bill")
 from definitions import ROOT_DIR
+import sys
 
-chart_file=f'{ROOT_DIR}/output/metaxcan_before_after.csv'
+# chart_file=f'{ROOT_DIR}/output/metaxcan_before_after.csv'
+chart_file=sys.argv[1]
 
 
 columns = ["gene","before","after"]

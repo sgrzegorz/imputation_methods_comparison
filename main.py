@@ -6,6 +6,11 @@ import subprocess
 from backend import monitor
 from threading import Thread
 from definitions import ROOT_DIR
+from backend.fusion_output_pvalues import fusion_output_pvalues
+from backend.metaxcan_output_pvalues import metaxcan_output_pvalues
+from backend.input_pvalues import input_pvalues
+import re
+
 
 FUSION_DIR = f'{ROOT_DIR}/methods/FUSION'
 TIGAR_DIR =f'{ROOT_DIR}/methods/TIGAR'
@@ -43,6 +48,8 @@ class Ui(QtWidgets.QMainWindow):
         self.process.readyReadStandardError.connect(self.onReadyReadStandardError)
         self.process.readyReadStandardOutput.connect(self.onReadyReadStandardOutput)
 
+        self.init_pvalues_plots()
+
     def onReadyReadStandardError(self):
         error = self.process.readAllStandardError().data().decode()
         self.CONSSCREEN.appendPlainText(error)
@@ -53,9 +60,48 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(result)
         self.outputSignal.emit(result)
 
-    def __del__(self):
-        sys.stdout = sys.__stdout__
-        sys.stderr = sys.__stderr__
+    # def __del__(self):
+    #     sys.stdout = sys.__stdout__
+    #     sys.stderr = sys.__stderr__
+
+    def init_pvalues_plots(self):
+        self.PLT1GWASLABEL= self.findChild(QtWidgets.QLabel,'PLT1GWASLABEL')
+        self.PLT1GWAS = self.findChild(QtWidgets.QPushButton, 'PLT1GWAS')
+        self.PLT1GWAS.clicked.connect(lambda: self.PLT1GWASLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+
+        self.PLT1OUTLABEL = self.findChild(QtWidgets.QLabel, 'PLT1OUTLABEL')
+        self.PLT1OUT = self.findChild(QtWidgets.QPushButton, 'PLT1OUT')
+        self.PLT1OUT.clicked.connect(lambda: self.PLT1OUTLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
+
+        self.PLT1LAUNCH = self.findChild(QtWidgets.QPushButton, 'PLT1LAUNCH')
+        self.PLT1LAUNCH.clicked.connect(lambda: self.runPLT1())
+
+
+        self.PLT2METHOD = self.findChild(QtWidgets.QComboBox, 'PLT2METHOD')
+
+        self.PLT2RESULTSLABEL= self.findChild(QtWidgets.QLabel,'PLT2RESULTSLABEL')
+        self.PLT2RESULTS = self.findChild(QtWidgets.QPushButton, 'PLT2RESULTS')
+        self.PLT2RESULTS.clicked.connect(lambda: self.PLT2RESULTSLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+
+        self.PLT2STEPFILELABEL= self.findChild(QtWidgets.QLabel,'PLT2STEPFILELABEL')
+        self.PLT2STEPFILE = self.findChild(QtWidgets.QPushButton, 'PLT2STEPFILE')
+        self.PLT2STEPFILE.clicked.connect(lambda: self.PLT2STEPFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+
+        self.PLT2OUTLABEL = self.findChild(QtWidgets.QLabel, 'PLT2OUTLABEL')
+        self.PLT2OUT = self.findChild(QtWidgets.QPushButton, 'PLT2OUT')
+        self.PLT2OUT.clicked.connect(lambda: self.PLT2OUTLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
+
+        self.PLT2LAUNCH = self.findChild(QtWidgets.QPushButton, 'PLT2LAUNCH')
+        self.PLT2LAUNCH.clicked.connect(lambda: self.runPLT2())
+
+
+        self.PLT3FILELABEL= self.findChild(QtWidgets.QLabel,'PLT3FILELABEL')
+        self.PLT3FILE = self.findChild(QtWidgets.QPushButton, 'PLT3FILE')
+        self.PLT3FILE.clicked.connect(lambda: self.PLT3FILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+
+        self.PLT3LAUNCH = self.findChild(QtWidgets.QPushButton, 'PLT3LAUNCH')
+        self.PLT3LAUNCH.clicked.connect(lambda: self.runPLT3())
+
 
     def initFCW(self):
         self.FCWLaunch = self.findChild(QtWidgets.QPushButton, 'FCWLAUNCH')
@@ -1268,6 +1314,65 @@ class Ui(QtWidgets.QMainWindow):
         # monitor.print_write_read_operations_chart()
         # monitor.print_rss_chart()
 
+    def runPLT1(self):
+        self.runCancel()
+
+        GWAS_PATH= self.PLT1GWASLABEL.text()
+        OUTPUT_PATH =f'{self.PLT1OUTLABEL.text()}/{self.PLT1OUTFILE.text()}'
+
+        with open('script.sh', 'w+') as file:
+            file.write('#!/bin/bash\n')
+            file.write('source /home/x/anaconda3/etc/profile.d/conda.sh\n')
+            file.write('conda activate inzynierka\n')
+            file.write(f'python {ROOT_DIR}/backend/input_pvalues.py {GWAS_PATH} {OUTPUT_PATH}')
+
+        self.process.start('/bin/bash', ['script.sh'])
+
+    def runPLT2(self):
+        self.runCancel()
+
+        with open('script.sh', 'w+') as file:
+            method = self.PLT2METHOD.currentText()
+            file.write('#!/bin/bash\n')
+            file.write('source /home/x/anaconda3/etc/profile.d/conda.sh\n')
+            file.write('conda activate inzynierka\n')
+
+            before =self.PLT2STEPFILELABEL.text()
+            after = self.PLT2RESULTSLABEL.text()
+            output = f'{self.PLT2OUTLABEL.text()}/{method}--{self.PLT2OUTFILE.text()}'
+
+            if method == 'fusion':
+                file.write(f'python {ROOT_DIR}/backend/fusion_output_pvalues.py {before} {after} {output}')
+            elif method == 'metaxcan':
+                file.write(f'python {ROOT_DIR}/backend/metaxcan_output_pvalues.py {before} {after} {output}')
+            else:
+                print('Shouldnt be here')
+
+        self.process.start('/bin/bash', ['script.sh'])
+
+
+    def runPLT3(self):
+        self.runCancel()
+
+        pattern = '\/(\w+)--'
+        method = re.search(pattern, self.PLT3FILELABEL.text()) # fileDir/fusion--costam.csv
+        if method:
+            method = method.group(1) # method ='fusion'
+            if method not in ['fusion','metaxcan','tigar']:return
+        else:
+            print('Incorrect file name')
+            print()
+            return
+
+
+        with open('script.sh', 'w+') as file:
+            file.write('#!/bin/bash\n')
+            file.write('source /home/x/anaconda3/etc/profile.d/conda.sh\n')
+            file.write('conda activate inzynierka\n')
+
+            file.write(f'python {ROOT_DIR}/backend/{method}_print_chart.py {self.PLT3FILELABEL.text()}')
+
+        self.process.start('/bin/bash', ['script.sh'])
 
 
 app = QtWidgets.QApplication(sys.argv)

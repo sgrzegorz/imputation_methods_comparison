@@ -1,7 +1,8 @@
 import csv
 import math
+import sys
+
 import pandas as pd
-import re
 from definitions import ROOT_DIR
 
 def metaxcan_output_pvalues(before,after,output):
@@ -42,7 +43,12 @@ def metaxcan_output_pvalues(before,after,output):
     print('Finished, all other saved to file')
 
 if __name__ =='__main__':
-    before=f'{ROOT_DIR}/output/pvalues_input.csv'
-    after=f'{ROOT_DIR}/methods/METAXCAN/OUTPUT/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv'
-    output=f'{ROOT_DIR}/output/metaxcan_before_after.csv'
+    # before=f'{ROOT_DIR}/output/pvalues_input.csv'
+    # after=f'{ROOT_DIR}/methods/METAXCAN/OUTPUT/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv'
+    # output=f'{ROOT_DIR}/output/metaxcan_before_after.csv'
+
+    before = sys.argv[1]
+    after = sys.argv[2]
+    output = sys.argv[3]
+    print(before, after, output)
     metaxcan_output_pvalues(before, after, output)

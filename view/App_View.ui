@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -40,7 +40,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
@@ -2884,7 +2884,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
@@ -3459,8 +3459,8 @@
        <widget class="QLabel" name="label_15">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>70</y>
+          <x>670</x>
+          <y>80</y>
           <width>47</width>
           <height>13</height>
          </rect>
@@ -3472,8 +3472,8 @@
        <widget class="QLineEdit" name="FATCOLOCP">
         <property name="geometry">
          <rect>
-          <x>510</x>
-          <y>70</y>
+          <x>730</x>
+          <y>80</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -3485,8 +3485,8 @@
        <widget class="QLabel" name="label_16">
         <property name="geometry">
          <rect>
-          <x>406</x>
-          <y>130</y>
+          <x>626</x>
+          <y>140</y>
           <width>101</width>
           <height>16</height>
          </rect>
@@ -3498,8 +3498,8 @@
        <widget class="QComboBox" name="FATFORCEMODEL">
         <property name="geometry">
          <rect>
-          <x>510</x>
-          <y>130</y>
+          <x>730</x>
+          <y>140</y>
           <width>69</width>
           <height>22</height>
          </rect>
@@ -3538,8 +3538,8 @@
        <widget class="QLineEdit" name="FATGWASN">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>200</y>
+          <x>680</x>
+          <y>210</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -3551,8 +3551,8 @@
        <widget class="QLabel" name="label_17">
         <property name="geometry">
          <rect>
-          <x>376</x>
-          <y>200</y>
+          <x>596</x>
+          <y>210</y>
           <width>81</width>
           <height>20</height>
          </rect>
@@ -3564,8 +3564,8 @@
        <widget class="QLineEdit" name="FATMAXIMPUTE">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>230</y>
+          <x>680</x>
+          <y>240</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -3577,8 +3577,8 @@
        <widget class="QLabel" name="label_18">
         <property name="geometry">
          <rect>
-          <x>376</x>
-          <y>230</y>
+          <x>596</x>
+          <y>240</y>
           <width>81</width>
           <height>20</height>
          </rect>
@@ -3590,8 +3590,8 @@
        <widget class="QLineEdit" name="FATMINR2PRED">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>260</y>
+          <x>680</x>
+          <y>270</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -3603,8 +3603,8 @@
        <widget class="QLabel" name="label_19">
         <property name="geometry">
          <rect>
-          <x>376</x>
-          <y>260</y>
+          <x>596</x>
+          <y>270</y>
           <width>81</width>
           <height>20</height>
          </rect>
@@ -3616,8 +3616,8 @@
        <widget class="QLineEdit" name="FATPERM">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>290</y>
+          <x>680</x>
+          <y>300</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -3629,8 +3629,8 @@
        <widget class="QLabel" name="label_20">
         <property name="geometry">
          <rect>
-          <x>376</x>
-          <y>290</y>
+          <x>596</x>
+          <y>300</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -3642,8 +3642,8 @@
        <widget class="QLineEdit" name="FATPERMMINP">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>320</y>
+          <x>680</x>
+          <y>330</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -3655,8 +3655,8 @@
        <widget class="QLabel" name="label_21">
         <property name="geometry">
          <rect>
-          <x>370</x>
-          <y>320</y>
+          <x>590</x>
+          <y>330</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -3668,8 +3668,8 @@
        <widget class="QLabel" name="label_22">
         <property name="geometry">
          <rect>
-          <x>370</x>
-          <y>350</y>
+          <x>590</x>
+          <y>360</y>
           <width>81</width>
           <height>20</height>
          </rect>
@@ -3681,8 +3681,8 @@
        <widget class="QLineEdit" name="FATPANELN">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>350</y>
+          <x>680</x>
+          <y>360</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -3696,7 +3696,7 @@
          <rect>
           <x>70</x>
           <y>130</y>
-          <width>181</width>
+          <width>331</width>
           <height>16</height>
          </rect>
         </property>
@@ -3709,7 +3709,7 @@
          <rect>
           <x>70</x>
           <y>200</y>
-          <width>181</width>
+          <width>431</width>
           <height>16</height>
          </rect>
         </property>
@@ -3722,7 +3722,7 @@
          <rect>
           <x>70</x>
           <y>250</y>
-          <width>181</width>
+          <width>441</width>
           <height>16</height>
          </rect>
         </property>
@@ -3735,7 +3735,7 @@
          <rect>
           <x>70</x>
           <y>300</y>
-          <width>181</width>
+          <width>421</width>
           <height>16</height>
          </rect>
         </property>
@@ -3748,7 +3748,7 @@
          <rect>
           <x>70</x>
           <y>350</y>
-          <width>181</width>
+          <width>421</width>
           <height>16</height>
          </rect>
         </property>
@@ -3788,7 +3788,7 @@
        <widget class="QLineEdit" name="FATOUTFILE">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>420</x>
           <y>130</y>
           <width>131</width>
           <height>21</height>
@@ -3801,7 +3801,7 @@
        <widget class="QLabel" name="MPXPHENLABEL_26">
         <property name="geometry">
          <rect>
-          <x>230</x>
+          <x>410</x>
           <y>130</y>
           <width>16</width>
           <height>16</height>
@@ -4361,7 +4361,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_16">
        <attribute name="title">
@@ -6104,7 +6104,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_23">
        <attribute name="title">
@@ -6138,6 +6138,315 @@
        <attribute name="title">
         <string>Performance</string>
        </attribute>
+      </widget>
+      <widget class="QWidget" name="tab_8">
+       <attribute name="title">
+        <string>Plots</string>
+       </attribute>
+       <widget class="QLabel" name="PLT2OUTLABEL">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>400</y>
+          <width>291</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT1OUT">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>80</y>
+          <width>71</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>--out</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT2OUT">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>400</y>
+          <width>71</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>--out</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT1GWAS">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>30</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>gwas</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT2STEPFILE">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>330</y>
+          <width>141</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string> (STEP1 --out) </string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT1LAUNCH">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>130</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>LAUNCH STEP1</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="MPXPHENLABEL_28">
+        <property name="geometry">
+         <rect>
+          <x>830</x>
+          <y>400</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT3LAUNCH">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>650</y>
+          <width>141</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>show chart  STEP3</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="PLT2OUTFILE">
+        <property name="geometry">
+         <rect>
+          <x>880</x>
+          <y>400</y>
+          <width>191</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>before_after.csv</string>
+        </property>
+       </widget>
+       <widget class="Line" name="line">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>160</y>
+          <width>841</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="PLT1OUTLABEL">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>80</y>
+          <width>121</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="PLT2RESULTSLABEL">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>270</y>
+          <width>761</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="PLT1OUTFILE">
+        <property name="geometry">
+         <rect>
+          <x>600</x>
+          <y>80</y>
+          <width>201</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>pvalues_input.csv</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="MPXPHENLABEL_29">
+        <property name="geometry">
+         <rect>
+          <x>590</x>
+          <y>80</y>
+          <width>20</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="PLT2STEPFILELABEL">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>340</y>
+          <width>661</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT3FILE">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>620</y>
+          <width>191</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>chart file (STEP2 --out)</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="PLT2METHOD">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>260</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>fusion</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>tigar</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>metaxcan</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="Line" name="line_5">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>580</y>
+          <width>871</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT2LAUNCH">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>460</y>
+          <width>141</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>LAUNCH STEP2</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT2RESULTS">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>260</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>method's results</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="PLT1GWASLABEL">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>40</y>
+          <width>381</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="PLT3FILELABEL">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>630</y>
+          <width>431</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>

@@ -219,7 +219,7 @@ class Ui(QtWidgets.QMainWindow):
         self.FATREFLDCHRLABEL = self.findChild(QtWidgets.QLabel, 'FATREFLDCHRLABEL')
         self.FATREFLDCHR = self.findChild(QtWidgets.QPushButton, 'FATREFLDCHR')
         self.FATREFLDCHR.clicked.connect(
-            lambda: self.FATREFLDCHRLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.FATREFLDCHRLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
 
 
         self.FATSUMSTATSLABEL = self.findChild(QtWidgets.QLabel, 'FATSUMSTATSLABEL')
@@ -235,7 +235,7 @@ class Ui(QtWidgets.QMainWindow):
         self.FATWEIGHTSDIRLABEL = self.findChild(QtWidgets.QLabel, 'FATWEIGHTSDIRLABEL')
         self.FATWEIGHTSDIR = self.findChild(QtWidgets.QPushButton, 'FATWEIGHTSDIR')
         self.FATWEIGHTSDIR.clicked.connect(
-            lambda: self.FATWEIGHTSDIRLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Open directory')))
+            lambda: self.FATWEIGHTSDIRLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
 
         self.FATCOLOCP = self.findChild(QtWidgets.QLineEdit, 'FATCOLOCP')
 
@@ -259,14 +259,18 @@ class Ui(QtWidgets.QMainWindow):
         comm = comm + " --out " + str(self.FATOUTLABEL.text())+"/"+str(self.FATOUTFILE.text())
         comm = comm + " --weights " + str(self.FATWEIGHTSLABEL.text())
         comm = comm + " --weights_dir " + str(self.FATWEIGHTSDIRLABEL.text())
-        comm = comm + " --ref_ld_chr " + str(self.FATREFLDCHRLABEL.text())
+        comm = comm + " --ref_ld_chr " + str(self.FATREFLDCHRLABEL.text())+"/"+str(self.FATREFLDCHRFILE.text())
         comm = comm + " --chr " + str(self.FATCHR.text())
-        comm = comm + " --coloc_P " + str(self.FATCOLOCP.text())
-        comm = comm + " --force_model " + str(self.FATFORCEMODEL.currentText())
-        comm = comm + " --GWASN " + str(self.FATGWASN.text())
+        if self.FATCOLOCP.text():
+            comm = comm + " --coloc_P " + str(self.FATCOLOCP.text())
+        if self.FATFORCEMODEL.currentText()!='OFF':
+            comm = comm + " --force_model " + str(self.FATFORCEMODEL.currentText())
+        if self.FATGWASN.text():
+            comm = comm + " --GWASN " + str(self.FATGWASN.text())
         comm = comm + " --max_impute " + str(self.FATMAXIMPUTE.text())
         comm = comm + " --min_r2pred " + str(self.FATMINR2PRED.text())
-        comm = comm + " --PANELN " + str(self.FATPANELN.text())
+        if self.FATPANELN.text():
+            comm = comm + " --PANELN " + str(self.FATPANELN.text())
         comm = comm + " --perm " + str(self.FATPERM.text())
         comm = comm + " --perm_minp " + str(self.FATPERMMINP.text())
         return (comm)

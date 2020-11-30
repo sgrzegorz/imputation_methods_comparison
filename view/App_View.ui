@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -40,7 +40,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
@@ -2884,7 +2884,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
@@ -3383,7 +3383,7 @@
          <rect>
           <x>70</x>
           <y>170</y>
-          <width>75</width>
+          <width>101</width>
           <height>23</height>
          </rect>
         </property>
@@ -3396,7 +3396,7 @@
          <rect>
           <x>70</x>
           <y>220</y>
-          <width>75</width>
+          <width>101</width>
           <height>23</height>
          </rect>
         </property>
@@ -3409,7 +3409,7 @@
          <rect>
           <x>70</x>
           <y>270</y>
-          <width>75</width>
+          <width>101</width>
           <height>23</height>
          </rect>
         </property>
@@ -3435,7 +3435,7 @@
          <rect>
           <x>70</x>
           <y>320</y>
-          <width>75</width>
+          <width>101</width>
           <height>23</height>
          </rect>
         </property>
@@ -3459,7 +3459,7 @@
        <widget class="QLabel" name="label_15">
         <property name="geometry">
          <rect>
-          <x>670</x>
+          <x>830</x>
           <y>80</y>
           <width>47</width>
           <height>13</height>
@@ -3472,21 +3472,21 @@
        <widget class="QLineEdit" name="FATCOLOCP">
         <property name="geometry">
          <rect>
-          <x>730</x>
+          <x>890</x>
           <y>80</y>
           <width>113</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
-         <string>OFF</string>
+         <string/>
         </property>
        </widget>
        <widget class="QLabel" name="label_16">
         <property name="geometry">
          <rect>
-          <x>626</x>
-          <y>140</y>
+          <x>820</x>
+          <y>130</y>
           <width>101</width>
           <height>16</height>
          </rect>
@@ -3498,8 +3498,8 @@
        <widget class="QComboBox" name="FATFORCEMODEL">
         <property name="geometry">
          <rect>
-          <x>730</x>
-          <y>140</y>
+          <x>930</x>
+          <y>130</y>
           <width>69</width>
           <height>22</height>
          </rect>
@@ -3538,22 +3538,22 @@
        <widget class="QLineEdit" name="FATGWASN">
         <property name="geometry">
          <rect>
-          <x>680</x>
+          <x>930</x>
           <y>210</y>
           <width>113</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
-         <string>OFF</string>
+         <string/>
         </property>
        </widget>
        <widget class="QLabel" name="label_17">
         <property name="geometry">
          <rect>
-          <x>596</x>
+          <x>826</x>
           <y>210</y>
-          <width>81</width>
+          <width>91</width>
           <height>20</height>
          </rect>
         </property>
@@ -3564,7 +3564,7 @@
        <widget class="QLineEdit" name="FATMAXIMPUTE">
         <property name="geometry">
          <rect>
-          <x>680</x>
+          <x>930</x>
           <y>240</y>
           <width>113</width>
           <height>20</height>
@@ -3577,9 +3577,9 @@
        <widget class="QLabel" name="label_18">
         <property name="geometry">
          <rect>
-          <x>596</x>
+          <x>826</x>
           <y>240</y>
-          <width>81</width>
+          <width>111</width>
           <height>20</height>
          </rect>
         </property>
@@ -3590,7 +3590,7 @@
        <widget class="QLineEdit" name="FATMINR2PRED">
         <property name="geometry">
          <rect>
-          <x>680</x>
+          <x>930</x>
           <y>270</y>
           <width>113</width>
           <height>20</height>
@@ -3603,9 +3603,9 @@
        <widget class="QLabel" name="label_19">
         <property name="geometry">
          <rect>
-          <x>596</x>
+          <x>826</x>
           <y>270</y>
-          <width>81</width>
+          <width>91</width>
           <height>20</height>
          </rect>
         </property>
@@ -3616,7 +3616,7 @@
        <widget class="QLineEdit" name="FATPERM">
         <property name="geometry">
          <rect>
-          <x>680</x>
+          <x>930</x>
           <y>300</y>
           <width>113</width>
           <height>20</height>
@@ -3629,7 +3629,7 @@
        <widget class="QLabel" name="label_20">
         <property name="geometry">
          <rect>
-          <x>596</x>
+          <x>826</x>
           <y>300</y>
           <width>81</width>
           <height>16</height>
@@ -3642,7 +3642,7 @@
        <widget class="QLineEdit" name="FATPERMMINP">
         <property name="geometry">
          <rect>
-          <x>680</x>
+          <x>930</x>
           <y>330</y>
           <width>113</width>
           <height>20</height>
@@ -3655,9 +3655,9 @@
        <widget class="QLabel" name="label_21">
         <property name="geometry">
          <rect>
-          <x>590</x>
+          <x>820</x>
           <y>330</y>
-          <width>81</width>
+          <width>101</width>
           <height>16</height>
          </rect>
         </property>
@@ -3668,9 +3668,9 @@
        <widget class="QLabel" name="label_22">
         <property name="geometry">
          <rect>
-          <x>590</x>
+          <x>820</x>
           <y>360</y>
-          <width>81</width>
+          <width>91</width>
           <height>20</height>
          </rect>
         </property>
@@ -3681,14 +3681,14 @@
        <widget class="QLineEdit" name="FATPANELN">
         <property name="geometry">
          <rect>
-          <x>680</x>
+          <x>930</x>
           <y>360</y>
           <width>113</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
-         <string>OFF</string>
+         <string/>
         </property>
        </widget>
        <widget class="QLabel" name="FATOUTLABEL">
@@ -3774,7 +3774,7 @@
          <rect>
           <x>70</x>
           <y>100</y>
-          <width>71</width>
+          <width>101</width>
           <height>21</height>
          </rect>
         </property>
@@ -3788,9 +3788,9 @@
        <widget class="QLineEdit" name="FATOUTFILE">
         <property name="geometry">
          <rect>
-          <x>420</x>
+          <x>520</x>
           <y>130</y>
-          <width>131</width>
+          <width>141</width>
           <height>21</height>
          </rect>
         </property>
@@ -3801,10 +3801,36 @@
        <widget class="QLabel" name="MPXPHENLABEL_26">
         <property name="geometry">
          <rect>
-          <x>410</x>
+          <x>510</x>
           <y>130</y>
           <width>16</width>
           <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="FATREFLDCHRFILE">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>200</y>
+          <width>141</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Result</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="MPXPHENLABEL_30">
+        <property name="geometry">
+         <rect>
+          <x>500</x>
+          <y>200</y>
+          <width>20</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="text">

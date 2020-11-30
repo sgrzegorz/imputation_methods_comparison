@@ -1134,7 +1134,10 @@ class Ui(QtWidgets.QMainWindow):
             self.process.terminate()
             self.process.waitForFinished()
 
-
+    def write_intro_to_script(self,file,conda_env):
+        file.write('#!/bin/bash\n')
+        file.write(f'source {CONDA}\n')
+        file.write(f'conda activate {conda_env}\n')
 
     def runSMX(self):
         command = self.validateSMX()
@@ -1321,9 +1324,7 @@ class Ui(QtWidgets.QMainWindow):
         OUTPUT_PATH =f'{self.PLT1OUTLABEL.text()}/{self.PLT1OUTFILE.text()}'
 
         with open('script.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write(f'source {CONDA}\n')
-            file.write('conda activate inzynierka\n')
+            self.write_intro_to_script(file, 'inzynierka')
             file.write(f'python {ROOT_DIR}/backend/input_pvalues.py {GWAS_PATH} {OUTPUT_PATH}')
 
         self.process.start('/bin/bash', ['script.sh'])
@@ -1333,9 +1334,7 @@ class Ui(QtWidgets.QMainWindow):
 
         with open('script.sh', 'w+') as file:
             method = self.PLT2METHOD.currentText()
-            file.write('#!/bin/bash\n')
-            file.write(f'source {CONDA}\n')
-            file.write('conda activate inzynierka\n')
+            self.write_intro_to_script(file,'inzynierka')
 
             before =self.PLT2STEPFILELABEL.text()
             after = self.PLT2RESULTSLABEL.text()
@@ -1366,10 +1365,7 @@ class Ui(QtWidgets.QMainWindow):
 
 
         with open('script.sh', 'w+') as file:
-            file.write('#!/bin/bash\n')
-            file.write(f'source {CONDA}\n')
-            file.write('conda activate inzynierka\n')
-
+            self.write_intro_to_script(file, 'imc')
             file.write(f'python {ROOT_DIR}/backend/{method}_print_chart.py {self.PLT3FILELABEL.text()}')
 
         self.process.start('/bin/bash', ['script.sh'])

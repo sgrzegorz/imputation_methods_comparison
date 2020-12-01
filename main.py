@@ -294,7 +294,7 @@ class Ui(QtWidgets.QMainWindow):
         self.FPPREFLDCHRLABEL = self.findChild(QtWidgets.QLabel, 'FPPREFLDCHRLABEL')
         self.FPPREFLDCHR = self.findChild(QtWidgets.QPushButton, 'FPPREFLDCHR')
         self.FPPREFLDCHR.clicked.connect(
-            lambda: self.FPPREFLDCHRLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.FPPREFLDCHRLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
 
 
         self.FPPSUMSTATSLABEL = self.findChild(QtWidgets.QLabel, 'FPPSUMSTATSLABEL')
@@ -305,8 +305,6 @@ class Ui(QtWidgets.QMainWindow):
         self.FPPLOCUSWIN = self.findChild(QtWidgets.QLineEdit, 'FPPLOCUSWIN')
 
         self.FPPMINPINPUT = self.findChild(QtWidgets.QLineEdit, 'FPPMINPINPUT')
-
-        self.FPPMINPJOINT = self.findChild(QtWidgets.QLineEdit, 'FPPMINPJOINT')
 
         self.FPPMAXR2 = self.findChild(QtWidgets.QLineEdit, 'FPPMAXR2')
 
@@ -333,7 +331,7 @@ class Ui(QtWidgets.QMainWindow):
 
         self.FPPPLOTINDIVIDUAL = self.findChild(QtWidgets.QCheckBox,'FPPPLOTINDIVIDUAL')
 
-        self.FPPPLOTLEGEND = self.findChild(QtWidgets.QCheckBox,'FPPPLOTLEGEND')
+        self.FPPPLOTLEGEND = self.findChild(QtWidgets.QComboBox,'FPPPLOTLEGEND')
 
         self.FPPPLOTSCATTER = self.findChild(QtWidgets.QCheckBox,'FPPPLOTSCATTER')
 
@@ -348,7 +346,7 @@ class Ui(QtWidgets.QMainWindow):
         comm = comm + " --sumstats " + str(self.FPPSUMSTATSLABEL.text())
         comm = comm + " --out " + str(self.FPPOUTLABEL.text())+"/"+str(self.FPPOUTFILE.text())
         comm = comm + " --input " + str(self.FPPINPUTLABEL.text())
-        comm = comm + " --ref_ld_chr " + str(self.FPPREFLDCHRLABEL.text())
+        comm = comm + " --ref_ld_chr " + str(self.FPPREFLDCHRLABEL.text())+"/"+str(self.FPPREFLDCHRFILE.text())
         if (self.FPPPLOT.isChecked()):
             comm = comm + " --plot "
         if (self.FPPPLOTCORR.isChecked()):
@@ -357,8 +355,8 @@ class Ui(QtWidgets.QMainWindow):
             comm = comm + " --plot_eqtl "
         if (self.FPPPLOTINDIVIDUAL.isChecked()):
             comm = comm + " --plot_individual "
-        if (self.FPPPLOTLEGEND.isChecked()):
-            comm = comm + " --plot_legend "
+        if self.FPPPLOTLEGEND.currentText() != 'OFF':
+            comm = comm + " --plot_legend "+ str(self.FPPPLOTLEGEND.currentText())
         if (self.FPPPLOTSCATTER.isChecked()):
             comm = comm + " --plot_scatter "
         if (self.FPPREPORT.isChecked()):
@@ -371,7 +369,6 @@ class Ui(QtWidgets.QMainWindow):
 #            comm = comm + " --noclean ON "
         comm = comm + " --locus_win "+str(self.FPPLOCUSWIN.text())
         comm = comm + " --minp_input " + str(self.FPPMINPINPUT.text())
-        comm = comm + " --minp_joint " + str(self.FPPMINPJOINT.text())
         comm = comm + " --max_r2 " + str(self.FPPMAXR2.text())
         comm = comm + " --min_r2 " + str(self.FPPMINR2.text())
         comm = comm + " --verbose "+ str(self.FPPVERBOSE.currentText())

@@ -12,7 +12,7 @@ python munge_sumstats.py  \
 --sumstats $file \
 --N 14          \
 --snp hm_rsid \
---out $FUSION/OUTPUT/results
+--out $FUSION/OUTPUT/PGC2.SCZ
 
-gzip -d $FUSION/OUTPUT/results.sumstats.gz
+gzip -d $FUSION/OUTPUT/PGC2.SCZ.sumstats.gz
 

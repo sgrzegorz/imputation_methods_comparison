@@ -50,18 +50,15 @@ def _stats_with_children(process,writer):
             read_bytes += child.io_counters().read_bytes
             write_bytes += child.io_counters().write_bytes
 
+        rss =_bytes_to_megabytes(rss)
+        swap=_bytes_to_megabytes(swap)
+        read =_bytes_to_megabytes(read_bytes)
+        write=_bytes_to_megabytes(write_bytes)
+        writer.writerow((now,rss,swap,cpu,read,write))
     except psutil.NoSuchProcess as e: # jedno z dzieci nagle przestalo byc zywe
         # print(traceback.format_exc())
         print('Dont worry :) -one of obeserved imputation method subprocesses disappeard')
         # print(type =type(e).__name__)
-
-
-    rss =_bytes_to_megabytes(rss)
-    swap=_bytes_to_megabytes(swap)
-    read =_bytes_to_megabytes(read_bytes)
-    write=_bytes_to_megabytes(write_bytes)
-    writer.writerow((now,rss,swap,cpu,read,write))
-
 
 def observe_process(pid,FILE):
     print(FILE)

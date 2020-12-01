@@ -13,7 +13,7 @@ input=./INPUT/input1
 output=./OUTPUT
 
 Rscript FUSION.assoc_test.R \
---sumstats ${output}/result.sumstats \
+--sumstats ${output}/PGC2.SCZ.sumstats \
 --weights ${input}/WEIGHTS/GTEx.Whole_Blood.pos \
 --weights_dir ${input}/WEIGHTS/ \
 --ref_ld_chr ./LDREF/1000G.EUR. \

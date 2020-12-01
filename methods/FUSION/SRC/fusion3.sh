@@ -16,5 +16,6 @@ Rscript FUSION.post_process.R \
 --chr 22 \
 --plot_corr	\
 --report \
---plot --locus_win 100000 \
+--plot \
+--locus_win 100000 \
 --plot_legend joint

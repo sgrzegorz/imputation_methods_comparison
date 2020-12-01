@@ -68,7 +68,7 @@ def input_pvalues(GWAS_PATH,OUTPUT_PATH):
             RS[g_gene].add(g_rs)
 
         if i%3000000==0:
-            print(f'{math.foor(i/g_rows_count*100)}%') # print progress in percents
+            print(f'{math.floor(i/g_rows_count*100)}%') # print progress in percents
 
     with open(OUTPUT_PATH, 'w+') as csvfile:
         writer = csv.writer(csvfile, delimiter='\t')
@@ -83,7 +83,7 @@ def input_pvalues(GWAS_PATH,OUTPUT_PATH):
 
 
 if __name__ =='__main__':
-    # GWAS_PATH='/home/x/Downloads/GWAS2/27989323-GCST004430-EFO_0008173.h.tsv'
+    # GWAS_PATH='/home/x/DEVELOPER1/WORK/inzynierka/DATA/GWAS/27989323-GCST004430-EFO_0008173.h.tsv'
     # OUTPUT_PATH =f'{ROOT_DIR}/output/pvalues_input.csv'
 
     GWAS_PATH = sys.argv[1]

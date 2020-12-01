@@ -1147,10 +1147,14 @@ class Ui(QtWidgets.QMainWindow):
 
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
-        self.process.setWorkingDirectory(cwd)
-        self.process.start(command)
-        monitor.observe_imputation_process(self.process.pid(), 'metaxcan')
 
+        with open('script.sh', 'w+') as file:
+            file.write(f'cd {cwd}')
+            self.write_intro_to_script(file, 'metaxcan')
+            file.write(command)
+
+        self.process.start('/bin/bash', ['script.sh'])
+        monitor.observe_imputation_process(self.process.pid(), 'smultixcan')
         # monitor.execute(command,cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1163,9 +1167,13 @@ class Ui(QtWidgets.QMainWindow):
 
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
-        self.process.setWorkingDirectory(cwd)
-        self.process.start(command)
-        monitor.observe_imputation_process(self.process.pid(), 'metaxcan')
+        with open('script.sh', 'w+') as file:
+            file.write(f'cd {cwd}')
+            self.write_intro_to_script(file, 'metaxcan')
+            file.write(command)
+
+        self.process.start('/bin/bash', ['script.sh'])
+        monitor.observe_imputation_process(self.process.pid(), 'multixcan')
 
 
         # monitor.execute(self, command, cwd)
@@ -1180,11 +1188,14 @@ class Ui(QtWidgets.QMainWindow):
 
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
-        self.process.setWorkingDirectory(cwd)
-        self.process.start(command)
-        monitor.observe_imputation_process(self.process.pid(), 'metaxcan')
 
+        with open('script.sh', 'w+') as file:
+            file.write(f'cd {cwd}\n')
+            self.write_intro_to_script(file, 'metaxcan')
+            file.write(command)
 
+        self.process.start('/bin/bash', ['script.sh'])
+        monitor.observe_imputation_process(self.process.pid(), 'spredixcan')
         # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1198,9 +1209,13 @@ class Ui(QtWidgets.QMainWindow):
 
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
-        self.process.setWorkingDirectory(cwd)
-        self.process.start(command)
-        monitor.observe_imputation_process(self.process.pid(), 'metaxcan')
+        with open('script.sh', 'w+') as file:
+            file.write(f'cd {cwd}')
+            self.write_intro_to_script(file, 'metaxcan')
+            file.write(command)
+
+        self.process.start('/bin/bash', ['script.sh'])
+        monitor.observe_imputation_process(self.process.pid(), 'predixcan')
 
 
     def runTCM(self):
@@ -1212,7 +1227,7 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
-        monitor.observe_imputation_process(self.process.pid(), 'tigar')
+        monitor.observe_imputation_process(self.process.pid(), 'tigar_cov_matrix')
 
 
         # monitor.print_cpu_chart()
@@ -1228,7 +1243,7 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
-        monitor.observe_imputation_process(self.process.pid(), 'tigar')
+        monitor.observe_imputation_process(self.process.pid(), 'tigar_twas')
 
 
         # monitor.execute(self,command, cwd)
@@ -1245,7 +1260,7 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
-        monitor.observe_imputation_process(self.process.pid(), 'tigar')
+        monitor.observe_imputation_process(self.process.pid(), 'tigar_grex')
 
 
         # monitor.execute(self,command, cwd)
@@ -1262,7 +1277,7 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
-        monitor.observe_imputation_process(self.process.pid(), 'tigar')
+        monitor.observe_imputation_process(self.process.pid(), 'tigar_train')
         # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()
@@ -1278,7 +1293,7 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
-        monitor.observe_imputation_process(self.process.pid(), 'fusion')
+        monitor.observe_imputation_process(self.process.pid(), 'fusion_assoc')
 
         # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()
@@ -1295,7 +1310,7 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
-        monitor.observe_imputation_process(self.process.pid(), 'fusion')
+        monitor.observe_imputation_process(self.process.pid(), 'fusion_comp_weights')
         # monitor.execute(command, cwd)
 
         # monitor.print_cpu_chart()
@@ -1312,7 +1327,7 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
-        monitor.observe_imputation_process(self.process.pid(),'fusion')
+        monitor.observe_imputation_process(self.process.pid(),'fusion_post_process')
 
         # monitor.print_cpu_chart()
         # monitor.print_write_read_operations_chart()

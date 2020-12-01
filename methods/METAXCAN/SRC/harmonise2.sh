@@ -12,7 +12,7 @@ output=./OUTPUT
 echo harmonize input gWAS to our reference
 
 #python $GWAS_TOOLS/gwas_parsing.py \
-#-gwas_file /home/x/Downloads/GWAS2/27989323-GCST004430-EFO_0008173.h.tsv \
+#-gwas_file /home/x/DEVELOPER1/WORK/inzynierka/DATA/GWAS/27989323-GCST004430-EFO_0008173.h.tsv \
 #-output_column_map hm_variant_id variant_id \
 #-output_column_map hm_other_allele non_effect_allele \
 #-output_column_map hm_effect_allele effect_allele \
@@ -29,7 +29,7 @@ echo harmonize input gWAS to our reference
 
 python $METAXCAN/M03_betas.py \
 --snp_map_file ${input}/coordinate_map/map_snp150_hg19.txt.gz \
---gwas_file /home/x/Downloads/GWAS2/27989323-GCST004430-EFO_0008173.h.tsv.gz \
+--gwas_file /home/x/DEVELOPER1/WORK/inzynierka/DATA/GWAS/27989323-GCST004430-EFO_0008173.h.tsv.gz \
 --snp_column hm_variant_id \
 --non_effect_allele_column hm_other_allele \
 --effect_allele_column hm_effect_allele \

@@ -1,6 +1,12 @@
 import io
-
-from PyQt5 import QtWidgets, uic, QtCore, QtGui
+import os
+import pandas as pd
+from datetime import datetime
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+import plotly
+import random
+from PyQt5 import QtWidgets, uic, QtCore, QtWebEngineWidgets
 import sys
 import subprocess
 from backend import monitor
@@ -15,6 +21,64 @@ import re
 FUSION_DIR = f'{ROOT_DIR}/methods/FUSION'
 TIGAR_DIR =f'{ROOT_DIR}/methods/TIGAR'
 METAXCAN_DIR= f'{ROOT_DIR}/methods/METAXCAN/software'
+
+class Widget(QtWidgets.QWidget):
+    def __init__(self, files, labels, parent=None):
+        super().__init__(parent)
+        self.browser = QtWebEngineWidgets.QWebEngineView(self)
+
+        vlayout = QtWidgets.QVBoxLayout(self)
+        vlayout.addWidget(self.browser)
+        self.cols = plotly.colors.DEFAULT_PLOTLY_COLORS
+
+        self.resize(1000,900)
+        self.show_graph( files, labels)
+
+    def get_seconds(self,dt, base):
+        return int(datetime.strptime(dt, "%m/%d/%Y, %H:%M:%S").timestamp()) - base
+
+
+    def show_graph(self,files, labels):
+
+        if (len(files)==0 or len(labels)==0 or len(files)!=len(labels)):
+            self.browser.setHtml("number of files or labels is zero or the number of files is different than labels")
+        else:
+            fig = make_subplots(
+                rows=4, cols=1,
+                subplot_titles=("CPU Usage", "Memory Usage", "Read Data", "Write Data"))
+
+            chart_colors = random.sample(self.cols, len(files))
+            try:
+                for i in range(len(files)):
+                    df = pd.read_csv(files[i], sep='\t')
+                    base = int(datetime.strptime(df['time'][0], "%m/%d/%Y, %H:%M:%S").timestamp()) - 1
+                    df['seconds'] = df.apply(lambda row: self.get_seconds(row['time'], base), axis=1)
+
+                    fig.add_trace(go.Scatter(x=df['seconds'], y=df['cpu'], name=labels[i],
+                                             line=dict(width=2), marker=dict(color=chart_colors[i])), row=1, col=1)
+                    fig.add_trace(go.Scatter(x=df['seconds'], y=df['rss'], name=labels[i],
+                                             line=dict(width=2), showlegend=False, marker=dict(color=chart_colors[i])), row=2,
+                                  col=1)
+                    fig.add_trace(go.Scatter(x=df['seconds'], y=df['read'], name=labels[i],
+                                             line=dict(width=2), showlegend=False, marker=dict(color=chart_colors[i])), row=3,
+                                  col=1)
+                    fig.add_trace(go.Scatter(x=df['seconds'], y=df['write'], name=labels[i],
+                                             line=dict(width=2), showlegend=False, marker=dict(color=chart_colors[i])), row=4,
+                                  col=1)
+
+                fig.update_layout(height=1000, width=800,
+                                  title_text="Script Performance Comparison")
+                fig['layout']['xaxis']['title'] = 'time in seconds'
+                fig['layout']['xaxis2']['title'] = 'time in seconds'
+                fig['layout']['xaxis3']['title'] = 'time in seconds'
+                fig['layout']['xaxis4']['title'] = 'time in seconds'
+                fig['layout']['yaxis']['title'] = 'CPU % (100% is one core)'
+                fig['layout']['yaxis2']['title'] = 'memory in MB'
+                fig['layout']['yaxis3']['title'] = 'MB'
+                fig['layout']['yaxis4']['title'] = 'MB'
+                self.browser.setHtml(fig.to_html(include_plotlyjs='cdn'))
+            except:
+                self.browser.setHtml("there was a problem with file or label, check the list")
 
 
 class Ui(QtWidgets.QMainWindow):
@@ -34,13 +98,15 @@ class Ui(QtWidgets.QMainWindow):
         self.initTGR()
         self.initTTW()
         self.initTCM()
-        #PREDIXCAN
+        #METAXCAN
         self.initMPX()
         self.initMSP()
         self.initMUL()
         self.initSMX()
         #CONSOLE
         self.initCONS()
+        #PERFORMANCE CHARTS
+        self.initPERF()
         #Proces which is running imputation commands
         self.errorSignal.connect(lambda error: print(error))
         self.outputSignal.connect(lambda output: print(output))
@@ -49,6 +115,44 @@ class Ui(QtWidgets.QMainWindow):
         self.process.readyReadStandardOutput.connect(self.onReadyReadStandardOutput)
 
         self.init_pvalues_plots()
+
+    def initPERF(self):
+        self.paths = []
+        self.PERFFILELIST = self.findChild(QtWidgets.QListWidget, 'PERFFILELIST')
+        self.PERFLABELS = self.findChild(QtWidgets.QListWidget, 'PERFLABELS')
+
+        self.PERFLAUNCH = self.findChild(QtWidgets.QPushButton, 'PERFLAUNCH')
+        self.PERFLAUNCH.clicked.connect(lambda: self.RUNPERF())
+        self.PERFADD = self.findChild(QtWidgets.QPushButton, 'PERFADD')
+        self.PERFADD.clicked.connect(
+            lambda: self.addItem(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.PERFDEL = self.findChild(QtWidgets.QPushButton, 'PERFDEL')
+        self.PERFDEL.clicked.connect(lambda: self.deleteItem())
+
+    def addItem(self, file):
+        if file == '': #clicked cancel
+            return
+        self.paths.append(file)
+        filename = os.path.basename(file)
+        self.PERFFILELIST.addItem(filename)
+        self.PERFLABELS.addItem(filename)
+        for index in range(self.PERFLABELS.count()):
+            item = self.PERFLABELS.item(index)
+            item.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
+
+    def deleteItem(self):
+        selected = self.PERFFILELIST.selectedItems()
+        for index in range(self.PERFFILELIST.count()):
+            if self.PERFFILELIST.item(index) in selected:
+                self.PERFFILELIST.takeItem(index)
+                self.PERFLABELS.takeItem(index)
+                del self.paths[index]
+
+    def RUNPERF(self):
+        files = self.paths
+        labels = [str(self.PERFLABELS.item(i).text()) for i in range(self.PERFLABELS.count())]
+        self.widget = Widget(files, labels)
+        self.widget.show()
 
     def onReadyReadStandardError(self):
         error = self.process.readAllStandardError().data().decode()
@@ -59,10 +163,6 @@ class Ui(QtWidgets.QMainWindow):
         result = self.process.readAllStandardOutput().data().decode()
         self.CONSSCREEN.appendPlainText(result)
         self.outputSignal.emit(result)
-
-    # def __del__(self):
-    #     sys.stdout = sys.__stdout__
-    #     sys.stderr = sys.__stderr__
 
     def init_pvalues_plots(self):
         self.PLT1GWASLABEL= self.findChild(QtWidgets.QLabel,'PLT1GWASLABEL')
@@ -424,7 +524,7 @@ class Ui(QtWidgets.QMainWindow):
         comm = "./TIGAR_Model_Train.sh "
         comm = comm + " --model " + str(self.TMTMODEL.currentText())
         comm = comm + " --Format " + str(self.TMTGENFORMAT.currentText())
-        #DPF
+        #DPR
         if (self.TMTMODEL.currentText() == "DPR"):
             comm = comm + " --dpr " + str(self.TMTDPR.currentText())
             comm = comm + " --ES " + str(self.TMTES.currentText())

@@ -80,7 +80,7 @@ class Widget(QtWidgets.QWidget):
             except:
                 self.browser.setHtml("there was a problem with file or label, check the list")
 
-
+native = QtWidgets.QFileDialog.DontUseNativeDialog
 class Ui(QtWidgets.QMainWindow):
     errorSignal = QtCore.pyqtSignal(str)
     outputSignal = QtCore.pyqtSignal(str)
@@ -125,7 +125,7 @@ class Ui(QtWidgets.QMainWindow):
         self.PERFLAUNCH.clicked.connect(lambda: self.RUNPERF())
         self.PERFADD = self.findChild(QtWidgets.QPushButton, 'PERFADD')
         self.PERFADD.clicked.connect(
-            lambda: self.addItem(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.addItem(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
         self.PERFDEL = self.findChild(QtWidgets.QPushButton, 'PERFDEL')
         self.PERFDEL.clicked.connect(lambda: self.deleteItem())
 
@@ -167,7 +167,7 @@ class Ui(QtWidgets.QMainWindow):
     def init_pvalues_plots(self):
         self.PLT1GWASLABEL= self.findChild(QtWidgets.QLabel,'PLT1GWASLABEL')
         self.PLT1GWAS = self.findChild(QtWidgets.QPushButton, 'PLT1GWAS')
-        self.PLT1GWAS.clicked.connect(lambda: self.PLT1GWASLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.PLT1GWAS.clicked.connect(lambda: self.PLT1GWASLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.PLT1OUTLABEL = self.findChild(QtWidgets.QLabel, 'PLT1OUTLABEL')
         self.PLT1OUT = self.findChild(QtWidgets.QPushButton, 'PLT1OUT')
@@ -181,11 +181,11 @@ class Ui(QtWidgets.QMainWindow):
 
         self.PLT2RESULTSLABEL= self.findChild(QtWidgets.QLabel,'PLT2RESULTSLABEL')
         self.PLT2RESULTS = self.findChild(QtWidgets.QPushButton, 'PLT2RESULTS')
-        self.PLT2RESULTS.clicked.connect(lambda: self.PLT2RESULTSLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.PLT2RESULTS.clicked.connect(lambda: self.PLT2RESULTSLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.PLT2STEPFILELABEL= self.findChild(QtWidgets.QLabel,'PLT2STEPFILELABEL')
         self.PLT2STEPFILE = self.findChild(QtWidgets.QPushButton, 'PLT2STEPFILE')
-        self.PLT2STEPFILE.clicked.connect(lambda: self.PLT2STEPFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.PLT2STEPFILE.clicked.connect(lambda: self.PLT2STEPFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.PLT2OUTLABEL = self.findChild(QtWidgets.QLabel, 'PLT2OUTLABEL')
         self.PLT2OUT = self.findChild(QtWidgets.QPushButton, 'PLT2OUT')
@@ -197,7 +197,7 @@ class Ui(QtWidgets.QMainWindow):
 
         self.PLT3FILELABEL= self.findChild(QtWidgets.QLabel,'PLT3FILELABEL')
         self.PLT3FILE = self.findChild(QtWidgets.QPushButton, 'PLT3FILE')
-        self.PLT3FILE.clicked.connect(lambda: self.PLT3FILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.PLT3FILE.clicked.connect(lambda: self.PLT3FILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.PLT3LAUNCH = self.findChild(QtWidgets.QPushButton, 'PLT3LAUNCH')
         self.PLT3LAUNCH.clicked.connect(lambda: self.runPLT3())
@@ -209,7 +209,7 @@ class Ui(QtWidgets.QMainWindow):
 
         self.FCWBFILELABEL= self.findChild(QtWidgets.QLabel,'FCWBFILELABEL')
         self.FCWBFILE = self.findChild(QtWidgets.QPushButton, 'FCWBFILE')
-        self.FCWBFILE.clicked.connect(lambda: self.FCWBFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.FCWBFILE.clicked.connect(lambda: self.FCWBFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.FCWOUTLABEL = self.findChild(QtWidgets.QLabel, 'FCWOUTLABEL')
         self.FCWOUT = self.findChild(QtWidgets.QPushButton, 'FCWOUT')
@@ -217,27 +217,27 @@ class Ui(QtWidgets.QMainWindow):
 
         self.FCWTMPLABEL= self.findChild(QtWidgets.QLabel,'FCWTMPLABEL')
         self.FCWTMP = self.findChild(QtWidgets.QPushButton, 'FCWTMP')
-        self.FCWTMP.clicked.connect(lambda: self.FCWTMPLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.FCWTMP.clicked.connect(lambda: self.FCWTMPLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.FCWCOVARLABEL= self.findChild(QtWidgets.QLabel,'FCWCOVARLABEL')
         self.FCWCOVAR = self.findChild(QtWidgets.QPushButton, 'FCWCOVAR')
-        self.FCWCOVAR.clicked.connect(lambda: self.FCWCOVARLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.FCWCOVAR.clicked.connect(lambda: self.FCWCOVARLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.FCWPATHGCTALABEL= self.findChild(QtWidgets.QLabel,'FCWPATHGCTALABEL')
         self.FCWPATHGCTA = self.findChild(QtWidgets.QPushButton, 'FCWPATHGCTA')
-        self.FCWPATHGCTA.clicked.connect(lambda: self.FCWPATHGCTALABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.FCWPATHGCTA.clicked.connect(lambda: self.FCWPATHGCTALABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.FCWPATHGEMMALABEL= self.findChild(QtWidgets.QLabel,'FCWPATHGEMMALABEL')
         self.FCWPATHGEMMA = self.findChild(QtWidgets.QPushButton, 'FCWPATHGEMMA')
-        self.FCWPATHGEMMA.clicked.connect(lambda: self.FCWPATHGEMMALABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.FCWPATHGEMMA.clicked.connect(lambda: self.FCWPATHGEMMALABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.FCWPATHPLINKLABEL= self.findChild(QtWidgets.QLabel,'FCWPATHPLINKLABEL')
         self.FCWPATHPLINK = self.findChild(QtWidgets.QPushButton, 'FCWPATHPLINK')
-        self.FCWPATHPLINK.clicked.connect(lambda: self.FCWPATHPLINKLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.FCWPATHPLINK.clicked.connect(lambda: self.FCWPATHPLINKLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.FCWPATHPHENOLABEL= self.findChild(QtWidgets.QLabel,'FCWPATHPHENOLABEL')
         self.FCWPATHPHENO = self.findChild(QtWidgets.QPushButton, 'FCWPATHPHENO')
-        self.FCWPATHPHENO.clicked.connect(lambda: self.FCWPATHPHENOLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+        self.FCWPATHPHENO.clicked.connect(lambda: self.FCWPATHPHENOLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.FCWVERBOSE = self.findChild(QtWidgets.QComboBox,'FCWVERBOSE')
 
@@ -325,12 +325,12 @@ class Ui(QtWidgets.QMainWindow):
         self.FATSUMSTATSLABEL = self.findChild(QtWidgets.QLabel, 'FATSUMSTATSLABEL')
         self.FATSUMSTATS = self.findChild(QtWidgets.QPushButton, 'FATSUMSTATS')
         self.FATSUMSTATS.clicked.connect(
-            lambda: self.FATSUMSTATSLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.FATSUMSTATSLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.FATWEIGHTSLABEL = self.findChild(QtWidgets.QLabel, 'FATWEIGHTSLABEL')
         self.FATWEIGHTS = self.findChild(QtWidgets.QPushButton, 'FATWEIGHTS')
         self.FATWEIGHTS.clicked.connect(
-            lambda: self.FATWEIGHTSLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.FATWEIGHTSLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.FATWEIGHTSDIRLABEL = self.findChild(QtWidgets.QLabel, 'FATWEIGHTSDIRLABEL')
         self.FATWEIGHTSDIR = self.findChild(QtWidgets.QPushButton, 'FATWEIGHTSDIR')
@@ -384,7 +384,7 @@ class Ui(QtWidgets.QMainWindow):
         self.FPPINPUTLABEL = self.findChild(QtWidgets.QLabel, 'FPPINPUTLABEL')
         self.FPPINPUT = self.findChild(QtWidgets.QPushButton, 'FPPINPUT')
         self.FPPINPUT.clicked.connect(
-            lambda: self.FPPINPUTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.FPPINPUTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.FPPOUTLABEL = self.findChild(QtWidgets.QLabel, 'FPPOUTLABEL')
         self.FPPOUT = self.findChild(QtWidgets.QPushButton, 'FPPOUT')
@@ -400,7 +400,7 @@ class Ui(QtWidgets.QMainWindow):
         self.FPPSUMSTATSLABEL = self.findChild(QtWidgets.QLabel, 'FPPSUMSTATSLABEL')
         self.FPPSUMSTATS = self.findChild(QtWidgets.QPushButton, 'FPPSUMSTATS')
         self.FPPSUMSTATS.clicked.connect(
-            lambda: self.FPPSUMSTATSLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.FPPSUMSTATSLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.FPPLOCUSWIN = self.findChild(QtWidgets.QLineEdit, 'FPPLOCUSWIN')
 
@@ -482,18 +482,18 @@ class Ui(QtWidgets.QMainWindow):
         self.TMTGEXPLABEL = self.findChild(QtWidgets.QLabel, 'TMTGEXPLABEL')
         self.TMTGEXP = self.findChild(QtWidgets.QPushButton, 'TMTGEXP')
         self.TMTGEXP.clicked.connect(
-            lambda: self.TMTGEXPLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TMTGEXPLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TMTIDLABEL = self.findChild(QtWidgets.QLabel, 'TMTIDLABEL')
         self.TMTID = self.findChild(QtWidgets.QPushButton, 'TMTID')
         self.TMTID.clicked.connect(
-            lambda: self.TMTIDLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TMTIDLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
 
         self.TMTGENFILELABEL = self.findChild(QtWidgets.QLabel, 'TMTGENFILELABEL')
         self.TMTGENFILE = self.findChild(QtWidgets.QPushButton, 'TMTGENFILE')
         self.TMTGENFILE.clicked.connect(
-            lambda: self.TMTGENFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TMTGENFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
 
         self.TMTOUTLABEL = self.findChild(QtWidgets.QLabel, 'TMTOUTLABEL')
@@ -554,23 +554,23 @@ class Ui(QtWidgets.QMainWindow):
         self.TGRWEIGHTLABEL = self.findChild(QtWidgets.QLabel, 'TGRWEIGHTLABEL')
         self.TGRWEIGHT = self.findChild(QtWidgets.QPushButton, 'TGRWEIGHT')
         self.TGRWEIGHT.clicked.connect(
-            lambda: self.TGRWEIGHTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TGRWEIGHTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TGRIDLABEL = self.findChild(QtWidgets.QLabel, 'TGRIDLABEL')
         self.TGRID = self.findChild(QtWidgets.QPushButton, 'TGRID')
         self.TGRID.clicked.connect(
-            lambda: self.TGRIDLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TGRIDLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TGRINFOLABEL = self.findChild(QtWidgets.QLabel, 'TGRINFOLABEL')
         self.TGRINFO = self.findChild(QtWidgets.QPushButton, 'TGRINFO')
         self.TGRINFO.clicked.connect(
-            lambda: self.TGRINFOLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TGRINFOLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
 
         self.TGRGENLABEL = self.findChild(QtWidgets.QLabel, 'TGRGENLABEL')
         self.TGRGEN = self.findChild(QtWidgets.QPushButton, 'TGRGEN')
         self.TGRGEN.clicked.connect(
-            lambda: self.TGRGENLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TGRGENLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TGROUTLABEL = self.findChild(QtWidgets.QLabel, 'TGROUTLABEL')
         self.TGROUT = self.findChild(QtWidgets.QPushButton, 'TGROUT')
@@ -617,32 +617,32 @@ class Ui(QtWidgets.QMainWindow):
         self.TTWWEIGHTLABEL = self.findChild(QtWidgets.QLabel, 'TTWWEIGHTLABEL')
         self.TTWWEIGHT = self.findChild(QtWidgets.QPushButton, 'TTWWEIGHT')
         self.TTWWEIGHT.clicked.connect(
-            lambda: self.TTWWEIGHTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TTWWEIGHTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TTWCOVARLABEL = self.findChild(QtWidgets.QLabel, 'TTWCOVARLABEL')
         self.TTWCOVAR = self.findChild(QtWidgets.QPushButton, 'TTWCOVAR')
         self.TTWCOVAR.clicked.connect(
-            lambda: self.TTWCOVARLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TTWCOVARLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TTWZSCORELABEL = self.findChild(QtWidgets.QLabel, 'TTWZSCORELABEL')
         self.TTWZSCORE= self.findChild(QtWidgets.QPushButton, 'TTWZSCORE')
         self.TTWZSCORE.clicked.connect(
-            lambda: self.TTWZSCORELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TTWZSCORELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TTWGENLABEL = self.findChild(QtWidgets.QLabel, 'TTWGENLABEL')
         self.TTWGEN = self.findChild(QtWidgets.QPushButton, 'TTWGEN')
         self.TTWGEN.clicked.connect(
-            lambda: self.TTWGENLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TTWGENLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TTWASSOLABEL = self.findChild(QtWidgets.QLabel, 'TTWASSOLABEL')
         self.TTWASSO = self.findChild(QtWidgets.QPushButton, 'TTWASSO')
         self.TTWASSO.clicked.connect(
-            lambda: self.TTWASSOLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TTWASSOLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TTWPEDLABEL = self.findChild(QtWidgets.QLabel, 'TTWPEDLABEL')
         self.TTWPED = self.findChild(QtWidgets.QPushButton, 'TTWPED')
         self.TTWPED.clicked.connect(
-            lambda: self.TTWPEDLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TTWPEDLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TTWOUTLABEL = self.findChild(QtWidgets.QLabel, 'TTWOUTLABEL')
         self.TTWOUT = self.findChild(QtWidgets.QPushButton, 'TTWOUT')
@@ -690,12 +690,12 @@ class Ui(QtWidgets.QMainWindow):
         self.TCMBLOCKLABEL = self.findChild(QtWidgets.QLabel, 'TCMBLOCKLABEL')
         self.TCMBLOCK = self.findChild(QtWidgets.QPushButton, 'TCMBLOCK')
         self.TCMBLOCK.clicked.connect(
-            lambda: self.TCMBLOCKLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TCMBLOCKLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TCMGENFILELABEL = self.findChild(QtWidgets.QLabel, 'TCMGENFILELABEL')
         self.TCMGENFILE = self.findChild(QtWidgets.QPushButton, 'TCMGENFILE')
         self.TCMGENFILE.clicked.connect(
-            lambda: self.TCMGENFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.TCMGENFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.TCMOUTLABEL = self.findChild(QtWidgets.QLabel, 'TCMOUTLABEL')
         self.TCMOUT = self.findChild(QtWidgets.QPushButton, 'TCMOUT')
@@ -746,42 +746,42 @@ class Ui(QtWidgets.QMainWindow):
         self.MPXDBPATHLABEL = self.findChild(QtWidgets.QLabel, 'MPXDBPATHLABEL')
         self.MPXDBPATH = self.findChild(QtWidgets.QPushButton, 'MPXDBPATH')
         self.MPXDBPATH.clicked.connect(
-            lambda: self.MPXDBPATHLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MPXDBPATHLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MPXLIFTLABEL = self.findChild(QtWidgets.QLabel, 'MPXLIFTLABEL')
         self.MPXLIFT = self.findChild(QtWidgets.QPushButton, 'MPXLIFT')
         self.MPXLIFT.clicked.connect(
-            lambda: self.MPXLIFTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MPXLIFTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MPXVCFLABEL = self.findChild(QtWidgets.QLabel, 'MPXVCFLABEL')
         self.MPXVCF = self.findChild(QtWidgets.QPushButton, 'MPXVCF')
         self.MPXVCF.clicked.connect(
-            lambda: self.MPXVCFLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MPXVCFLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MPXTXTLABEL = self.findChild(QtWidgets.QLabel, 'MPXTXTLABEL')
         self.MPXTXT = self.findChild(QtWidgets.QPushButton, 'MPXTXT')
         self.MPXTXT.clicked.connect(
-            lambda: self.MPXTXTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MPXTXTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MPXPHENLABEL = self.findChild(QtWidgets.QLabel, 'MPXPHENLABEL')
         self.MPXPHEN = self.findChild(QtWidgets.QPushButton, 'MPXPHEN')
         self.MPXPHEN.clicked.connect(
-            lambda: self.MPXPHENLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MPXPHENLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MPXCOVLABEL = self.findChild(QtWidgets.QLabel, 'MPXCOVLABEL')
         self.MPXCOV = self.findChild(QtWidgets.QPushButton, 'MPXCOV')
         self.MPXCOV.clicked.connect(
-            lambda: self.MPXCOVLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MPXCOVLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MPXTXTIDLABEL = self.findChild(QtWidgets.QLabel, 'MPXTXTIDLABEL')
         self.MPXTXTID = self.findChild(QtWidgets.QPushButton, 'MPXTXTID')
         self.MPXTXTID.clicked.connect(
-            lambda: self.MPXTXTIDLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MPXTXTIDLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MPXBGENLABEL = self.findChild(QtWidgets.QLabel, 'MPXBGENLABEL')
         self.MPXBGEN = self.findChild(QtWidgets.QPushButton, 'MPXBGEN')
         self.MPXBGEN.clicked.connect(
-            lambda: self.MPXBGENLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MPXBGENLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MPXPREDOUTLABEL = self.findChild(QtWidgets.QLabel, 'MPXPREDOUTLABEL')
         self.MPXPREDOUT = self.findChild(QtWidgets.QPushButton, 'MPXPREDOUT')
@@ -881,17 +881,17 @@ class Ui(QtWidgets.QMainWindow):
         self.MSPDBPATHLABEL = self.findChild(QtWidgets.QLabel, 'MSPDBPATHLABEL')
         self.MSPDBPATH = self.findChild(QtWidgets.QPushButton, 'MSPDBPATH')
         self.MSPDBPATH.clicked.connect(
-            lambda: self.MSPDBPATHLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MSPDBPATHLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MSPGWASFILELABEL = self.findChild(QtWidgets.QLabel, 'MSPGWASFILELABEL')
         self.MSPGWASFILE = self.findChild(QtWidgets.QPushButton, 'MSPGWASFILE')
         self.MSPGWASFILE.clicked.connect(
-            lambda: self.MSPGWASFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MSPGWASFILELABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MSPCOVLABEL = self.findChild(QtWidgets.QLabel, 'MSPCOVLABEL')
         self.MSPCOV = self.findChild(QtWidgets.QPushButton, 'MSPCOV')
         self.MSPCOV.clicked.connect(
-            lambda: self.MSPCOVLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MSPCOVLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MSPGWASFOLDERLABEL = self.findChild(QtWidgets.QLabel, 'MSPGWASFOLDERLABEL')
         self.MSPGWASFOLDER = self.findChild(QtWidgets.QPushButton, 'MSPGWASFOLDER')
@@ -992,12 +992,12 @@ class Ui(QtWidgets.QMainWindow):
         self.MULPHENLABEL = self.findChild(QtWidgets.QLabel, 'MULPHENLABEL')
         self.MULPHEN = self.findChild(QtWidgets.QPushButton, 'MULPHEN')
         self.MULPHEN.clicked.connect(
-            lambda: self.MULPHENLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MULPHENLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MULCOVLABEL = self.findChild(QtWidgets.QLabel, 'MULCOVLABEL')
         self.MULCOV = self.findChild(QtWidgets.QPushButton, 'MULCOV')
         self.MULCOV.clicked.connect(
-            lambda: self.MULCOVLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.MULCOVLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.MULCOEFFLABEL = self.findChild(QtWidgets.QLabel, 'MULCOEFFLABEL')
         self.MULCOEFF = self.findChild(QtWidgets.QPushButton, 'MULCOEFF')
@@ -1109,23 +1109,23 @@ class Ui(QtWidgets.QMainWindow):
         self.SMXCLEARLABEL = self.findChild(QtWidgets.QLabel, 'SMXCLEARLABEL')
         self.SMXCLEAR = self.findChild(QtWidgets.QPushButton, 'SMXCLEAR')
         self.SMXCLEAR.clicked.connect(
-            lambda: self.SMXCLEARLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.SMXCLEARLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
 
         self.SMXPRODUCTLABEL = self.findChild(QtWidgets.QLabel, 'SMXPRODUCTLABEL')
         self.SMXPRODUCT = self.findChild(QtWidgets.QPushButton, 'SMXPRODUCT')
         self.SMXPRODUCT.clicked.connect(
-            lambda: self.SMXPRODUCTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.SMXPRODUCTLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.SMXGWASLABEL = self.findChild(QtWidgets.QLabel, 'SMXGWASLABEL')
         self.SMXGWAS = self.findChild(QtWidgets.QPushButton, 'SMXGWAS')
         self.SMXGWAS.clicked.connect(
-            lambda: self.SMXGWASLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.SMXGWASLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
         self.SMXCOVLABEL = self.findChild(QtWidgets.QLabel, 'SMXCOVLABEL')
         self.SMXCOV = self.findChild(QtWidgets.QPushButton, 'SMXCOV')
         self.SMXCOV.clicked.connect(
-            lambda: self.SMXCOVLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '')[0]))
+            lambda: self.SMXCOVLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
 
 
         self.SMXMODELLABEL = self.findChild(QtWidgets.QLabel, 'SMXMODELLABEL')

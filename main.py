@@ -1249,8 +1249,8 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
 
         with open('script.sh', 'w+') as file:
-            file.write(f'cd {cwd}')
             self.write_intro_to_script(file, 'metaxcan')
+            file.write(f'cd {cwd}\n')
             file.write(command)
 
         self.process.start('/bin/bash', ['script.sh'])
@@ -1268,8 +1268,8 @@ class Ui(QtWidgets.QMainWindow):
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
         with open('script.sh', 'w+') as file:
-            file.write(f'cd {cwd}')
             self.write_intro_to_script(file, 'metaxcan')
+            file.write(f'cd {cwd}\n')
             file.write(command)
 
         self.process.start('/bin/bash', ['script.sh'])
@@ -1290,8 +1290,8 @@ class Ui(QtWidgets.QMainWindow):
         self.CONSSCREEN.appendPlainText(command)
 
         with open('script.sh', 'w+') as file:
-            file.write(f'cd {cwd}\n')
             self.write_intro_to_script(file, 'metaxcan')
+            file.write(f'cd {cwd}\n')
             file.write(command)
 
         self.process.start('/bin/bash', ['script.sh'])
@@ -1310,8 +1310,8 @@ class Ui(QtWidgets.QMainWindow):
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
         with open('script.sh', 'w+') as file:
-            file.write(f'cd {cwd}')
             self.write_intro_to_script(file, 'metaxcan')
+            file.write(f'cd {cwd}\n')
             file.write(command)
 
         self.process.start('/bin/bash', ['script.sh'])
@@ -1325,8 +1325,14 @@ class Ui(QtWidgets.QMainWindow):
 
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
-        self.process.setWorkingDirectory(cwd)
-        self.process.start(command)
+        with open('script.sh', 'w+') as file:
+            self.write_intro_to_script(file, 'inzynierka')
+            file.write(f'cd {cwd}\n')
+            file.write(command+'\n')
+            file.write('echo "**Finished**"\n')
+
+        self.process.start('/bin/bash', ['script.sh'])
+
         monitor.observe_imputation_process(self.process.pid(), 'tigar_cov_matrix')
 
 
@@ -1341,8 +1347,14 @@ class Ui(QtWidgets.QMainWindow):
 
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
-        self.process.setWorkingDirectory(cwd)
-        self.process.start(command)
+        with open('script.sh', 'w+') as file:
+            self.write_intro_to_script(file, 'inzynierka')
+            file.write(f'cd {cwd}\n')
+            file.write(command+'\n')
+            file.write('echo "**Finished**"\n')
+
+        self.process.start('/bin/bash', ['script.sh'])
+
         monitor.observe_imputation_process(self.process.pid(), 'tigar_twas')
 
 
@@ -1358,8 +1370,14 @@ class Ui(QtWidgets.QMainWindow):
 
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
-        self.process.setWorkingDirectory(cwd)
-        self.process.start(command)
+        with open('script.sh', 'w+') as file:
+            self.write_intro_to_script(file, 'inzynierka')
+            file.write(f'cd {cwd}\n')
+            file.write(command+'\n')
+            file.write('echo "**Finished**"\n')
+
+        self.process.start('/bin/bash', ['script.sh'])
+
         monitor.observe_imputation_process(self.process.pid(), 'tigar_grex')
 
 
@@ -1375,8 +1393,14 @@ class Ui(QtWidgets.QMainWindow):
 
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
-        self.process.setWorkingDirectory(cwd)
-        self.process.start(command)
+        with open('script.sh', 'w+') as file:
+            self.write_intro_to_script(file, 'inzynierka')
+            file.write(f'cd {cwd}\n')
+            file.write(command+'\n')
+            file.write('echo "**Finished**"\n')
+
+        self.process.start('/bin/bash', ['script.sh'])
+
         monitor.observe_imputation_process(self.process.pid(), 'tigar_train')
         # monitor.execute(self,command, cwd)
         # monitor.print_cpu_chart()

@@ -1,7 +1,5 @@
 import csv
-import os
 import math
-import vcfpy
 import pandas as pd
 from definitions import ROOT_DIR
 import sys

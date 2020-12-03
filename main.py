@@ -21,6 +21,7 @@ import re
 FUSION_DIR = f'{ROOT_DIR}/methods/FUSION'
 TIGAR_DIR =f'{ROOT_DIR}/methods/TIGAR'
 METAXCAN_DIR= f'{ROOT_DIR}/methods/METAXCAN/software'
+METAXCAN_GWAS= f'{ROOT_DIR}/methods/METAXCAN/GWAS_TOOLS'
 
 class Widget(QtWidgets.QWidget):
     def __init__(self, files, labels, parent=None):
@@ -103,6 +104,7 @@ class Ui(QtWidgets.QMainWindow):
         self.initMSP()
         self.initMUL()
         self.initSMX()
+        self.initGSI()
         #CONSOLE
         self.initCONS()
         #PERFORMANCE CHARTS
@@ -1226,6 +1228,92 @@ class Ui(QtWidgets.QMainWindow):
 
         return (comm)
 
+    def initGSI(self):
+        self.GSILAUNCH = self.findChild(QtWidgets.QPushButton, 'GSILAUNCH')
+        self.GSILAUNCH.clicked.connect(lambda: self.runGSI())
+
+        self.GSIWIND = self.findChild(QtWidgets.QLineEdit, 'GSIWIND')
+        self.GSIPARS = self.findChild(QtWidgets.QLineEdit, 'GSIPARS')
+        self.GSICHROM = self.findChild(QtWidgets.QLineEdit, 'GSICHROM')
+        self.GSIREG = self.findChild(QtWidgets.QLineEdit, 'GSIREG')
+        self.GSIFREQFIL = self.findChild(QtWidgets.QLineEdit, 'GSIFREQFIL')
+        self.GSISBTS = self.findChild(QtWidgets.QLineEdit, 'GSISBTS')
+        self.GSISBT = self.findChild(QtWidgets.QLineEdit, 'GSISBT')
+        self.GSICUTOFF = self.findChild(QtWidgets.QLineEdit, 'GSICUTOFF')
+        self.GSICONT = self.findChild(QtWidgets.QLineEdit, 'GSICONT')
+        self.GSIOUTFILE = self.findChild(QtWidgets.QLineEdit, 'GSIOUTFILE')
+
+        self.GSIREGIONLABEL = self.findChild(QtWidgets.QLabel, 'GSIREGIONLABEL')
+        self.GSIREGION = self.findChild(QtWidgets.QPushButton, 'GSIREGION')
+        self.GSIREGION.clicked.connect(
+            lambda: self.GSIREGIONLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
+
+        self.GSIGWASLABEL = self.findChild(QtWidgets.QLabel, 'GSIGWASLABEL')
+        self.GSIGWAS = self.findChild(QtWidgets.QPushButton, 'GSIGWAS')
+        self.GSIGWAS.clicked.connect(
+            lambda: self.GSIGWASLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
+
+        self.GSIPARGENLABEL = self.findChild(QtWidgets.QLabel, 'GSIPARGENLABEL')
+        self.GSIPARGEN = self.findChild(QtWidgets.QPushButton, 'GSIPARGEN')
+        self.GSIPARGEN.clicked.connect(
+            lambda: self.GSIPARGENLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
+
+        self.GSIGENMETLABEL = self.findChild(QtWidgets.QLabel, 'GSIGENMETLABEL')
+        self.GSIGENMET = self.findChild(QtWidgets.QPushButton, 'GSIGENMET')
+        self.GSIGENMET.clicked.connect(
+            lambda: self.GSIGENMETLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
+
+        self.GSIOUTLABEL = self.findChild(QtWidgets.QLabel, 'GSIOUTLABEL')
+        self.GSIOUT = self.findChild(QtWidgets.QPushButton, 'GSIOUT')
+        self.GSIOUT.clicked.connect(
+            lambda: self.GSIOUTLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
+
+        self.GSIKEEP = self.findChild(QtWidgets.QCheckBox, 'GSIKEEP')
+        self.GSIUSESNP = self.findChild(QtWidgets.QCheckBox, 'GSIUSESNP')
+        self.GSISTDOS = self.findChild(QtWidgets.QCheckBox, 'GSISTDOS')
+        self.GSICACHEVAR = self.findChild(QtWidgets.QCheckBox, 'GSICACHEVAR')
+
+    def validateGSI(self):
+        comm = "./gwas_summary_imputation.py "
+        if (str(self.GSIREGIONLABEL.text()) not in [""]):
+            comm = comm + " -by_region_file " + str(self.GSIREGIONLABEL.text())
+        if (str(self.GSIGWASLABEL.text()) not in [""]):
+            comm = comm + " -gwas_file " + str(self.GSIGWASLABEL.text())
+        if (str(self.GSIPARGENLABEL.text()) not in [""]):
+            comm = comm + " -parquet_genotype " + str(self.GSIPARGENLABEL.text())
+        if (str(self.GSIGENMETLABEL.text()) not in [""]):
+            comm = comm + " -parquet_genotype_metadata " + str(self.GSIGENMETLABEL.text())
+
+        if (self.GSIKEEP.isChecked()):
+            comm = comm + " --keep_palindromic_imputation "
+        if (self.GSIUSESNP.isChecked()):
+            comm = comm + " --use_palindromic_snps "
+        if (self.GSISTDOS.isChecked()):
+            comm = comm + " --standardise_dosages "
+        if (self.GSICACHEVAR.isChecked()):
+            comm = comm + " --cache_variants "
+
+        if (str(self.GSIWIND.text()) not in [""]):
+            comm = comm + " -window " + str(self.GSIWIND.text())
+        if (str(self.GSIPARS.text()) not in [""]):
+            comm = comm + " -parsimony " + str(self.GSIPARS.text())
+        if (str(self.GSICHROM.text()) not in [""]):
+            comm = comm + " -chromosome " + str(self.GSICHROM.text())
+        if (str(self.GSIREG.text()) not in [""]):
+            comm = comm + " -regularization " + str(self.GSIREG.text())
+        if (str(self.GSIFREQFIL.text()) not in [""]):
+            comm = comm + " -frequency_filter " + str(self.GSIFREQFIL.text())
+        if (str(self.GSISBTS.text()) not in [""]):
+            comm = comm + " -sub_batches " + str(self.GSISBTS.text())
+        if (str(self.GSISBT.text()) not in [""]):
+            comm = comm + " -sub_batch " + str(self.GSISBT.text())
+        if (str(self.GSICUTOFF.text()) not in [""]):
+            comm = comm + " -cutoff " + str(self.GSICUTOFF.text())
+        if (str(self.GSICONT.text()) not in [""]):
+            comm = comm + " -containing " + str(self.GSICONT.text())
+        comm = comm + " -output " + str(self.GSIOUTLABEL.text()) + "/" + str(self.GSIOUTFILE.text()+' ')
+        return (comm)
+
     def runCancel(self):
         # print(self.process.pid())
 
@@ -1316,6 +1404,22 @@ class Ui(QtWidgets.QMainWindow):
 
         self.process.start('/bin/bash', ['script.sh'])
         monitor.observe_imputation_process(self.process.pid(), 'predixcan')
+
+
+    def runGSI(self):
+        command = self.validateGSI()
+        print(command)
+        cwd = METAXCAN_GWAS
+
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
+        with open('script.sh', 'w+') as file:
+            self.write_intro_to_script(file, 'metaxcan')
+            file.write(f'cd {cwd}\n')
+            file.write(command)
+
+        self.process.start('/bin/bash', ['script.sh'])
+        monitor.observe_imputation_process(self.process.pid(), 'gwas_summ_imp')
 
 
     def runTCM(self):

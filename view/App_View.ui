@@ -40,7 +40,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
@@ -2868,6 +2868,471 @@
         </property>
        </widget>
       </widget>
+      <widget class="QWidget" name="tab_10">
+       <attribute name="title">
+        <string>GwasSumImp</string>
+       </attribute>
+       <widget class="QPushButton" name="GSIREGION">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>70</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-by_region_file</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="GSIGWAS">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>140</y>
+          <width>141</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-gwas_file</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="GSIPARGEN">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>200</y>
+          <width>151</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-parquet_genotype</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="GSIGENMET">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>260</y>
+          <width>221</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-parquet_genotype_metadata</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSIWIND">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>330</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_136">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>330</y>
+          <width>61</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-window</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_137">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>360</y>
+          <width>91</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-parsimony</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_138">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>390</y>
+          <width>101</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-chromosome</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_139">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>420</y>
+          <width>101</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-regularization</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_140">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>450</y>
+          <width>141</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-frequency_filter</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_141">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>480</y>
+          <width>141</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-sub_batches</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_142">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>510</y>
+          <width>141</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-sub_batch</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="GSIOUT">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>100</y>
+          <width>141</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-output</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="GSILAUNCH">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>20</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>LAUNCH</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="GSIREGIONLABEL">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>100</y>
+          <width>491</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="GSIGWASLABEL">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>170</y>
+          <width>501</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="GSIPARGENLABEL">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>230</y>
+          <width>511</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="GSIGENMETLABEL">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>290</y>
+          <width>511</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="GSIOUTLABEL">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>130</y>
+          <width>491</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSIPARS">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>360</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>10</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSICHROM">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>390</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSIREG">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>420</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSIFREQFIL">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>450</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSISBTS">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>480</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSISBT">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>510</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_143">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>540</y>
+          <width>141</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-cutoff</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSICUTOFF">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>540</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_144">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>570</y>
+          <width>141</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-containing</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSICONT">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>570</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="GSIKEEP">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>340</y>
+          <width>271</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>--keep_palindromic_imputation</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="GSIUSESNP">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>370</y>
+          <width>271</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>--use_palindromic_snps</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="GSISTDOS">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>400</y>
+          <width>271</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>--standardise_dosages</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="GSICACHEVAR">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>430</y>
+          <width>271</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>--cache_variants</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSIOUTFILE">
+        <property name="geometry">
+         <rect>
+          <x>1080</x>
+          <y>130</y>
+          <width>171</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Result</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="MPXPHENLABEL_57">
+        <property name="geometry">
+         <rect>
+          <x>1070</x>
+          <y>130</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_37">
+       <attribute name="title">
+        <string>GwasSumImpPost</string>
+       </attribute>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
@@ -2884,7 +3349,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
@@ -4412,7 +4877,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab_16">
        <attribute name="title">
@@ -6155,7 +6620,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_23">
        <attribute name="title">

@@ -105,6 +105,7 @@ class Ui(QtWidgets.QMainWindow):
         self.initMUL()
         self.initSMX()
         self.initGSI()
+        self.initGSP()
         #CONSOLE
         self.initCONS()
         #PERFORMANCE CHARTS
@@ -1314,6 +1315,50 @@ class Ui(QtWidgets.QMainWindow):
         comm = comm + " -output " + str(self.GSIOUTLABEL.text()) + "/" + str(self.GSIOUTFILE.text()+' ')
         return (comm)
 
+    def initGSP(self):
+        self.GSPLAUNCH = self.findChild(QtWidgets.QPushButton, 'GSPLAUNCH')
+        self.GSPLAUNCH.clicked.connect(lambda: self.runGSP())
+
+        self.GSPPARS = self.findChild(QtWidgets.QLineEdit, 'GSPPARS')
+        self.GSPPATT = self.findChild(QtWidgets.QLineEdit, 'GSPPATT')
+        self.GSPOUTFILE = self.findChild(QtWidgets.QLineEdit, 'GSPOUTFILE')
+        self.GSPCRITERIA = self.findChild(QtWidgets.QComboBox, 'GSPCRITERIA')
+        self.GSPKEEP = self.findChild(QtWidgets.QCheckBox, 'GSPKEEP')
+
+        self.GSPGWASLABEL = self.findChild(QtWidgets.QLabel, 'GSPGWASLABEL')
+        self.GSPGWAS = self.findChild(QtWidgets.QPushButton, 'GSPGWAS')
+        self.GSPGWAS.clicked.connect(
+            lambda: self.GSPGWASLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
+
+        self.GSPFOLDERLABEL = self.findChild(QtWidgets.QLabel, 'GSPFOLDERLABEL')
+        self.GSPFOLDER = self.findChild(QtWidgets.QPushButton, 'GSPFOLDER')
+        self.GSPFOLDER.clicked.connect(
+            lambda: self.GSPFOLDERLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
+
+        self.GSPOUTLABEL = self.findChild(QtWidgets.QLabel, 'GSPOUTLABEL')
+        self.GSPOUT = self.findChild(QtWidgets.QPushButton, 'GSPOUT')
+        self.GSPOUT.clicked.connect(
+            lambda: self.GSPOUTLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
+
+
+    def validateGSP(self):
+        comm = "python gwas_summary_imputation_postprocess.py "
+        if (str(self.GSPGWASLABEL.text()) not in [""]):
+            comm = comm + " -gwas_file " + str(self.GSPGWASLABEL.text())
+        if (str(self.GSPFOLDERLABEL.text()) not in [""]):
+            comm = comm + " -folder " + str(self.GSPFOLDERLABEL.text())
+
+        if (str(self.GSPPATT.text()) not in [""]):
+            comm = comm + ' -pattern "' + str(self.GSPPATT.text()) + '"'
+        if (str(self.GSPPARS.text()) not in [""]):
+            comm = comm + " -parsimony " + str(self.GSPPARS.text())
+        if (self.GSPKEEP.isChecked()):
+            comm = comm + " --keep_all_observed "
+        comm = comm + " --keep_criteria " + str(self.GSPCRITERIA.currentText())
+        comm = comm + " -output " + str(self.GSPOUTLABEL.text()) + "/" + str(self.GSPOUTFILE.text()+' ')
+        return (comm)
+
+
     def runCancel(self):
         # print(self.process.pid())
 
@@ -1421,6 +1466,20 @@ class Ui(QtWidgets.QMainWindow):
         self.process.start('/bin/bash', ['script.sh'])
         monitor.observe_imputation_process(self.process.pid(), 'gwas_summ_imp')
 
+    def runGSP(self):
+        command = self.validateGSP()
+        print(command)
+        cwd = METAXCAN_GWAS
+
+        self.runCancel()
+        self.CONSSCREEN.appendPlainText(command)
+        with open('script.sh', 'w+') as file:
+            self.write_intro_to_script(file, 'metaxcan')
+            file.write(f'cd {cwd}\n')
+            file.write(command)
+
+        self.process.start('/bin/bash', ['script.sh'])
+        monitor.observe_imputation_process(self.process.pid(), 'gwas_summ_post')
 
     def runTCM(self):
         command = self.validateTCM()

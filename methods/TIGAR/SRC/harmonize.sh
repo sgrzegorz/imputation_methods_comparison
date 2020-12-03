@@ -11,7 +11,7 @@ output=./OUTPUT
 #
 #Gene_Exp_path=${input}/Gene_Exp.txt
 #sampleID=${input}/sampleID.txt
-#genofile=/home/x/Downloads/GWAS2/27989323-GCST004430-EFO_0008173.h.tsv
+#genofile=/home/x/DEVELOPER1/WORK/inzynierka/DATA/GWAS/27989323-GCST004430-EFO_0008173.h.tsv
 #out_prefix=${output}
 #
 ## ---------------------- Elastic-Net Regression ---------------------------------
@@ -36,7 +36,7 @@ output=./OUTPUT
 ############################################################# 3 GReX Prediction ##########################################################################
 echo 3 GReX Prediction
 
-genofile=/home/x/Downloads/GWAS2/27989323-GCST004430-EFO_0008173.h.tsv.gz
+genofile=/home/x/DEVELOPER1/WORK/inzynierka/DATA/GWAS/27989323-GCST004430-EFO_0008173.h.tsv.gz
 sampleID=${input}/sampleID.txt
 out_prefix=${output}
 

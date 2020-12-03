@@ -40,7 +40,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
@@ -3332,6 +3332,234 @@
        <attribute name="title">
         <string>GwasSumImpPost</string>
        </attribute>
+       <widget class="QLabel" name="GSPGWASLABEL">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>110</y>
+          <width>901</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="GSPGWAS">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>80</y>
+          <width>141</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-gwas_file</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="GSPKEEP">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>380</y>
+          <width>271</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>--keep_all_observed</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_169">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>430</y>
+          <width>101</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>--keep_criteria</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="GSPCRITERIA">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>430</y>
+          <width>151</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>GTEX_VARIANT_ID</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>CHR_POS</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLineEdit" name="GSPPARS">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>480</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>10</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_170">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>480</y>
+          <width>91</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-parsimony</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="MPXPHENLABEL_58">
+        <property name="geometry">
+         <rect>
+          <x>990</x>
+          <y>310</y>
+          <width>16</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="GSPOUT">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>280</y>
+          <width>141</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-output</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="GSPOUTLABEL">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>310</y>
+          <width>491</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSPOUTFILE">
+        <property name="geometry">
+         <rect>
+          <x>1000</x>
+          <y>310</y>
+          <width>171</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Result</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="GSPLAUNCH">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>30</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>LAUNCH</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="GSPFOLDER">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>150</y>
+          <width>141</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-folder</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="GSPFOLDERLABEL">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>180</y>
+          <width>861</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="GSPPATT">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>220</y>
+          <width>301</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_171">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>220</y>
+          <width>81</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>-pattern &quot;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_173">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>220</y>
+          <width>16</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&quot;</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>

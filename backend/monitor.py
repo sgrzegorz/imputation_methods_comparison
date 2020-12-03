@@ -76,6 +76,12 @@ def observe_process(pid,FILE):
             print(f'Dont worry :) Imputation process is finished so observer failed to find it and throwed {type1} error')
             # print(traceback.format_exc())
 
+    num_lines = sum(1 for line in open(FILE))
+    if num_lines<2:
+        os.remove(FILE)
+        print("Result resources log was removed,because it was too short!")
+
+
 def observe_imputation_process(pid,method_name):
     FILE = getOutputPath(method_name)
     observer = Thread(target=observe_process, args=(pid, FILE,))

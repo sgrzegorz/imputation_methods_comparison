@@ -521,7 +521,6 @@ class Ui(QtWidgets.QMainWindow):
         self.TMTHWE = self.findChild(QtWidgets.QLineEdit, 'TMTHWE')
         self.TMTTHREAD = self.findChild(QtWidgets.QLineEdit, 'TMTTHREAD')
         self.TMTWINDOW = self.findChild(QtWidgets.QLineEdit, 'TMTWINDOW')
-        self.TMTOUTFILE = self.findChild(QtWidgets.QLineEdit, 'TMTOUTFILE')
 
     def validateTMT(self):
         comm = "./TIGAR_Model_Train.sh "
@@ -546,7 +545,7 @@ class Ui(QtWidgets.QMainWindow):
         comm = comm + " --Gene_Exp " + str(self.TMTGEXPLABEL.text())
         comm = comm + " --sampleID " + str(self.TMTIDLABEL.text())
         comm = comm + " --genofile " + str(self.TMTGENFILELABEL.text())
-        comm = comm + " --out " + str(self.TMTOUTLABEL.text())+"/"+str(self.TMTOUTFILE.text())
+        comm = comm + " --out " + str(self.TMTOUTLABEL.text())
 
         return (comm)
 
@@ -590,7 +589,6 @@ class Ui(QtWidgets.QMainWindow):
         self.TGRMAF = self.findChild(QtWidgets.QLineEdit, 'TGRMAF')
         self.TGRTHREAD = self.findChild(QtWidgets.QLineEdit, 'TGRTHREAD')
         self.TGRWINDOW = self.findChild(QtWidgets.QLineEdit, 'TGRWINDOW')
-        self.TGROUTFILE = self.findChild(QtWidgets.QLineEdit, 'TGROUTFILE')
 
     def validateTGR(self):
         comm = "./TIGAR_Model_Pred.sh "
@@ -609,7 +607,7 @@ class Ui(QtWidgets.QMainWindow):
         comm = comm + " --train_info_path " + str(self.TGRINFOLABEL.text())
         comm = comm + " --genofile " + str(self.TGRGENLABEL.text())
 
-        comm = comm + " --out " + str(self.TGROUTLABEL.text()) + "/" + str(self.TGROUTFILE.text())
+        comm = comm + " --out " + str(self.TGROUTLABEL.text())
 
         return (comm)
 
@@ -661,19 +659,18 @@ class Ui(QtWidgets.QMainWindow):
         self.TTWCHR = self.findChild(QtWidgets.QLineEdit, 'TTWCHR')
         self.TTWTHREAD = self.findChild(QtWidgets.QLineEdit, 'TTWTHREAD')
         self.TTWWINDOW = self.findChild(QtWidgets.QLineEdit, 'TTWWINDOW')
-        self.TTWOUTFILE = self.findChild(QtWidgets.QLineEdit, 'TTWOUTFILE')
 
     def validateTTW(self):
         comm = "./TIGAR_TWAS.sh "
         comm = comm + " --asso " + str(self.TTWASSOC.currentText())
         comm = comm + " --thread " + str(self.TTWTHREAD.text())
         comm = comm + " --Gene_Exp " + str(self.TTWGENLABEL.text())
-        comm = comm + " --out " + str(self.TTWOUTLABEL.text()) + "/" + str(self.TTWOUTFILE.text())
+        comm = comm + " --out " + str(self.TTWOUTLABEL.text())
 
         if (self.TTWASSOC.currentText() == "1"):
             comm = comm + " --method " + str(self.TTWMETHOD.currentText())
-            comm = comm + " --PED " + str(self.TTWWEIGHTLABEL.text())
-            comm = comm + " --Asso_Info " + str(self.TTWCOVARLABEL.text())
+            comm = comm + " --PED " + str(self.TTWPEDLABEL.text())
+            comm = comm + " --Asso_Info " + str(self.TTWASSOLABEL.text())
 
         #Elastic net
         if (self.TTWASSOC.currentText() == "2"):
@@ -709,8 +706,6 @@ class Ui(QtWidgets.QMainWindow):
 
         self.TCMCHR = self.findChild(QtWidgets.QLineEdit, 'TCMCHR')
 
-        self.TCMOUTFILE = self.findChild(QtWidgets.QLineEdit, 'TCMOUTFILE')
-
         self.TCMGENFORMAT = self.findChild(QtWidgets.QComboBox, 'TCMGENFORMAT')
 
         self.TCMMAF = self.findChild(QtWidgets.QLineEdit, 'TCMMAF')
@@ -719,7 +714,7 @@ class Ui(QtWidgets.QMainWindow):
         comm = "./TIGAR_Covar.sh "
         comm = comm + " --block " + str(self.TCMBLOCKLABEL.text())
         comm = comm + " --genofile " + str(self.TCMGENFILELABEL.text())
-        comm = comm + " --out " + str(self.TCMOUTLABEL.text()) + "/" + str(self.TCMOUTFILE.text())
+        comm = comm + " --out " + str(self.TCMOUTLABEL.text())
 
         comm = comm + " --Format " + str(self.TCMGENFORMAT.currentText())
         comm = comm + " --maf " + str(self.TCMMAF.text())

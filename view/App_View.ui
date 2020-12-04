@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>comparison of imputation methods</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="CentralTab">
@@ -40,7 +40,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
@@ -759,7 +759,7 @@
          <rect>
           <x>200</x>
           <y>110</y>
-          <width>113</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -928,7 +928,7 @@
          <rect>
           <x>600</x>
           <y>540</y>
-          <width>151</width>
+          <width>331</width>
           <height>20</height>
          </rect>
         </property>
@@ -1123,7 +1123,7 @@
          <rect>
           <x>990</x>
           <y>80</y>
-          <width>113</width>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -1149,7 +1149,7 @@
          <rect>
           <x>990</x>
           <y>110</y>
-          <width>113</width>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -1175,7 +1175,7 @@
          <rect>
           <x>990</x>
           <y>140</y>
-          <width>113</width>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -1201,7 +1201,7 @@
          <rect>
           <x>990</x>
           <y>170</y>
-          <width>113</width>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -1227,7 +1227,7 @@
          <rect>
           <x>990</x>
           <y>200</y>
-          <width>113</width>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -1253,7 +1253,7 @@
          <rect>
           <x>990</x>
           <y>230</y>
-          <width>113</width>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -1279,7 +1279,7 @@
          <rect>
           <x>990</x>
           <y>260</y>
-          <width>113</width>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -1305,7 +1305,7 @@
          <rect>
           <x>990</x>
           <y>290</y>
-          <width>113</width>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -1331,7 +1331,7 @@
          <rect>
           <x>990</x>
           <y>320</y>
-          <width>113</width>
+          <width>191</width>
           <height>20</height>
          </rect>
         </property>
@@ -5105,7 +5105,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_16">
        <attribute name="title">
@@ -5114,8 +5114,8 @@
        <widget class="QLabel" name="label_25">
         <property name="geometry">
          <rect>
-          <x>700</x>
-          <y>330</y>
+          <x>290</x>
+          <y>620</y>
           <width>47</width>
           <height>13</height>
          </rect>
@@ -5127,7 +5127,7 @@
        <widget class="QComboBox" name="TMTMODEL">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>290</x>
           <y>110</y>
           <width>111</width>
           <height>21</height>
@@ -5166,7 +5166,7 @@
        <widget class="QPushButton" name="TMTGENFILE">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>290</x>
           <y>310</y>
           <width>81</width>
           <height>21</height>
@@ -5182,7 +5182,7 @@
        <widget class="QPushButton" name="TMTID">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>290</x>
           <y>200</y>
           <width>101</width>
           <height>21</height>
@@ -5198,7 +5198,7 @@
        <widget class="QComboBox" name="TMTGENTYPE">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>290</x>
           <y>270</y>
           <width>71</width>
           <height>21</height>
@@ -5221,7 +5221,7 @@
        <widget class="QPushButton" name="TMTGEXP">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>290</x>
           <y>150</y>
           <width>101</width>
           <height>21</height>
@@ -5237,8 +5237,8 @@
        <widget class="QComboBox" name="TMTGENFORMAT">
         <property name="geometry">
          <rect>
-          <x>240</x>
-          <y>370</y>
+          <x>290</x>
+          <y>420</y>
           <width>81</width>
           <height>21</height>
          </rect>
@@ -5260,8 +5260,8 @@
        <widget class="QLabel" name="ThreadLabel_4">
         <property name="geometry">
          <rect>
-          <x>700</x>
-          <y>200</y>
+          <x>290</x>
+          <y>540</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -5276,8 +5276,8 @@
        <widget class="QLabel" name="windowLabel_4">
         <property name="geometry">
          <rect>
-          <x>700</x>
-          <y>240</y>
+          <x>290</x>
+          <y>580</y>
           <width>71</width>
           <height>21</height>
          </rect>
@@ -5292,8 +5292,8 @@
        <widget class="QLabel" name="MafLabel_4">
         <property name="geometry">
          <rect>
-          <x>700</x>
-          <y>120</y>
+          <x>290</x>
+          <y>460</y>
           <width>81</width>
           <height>21</height>
          </rect>
@@ -5308,8 +5308,8 @@
        <widget class="QLabel" name="MafLabel_5">
         <property name="geometry">
          <rect>
-          <x>700</x>
-          <y>160</y>
+          <x>290</x>
+          <y>500</y>
           <width>81</width>
           <height>21</height>
          </rect>
@@ -5324,8 +5324,8 @@
        <widget class="QPushButton" name="TMTOUT">
         <property name="geometry">
          <rect>
-          <x>700</x>
-          <y>270</y>
+          <x>290</x>
+          <y>360</y>
           <width>71</width>
           <height>21</height>
          </rect>
@@ -5423,9 +5423,9 @@
        <widget class="QLabel" name="TMTGEXPLABEL">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>290</x>
           <y>170</y>
-          <width>441</width>
+          <width>961</width>
           <height>20</height>
          </rect>
         </property>
@@ -5436,9 +5436,9 @@
        <widget class="QLabel" name="TMTIDLABEL">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>290</x>
           <y>220</y>
-          <width>431</width>
+          <width>961</width>
           <height>20</height>
          </rect>
         </property>
@@ -5449,9 +5449,9 @@
        <widget class="QLabel" name="TMTGENFILELABEL">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>290</x>
           <y>330</y>
-          <width>441</width>
+          <width>961</width>
           <height>20</height>
          </rect>
         </property>
@@ -5462,9 +5462,9 @@
        <widget class="QLabel" name="TMTOUTLABEL">
         <property name="geometry">
          <rect>
-          <x>700</x>
-          <y>290</y>
-          <width>391</width>
+          <x>290</x>
+          <y>380</y>
+          <width>961</width>
           <height>20</height>
          </rect>
         </property>
@@ -5472,24 +5472,11 @@
          <string>.</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="TMTOUTFILE">
-        <property name="geometry">
-         <rect>
-          <x>1110</x>
-          <y>290</y>
-          <width>131</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Result</string>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="TMTCHR">
         <property name="geometry">
          <rect>
-          <x>790</x>
-          <y>330</y>
+          <x>380</x>
+          <y>620</y>
           <width>131</width>
           <height>21</height>
          </rect>
@@ -5565,7 +5552,7 @@
        <widget class="QLabel" name="TMT_6">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>290</x>
           <y>90</y>
           <width>121</width>
           <height>21</height>
@@ -5581,7 +5568,7 @@
        <widget class="QLabel" name="TMT_7">
         <property name="geometry">
          <rect>
-          <x>240</x>
+          <x>290</x>
           <y>250</y>
           <width>111</width>
           <height>21</height>
@@ -5597,8 +5584,8 @@
        <widget class="QLabel" name="TMTGENFILELABEL_2">
         <property name="geometry">
          <rect>
-          <x>240</x>
-          <y>350</y>
+          <x>290</x>
+          <y>400</y>
           <width>71</width>
           <height>20</height>
          </rect>
@@ -5636,8 +5623,8 @@
        <widget class="QLineEdit" name="TMTMAF">
         <property name="geometry">
          <rect>
-          <x>790</x>
-          <y>120</y>
+          <x>380</x>
+          <y>460</y>
           <width>131</width>
           <height>21</height>
          </rect>
@@ -5649,8 +5636,8 @@
        <widget class="QLineEdit" name="TMTHWE">
         <property name="geometry">
          <rect>
-          <x>790</x>
-          <y>160</y>
+          <x>380</x>
+          <y>500</y>
           <width>131</width>
           <height>21</height>
          </rect>
@@ -5662,8 +5649,8 @@
        <widget class="QLineEdit" name="TMTTHREAD">
         <property name="geometry">
          <rect>
-          <x>790</x>
-          <y>200</y>
+          <x>380</x>
+          <y>540</y>
           <width>131</width>
           <height>21</height>
          </rect>
@@ -5675,27 +5662,14 @@
        <widget class="QLineEdit" name="TMTWINDOW">
         <property name="geometry">
          <rect>
-          <x>790</x>
-          <y>240</y>
+          <x>380</x>
+          <y>580</y>
           <width>131</width>
           <height>21</height>
          </rect>
         </property>
         <property name="text">
          <string>1000000</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="MPXPHENLABEL_20">
-        <property name="geometry">
-         <rect>
-          <x>1100</x>
-          <y>290</y>
-          <width>16</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>/</string>
         </property>
        </widget>
       </widget>
@@ -5707,7 +5681,7 @@
         <property name="geometry">
          <rect>
           <x>660</x>
-          <y>330</y>
+          <y>540</y>
           <width>51</width>
           <height>16</height>
          </rect>
@@ -5755,7 +5729,7 @@
         <property name="geometry">
          <rect>
           <x>660</x>
-          <y>290</y>
+          <y>500</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -5771,7 +5745,7 @@
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>370</y>
+          <y>610</y>
           <width>71</width>
           <height>21</height>
          </rect>
@@ -5833,7 +5807,7 @@
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>310</y>
+          <y>550</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -5855,8 +5829,8 @@
        <widget class="QPushButton" name="TGRGEN">
         <property name="geometry">
          <rect>
-          <x>660</x>
-          <y>120</y>
+          <x>30</x>
+          <y>280</y>
           <width>101</width>
           <height>21</height>
          </rect>
@@ -5871,8 +5845,8 @@
        <widget class="QPushButton" name="TGRID">
         <property name="geometry">
          <rect>
-          <x>660</x>
-          <y>230</y>
+          <x>30</x>
+          <y>390</y>
           <width>141</width>
           <height>21</height>
          </rect>
@@ -5889,7 +5863,7 @@
          <rect>
           <x>30</x>
           <y>190</y>
-          <width>611</width>
+          <width>1231</width>
           <height>20</height>
          </rect>
         </property>
@@ -5902,7 +5876,7 @@
          <rect>
           <x>30</x>
           <y>249</y>
-          <width>591</width>
+          <width>1221</width>
           <height>21</height>
          </rect>
         </property>
@@ -5913,9 +5887,9 @@
        <widget class="QLabel" name="TGRGENLABEL">
         <property name="geometry">
          <rect>
-          <x>660</x>
-          <y>140</y>
-          <width>601</width>
+          <x>30</x>
+          <y>300</y>
+          <width>1221</width>
           <height>20</height>
          </rect>
         </property>
@@ -5926,9 +5900,9 @@
        <widget class="QLabel" name="TGRIDLABEL">
         <property name="geometry">
          <rect>
-          <x>660</x>
-          <y>260</y>
-          <width>591</width>
+          <x>30</x>
+          <y>420</y>
+          <width>1221</width>
           <height>20</height>
          </rect>
         </property>
@@ -5936,24 +5910,11 @@
          <string>REQUIRED</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="TGROUTFILE">
-        <property name="geometry">
-         <rect>
-          <x>1120</x>
-          <y>200</y>
-          <width>131</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Result</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="TGROUT">
         <property name="geometry">
          <rect>
-          <x>660</x>
-          <y>170</y>
+          <x>30</x>
+          <y>330</y>
           <width>91</width>
           <height>21</height>
          </rect>
@@ -5968,9 +5929,9 @@
        <widget class="QLabel" name="TGROUTLABEL">
         <property name="geometry">
          <rect>
-          <x>660</x>
-          <y>200</y>
-          <width>441</width>
+          <x>30</x>
+          <y>360</y>
+          <width>1221</width>
           <height>20</height>
          </rect>
         </property>
@@ -5982,7 +5943,7 @@
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>290</y>
+          <y>530</y>
           <width>101</width>
           <height>21</height>
          </rect>
@@ -5998,7 +5959,7 @@
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>350</y>
+          <y>590</y>
           <width>71</width>
           <height>20</height>
          </rect>
@@ -6023,24 +5984,11 @@
          <string>--model</string>
         </property>
        </widget>
-       <widget class="QLabel" name="MPXPHENLABEL_21">
-        <property name="geometry">
-         <rect>
-          <x>1110</x>
-          <y>200</y>
-          <width>16</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>/</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="ThreadLabel_6">
         <property name="geometry">
          <rect>
           <x>660</x>
-          <y>370</y>
+          <y>580</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -6056,7 +6004,7 @@
         <property name="geometry">
          <rect>
           <x>750</x>
-          <y>370</y>
+          <y>580</y>
           <width>131</width>
           <height>21</height>
          </rect>
@@ -6069,7 +6017,7 @@
         <property name="geometry">
          <rect>
           <x>750</x>
-          <y>410</y>
+          <y>620</y>
           <width>131</width>
           <height>21</height>
          </rect>
@@ -6082,7 +6030,7 @@
         <property name="geometry">
          <rect>
           <x>750</x>
-          <y>330</y>
+          <y>540</y>
           <width>131</width>
           <height>21</height>
          </rect>
@@ -6095,7 +6043,7 @@
         <property name="geometry">
          <rect>
           <x>660</x>
-          <y>410</y>
+          <y>620</y>
           <width>71</width>
           <height>21</height>
          </rect>
@@ -6111,7 +6059,7 @@
         <property name="geometry">
          <rect>
           <x>750</x>
-          <y>290</y>
+          <y>500</y>
           <width>131</width>
           <height>21</height>
          </rect>
@@ -6336,7 +6284,7 @@
          <rect>
           <x>20</x>
           <y>180</y>
-          <width>741</width>
+          <width>1171</width>
           <height>20</height>
          </rect>
         </property>
@@ -6409,19 +6357,6 @@
          <string>REQUIRED</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="TTWOUTFILE">
-        <property name="geometry">
-         <rect>
-          <x>630</x>
-          <y>130</y>
-          <width>131</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>result</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="TTWOUT">
         <property name="geometry">
          <rect>
@@ -6443,7 +6378,7 @@
          <rect>
           <x>30</x>
           <y>130</y>
-          <width>581</width>
+          <width>1141</width>
           <height>20</height>
          </rect>
         </property>
@@ -6491,19 +6426,6 @@
         </property>
         <property name="text">
          <string>--method</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="MPXPHENLABEL_23">
-        <property name="geometry">
-         <rect>
-          <x>620</x>
-          <y>130</y>
-          <width>16</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>/</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="TTWTHREAD">
@@ -6715,19 +6637,6 @@
          <string>REQUIRED</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="TCMOUTFILE">
-        <property name="geometry">
-         <rect>
-          <x>930</x>
-          <y>210</y>
-          <width>131</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>RESULT</string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="TCMOUT">
         <property name="geometry">
          <rect>
@@ -6771,19 +6680,6 @@
         </property>
         <property name="text">
          <string>--genofile_type</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="MPXPHENLABEL_24">
-        <property name="geometry">
-         <rect>
-          <x>910</x>
-          <y>210</y>
-          <width>16</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>/</string>
         </property>
        </widget>
        <widget class="QLabel" name="MafLabel_9">

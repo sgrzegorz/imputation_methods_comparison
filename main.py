@@ -676,7 +676,7 @@ class Ui(QtWidgets.QMainWindow):
         if (self.TTWASSOC.currentText() == "2"):
             comm = comm + " --Weight " + str(self.TTWWEIGHTLABEL.text())
             comm = comm + " --Covar " + str(self.TTWCOVARLABEL.text())
-            comm = comm + " --Zscore" + str(self.TTWZSCORELABEL.text())
+            comm = comm + " --Zscore " + str(self.TTWZSCORELABEL.text())
             comm = comm + " --window " + str(self.TTWWINDOW.text())
             comm = comm + " --chr " + str(self.TTWCHR.text())
 
@@ -711,7 +711,7 @@ class Ui(QtWidgets.QMainWindow):
         self.TCMMAF = self.findChild(QtWidgets.QLineEdit, 'TCMMAF')
 
     def validateTCM(self):
-        comm = "./TIGAR_Covar.sh "
+        comm = "./TWAS/Covar/TIGAR_Covar.sh "
         comm = comm + " --block " + str(self.TCMBLOCKLABEL.text())
         comm = comm + " --genofile " + str(self.TCMGENFILELABEL.text())
         comm = comm + " --out " + str(self.TCMOUTLABEL.text())
@@ -1479,7 +1479,7 @@ class Ui(QtWidgets.QMainWindow):
     def runTCM(self):
         command = self.validateTCM()
         print(command)
-        cwd = './methods/TIGAR/TWAS/Covar'
+        cwd = TIGAR_DIR
 
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)

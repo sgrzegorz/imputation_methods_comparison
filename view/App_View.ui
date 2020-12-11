@@ -3691,7 +3691,7 @@
          <rect>
           <x>380</x>
           <y>110</y>
-          <width>71</width>
+          <width>111</width>
           <height>17</height>
          </rect>
         </property>
@@ -3756,7 +3756,7 @@
          <rect>
           <x>380</x>
           <y>150</y>
-          <width>71</width>
+          <width>101</width>
           <height>17</height>
          </rect>
         </property>
@@ -3769,7 +3769,7 @@
          <rect>
           <x>380</x>
           <y>190</y>
-          <width>81</width>
+          <width>111</width>
           <height>17</height>
          </rect>
         </property>
@@ -3975,7 +3975,7 @@
        <widget class="QLineEdit" name="FCWCROSSVAL">
         <property name="geometry">
          <rect>
-          <x>440</x>
+          <x>460</x>
           <y>250</y>
           <width>113</width>
           <height>20</height>
@@ -3988,7 +3988,7 @@
        <widget class="QLineEdit" name="FCWHSQP">
         <property name="geometry">
          <rect>
-          <x>440</x>
+          <x>460</x>
           <y>310</y>
           <width>113</width>
           <height>20</height>
@@ -4001,7 +4001,7 @@
        <widget class="QLineEdit" name="FCWHSQSET">
         <property name="geometry">
          <rect>
-          <x>440</x>
+          <x>460</x>
           <y>370</y>
           <width>113</width>
           <height>20</height>
@@ -5105,7 +5105,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_16">
        <attribute name="title">
@@ -5223,7 +5223,7 @@
          <rect>
           <x>290</x>
           <y>150</y>
-          <width>101</width>
+          <width>111</width>
           <height>21</height>
          </rect>
         </property>
@@ -6616,7 +6616,7 @@
          <rect>
           <x>120</x>
           <y>110</y>
-          <width>251</width>
+          <width>1081</width>
           <height>20</height>
          </rect>
         </property>
@@ -6629,7 +6629,7 @@
          <rect>
           <x>120</x>
           <y>160</y>
-          <width>251</width>
+          <width>1081</width>
           <height>20</height>
          </rect>
         </property>
@@ -6641,7 +6641,7 @@
         <property name="geometry">
          <rect>
           <x>120</x>
-          <y>180</y>
+          <y>190</y>
           <width>81</width>
           <height>21</height>
          </rect>
@@ -6658,7 +6658,7 @@
          <rect>
           <x>120</x>
           <y>210</y>
-          <width>761</width>
+          <width>1101</width>
           <height>20</height>
          </rect>
         </property>

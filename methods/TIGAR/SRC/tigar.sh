@@ -87,6 +87,20 @@ out_prefix=${output}/DPR_CHR1
 --out ${out_prefix}
 
 
+#-------------------------- Generate Reference Covariance File -----------------------------------
+echo Generate Reference Covariance File
+
+block=${input}/block_annotation_EUR.txt
+genofile=${input}/Genotype/example.vcf.gz
+out_prefix=${output}
+
+./TWAS/Covar/TIGAR_Covar.sh --block ${block} \
+--genofile_type vcf --genofile ${genofile} \
+--chr 1 \
+--Format GT \
+--out ${out_prefix}
+
+
 #------------ Type Two Association Study -----------------------------------
 echo Type Two Association Study
 
@@ -100,20 +114,4 @@ out_prefix=${output}/DPR_CHR1
 --Gene_Exp ${Gene_Exp_path} \
 --Zscore ${Zscore} --Weight ${Weight} --Covar ${Covar} --chr 1 \
 --out ${out_prefix}
-
-
-
-####################################################### Generate Reference Covariance File ##########################################################
-echo Generate Reference Covariance File
-
-block=${input}/block_annotation_EUR.txt
-genofile=${input}/Genotype/example.vcf.gz
-out_prefix=${output}
-
-./TWAS/Covar/TIGAR_Covar.sh --block ${block} \
---genofile_type vcf --genofile ${genofile} \
---chr 1 \
---Format GT \
---out ${out_prefix}
-
 

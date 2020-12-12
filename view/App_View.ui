@@ -753,6 +753,9 @@
             <height>211</height>
            </rect>
           </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
           <property name="plainText">
            <string>--model_db_path: path to a sqlite file containing prediction models
 --model_db_snp_key: optional. If provided, will load variant ids from an alternative column in the db. By default, PrediXcan uses rsids, and this works with Elastic Net models. For the more sophisticated MASHR models, --model_db_snp_key varID must be specified with this argument.
@@ -1459,6 +1462,9 @@
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>--model_db_path: Path to the sqlite file holding transcriptome model information
 --model_db_snp_key: key to use as snp_id
@@ -2117,6 +2123,9 @@
           <width>1251</width>
           <height>211</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
         <property name="plainText">
          <string>--hdf5_expression_folder: Folder with predicted gene expressions. (HDF5 format)
@@ -3107,6 +3116,9 @@
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>--cleared_snps: SNPS to analyze. If you don't provide this, you must provide GWAS and models.
 --models_folder: Path to folder with prediction models
@@ -3625,6 +3637,9 @@
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>-by_region_file: If provided, run imputation grouping by regions. Much faster.
 -parquet_genotype: Parquet Genotype file
@@ -3888,6 +3903,9 @@
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>--gwas_file: GWAS file. For the moment, uniform-formatted hg38-based files are accepted
 --folder: How far to extend in each direction when searching for variants
@@ -3928,7 +3946,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
@@ -4438,6 +4456,9 @@
           <width>1251</width>
           <height>211</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
         <property name="plainText">
          <string>--bfile	Path to PLINK binary input file prefix (minus bed/bim/fam)	required
@@ -4949,6 +4970,9 @@ top1	Single best eQTL.</string>
           <width>1251</width>
           <height>211</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
         <property name="plainText">
          <string>--chr	Chromosome to analyze	required
@@ -5547,6 +5571,9 @@ top1	Single best eQTL.</string>
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>--chr	Chromosome to analyze	required
 --input	Path to TWAS test output	required
@@ -5589,7 +5616,7 @@ top1	Single best eQTL.</string>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab_16">
        <attribute name="title">
@@ -6178,6 +6205,9 @@ top1	Single best eQTL.</string>
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>• model : elastic_net or DPR. Training imputation model for transcriptomic data.
 – elastic_net : Elastic-Net Regression Model
@@ -6656,6 +6686,9 @@ components in mixture prior.
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>• model : elastic_net or DPR. Training imputation model used for transcriptomic
 data.
@@ -7110,6 +7143,9 @@ Calculation and GReX Prediction. TIGAR will select snps with difference less tha
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>• asso : 1 or 2. Method of association study.
 • thread : Number of thread for multiprocessing with default 1.
@@ -7401,6 +7437,9 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>• block : Genome block annotation file.
 • genofile_type : vcf or dosages.
@@ -7459,6 +7498,9 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
           <width>1171</width>
           <height>621</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
        </widget>
       </widget>
@@ -7561,7 +7603,7 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <rect>
           <x>470</x>
           <y>400</y>
-          <width>291</width>
+          <width>471</width>
           <height>16</height>
          </rect>
         </property>
@@ -7669,7 +7711,7 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
        <widget class="QLineEdit" name="PLT2OUTFILE">
         <property name="geometry">
          <rect>
-          <x>880</x>
+          <x>950</x>
           <y>400</y>
           <width>191</width>
           <height>20</height>
@@ -7697,7 +7739,7 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <rect>
           <x>360</x>
           <y>80</y>
-          <width>121</width>
+          <width>561</width>
           <height>16</height>
          </rect>
         </property>
@@ -7721,7 +7763,7 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
        <widget class="QLineEdit" name="PLT1OUTFILE">
         <property name="geometry">
          <rect>
-          <x>600</x>
+          <x>940</x>
           <y>80</y>
           <width>201</width>
           <height>20</height>
@@ -7734,7 +7776,7 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
        <widget class="QLabel" name="MPXPHENLABEL_29">
         <property name="geometry">
          <rect>
-          <x>590</x>
+          <x>930</x>
           <y>80</y>
           <width>20</width>
           <height>20</height>
@@ -7749,7 +7791,7 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <rect>
           <x>470</x>
           <y>340</y>
-          <width>661</width>
+          <width>791</width>
           <height>16</height>
          </rect>
         </property>
@@ -7839,7 +7881,7 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <rect>
           <x>360</x>
           <y>40</y>
-          <width>381</width>
+          <width>901</width>
           <height>16</height>
          </rect>
         </property>
@@ -7852,12 +7894,25 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <rect>
           <x>350</x>
           <y>630</y>
-          <width>431</width>
+          <width>901</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="MPXPHENLABEL_32">
+        <property name="geometry">
+         <rect>
+          <x>940</x>
+          <y>400</y>
+          <width>20</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/</string>
         </property>
        </widget>
       </widget>

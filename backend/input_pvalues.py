@@ -13,11 +13,9 @@ def input_pvalues(GWAS_PATH,OUTPUT_PATH):
     gwas = pd.read_csv(GWAS_PATH, usecols=columns, dtype=dtypes,sep='\t', header=(0))
     gwas.columns = ['rs', 'p_value']
 
-    # gwas = pd.read_csv('fusion01_wyniki.sumstats.gz',compression='gzip', sep='\t', header=(0))
-    # gwas = gwas.sort_values('hm_rsid')
     print('Converting snps from input GWAS file')
     gwas_rs = set(gwas.rs)
-    gwas = dict(zip(gwas.rs, gwas.p_value))  # dictionary get() has complexity O(1)
+    gwas = dict(zip(gwas.rs, gwas.p_value))  
 
     def get_min_pvalue(gwas,current_gene,RS):
         min_pvalue = math.inf
@@ -38,26 +36,25 @@ def input_pvalues(GWAS_PATH,OUTPUT_PATH):
 
 
     print('Main loop starts')
-    GENES = set()  # nazwy_genów
-    RS = {} # rs['nazwa_genu] = { zbiór wszystkich rs przyporządkowanych danemu genowi}
+    GENES = set() 
+    RS = {} 
     MIN_PVALUES = {}
     GENES.add('INITIAL')
     RS['INITIAL']=set()
     len(g_reference)
-    current_gene ='INITIAL'  # nazwa poprzedniego genu
+    current_gene ='INITIAL'  
     for i, (g_gene,g_rs) in g_reference.iterrows():
 
-        if current_gene !=g_gene: # zmienil sie gen
-            RS[current_gene] = gwas_rs.intersection(RS[current_gene]) # wez przeciecie rs-ow
+        if current_gene !=g_gene: 
+            RS[current_gene] = gwas_rs.intersection(RS[current_gene]) 
 
-            if len(RS[current_gene]) ==0: # jesli przeciecie jest puste gen nas nie interesuje wiec zapomnij go
+            if len(RS[current_gene]) ==0: 
                 GENES.remove(current_gene)
                 RS.pop(current_gene)
             else:
                 MIN_PVALUES[current_gene] =get_min_pvalue(gwas, current_gene,RS)
             current_gene = g_gene
 
-        # iterujac po wierszach pliku gwas reference przyporzadkowuj kazdej nazwie genu wszystkie jego rs
         GENES.add(g_gene)
         if g_gene in RS:
             RS[g_gene].add(g_rs)
@@ -66,7 +63,7 @@ def input_pvalues(GWAS_PATH,OUTPUT_PATH):
             RS[g_gene].add(g_rs)
 
         if i%3000000==0:
-            print(f'{math.floor(i/g_rows_count*100)}%') # print progress in percents
+            print(f'{math.floor(i/g_rows_count*100)}%') 
 
     with open(OUTPUT_PATH, 'w+') as csvfile:
         writer = csv.writer(csvfile, delimiter='\t')
@@ -81,8 +78,6 @@ def input_pvalues(GWAS_PATH,OUTPUT_PATH):
 
 
 if __name__ =='__main__':
-    # GWAS_PATH='/home/x/DEVELOPER1/WORK/inzynierka/DATA/GWAS/27989323-GCST004430-EFO_0008173.h.tsv'
-    # OUTPUT_PATH =f'{ROOT_DIR}/output/pvalues_input.csv'
 
     GWAS_PATH = sys.argv[1]
     OUTPUT_PATH = sys.argv[2]

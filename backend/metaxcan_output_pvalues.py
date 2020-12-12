@@ -19,9 +19,8 @@ def metaxcan_output_pvalues(before,after,output):
 
 
     for index, (gene,min_pvalue) in before.iterrows():
-        for id in after.gene_name:  # TOP3B'
-            if id == gene:      #TODO: co jak ten if zachodzi kilkukrotnie dla jednego id?
-                # after['before_pvalue'] =
+        for id in after.gene_name:  
+            if id == gene:     
                 after.loc[after.gene_name == id, 'before_pvalue'] = min_pvalue
         pass
         if index%1000==0:
@@ -43,9 +42,6 @@ def metaxcan_output_pvalues(before,after,output):
     print('Finished, all other saved to file')
 
 if __name__ =='__main__':
-    # before=f'{ROOT_DIR}/output/pvalues_input.csv'
-    # after=f'{ROOT_DIR}/methods/METAXCAN/OUTPUT/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv'
-    # output=f'{ROOT_DIR}/output/metaxcan_before_after.csv'
 
     before = sys.argv[1]
     after = sys.argv[2]

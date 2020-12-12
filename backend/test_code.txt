@@ -1,0 +1,27 @@
+def test_fusion(): #for testing purposes only
+    command ='Rscript ./FUSION.assoc_test.R --sumstats ./OUTPUT/result.sumstats --weights ./INPUT/input1/WEIGHTS/GTEx.Whole_Blood.pos --weights_dir ./INPUT/input1/WEIGHTS/ --ref_ld_chr ./LDREF/1000G.EUR. --chr 22 --out ./OUTPUT/PGC2.SCZ.22.dat'
+    cwd = "/home/x/DEVELOPER1/WORK/inzynierka/imputation_methods_comparison/methods/FUSION"
+    method_name = 'fusion'
+    FILE = getOutputPath(method_name)
+    process = subprocess.Popen(command, shell=True, cwd=cwd)
+    observer = Thread(target=observe_process, args=(process.pid,FILE,))
+    observer.start()
+    observer.join()
+    print('observer joined')
+    print_rss_chart(FILE)
+    print_cpu_chart(FILE)
+    print_write_read_operations_chart(FILE)
+
+def test_predixcan(): #for testing purposes only
+    command = './PrediXcan.py --predict --assoc --linear --weights weights/TW_Cells_EBV-transformed_lymphocytes_0.5.db --dosages genotype --samples samples.txt --pheno phenotype/igrowth.txt --output_prefix ./OUTPUT/Cells_EBV-transformed_lymphocytes'
+    cwd ="/home/x/DEVELOPER1/WORK/inzynierka/imputation_methods_comparison/methods/PREDIXCAN"
+    method_name = 'predixcan'
+    FILE = getOutputPath(method_name)
+    process = subprocess.Popen(command, shell=True, cwd=cwd)
+    observer = Thread(target=observe_process, args=(process.pid,FILE,))
+    observer.start()
+    observer.join()
+    print('observer joined')
+    print_rss_chart(FILE)
+    print_cpu_chart(FILE)
+    print_write_read_operations_chart(FILE)

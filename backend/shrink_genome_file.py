@@ -8,7 +8,7 @@ reader = vcfpy.Reader.from_path('../methods/00-common_all.vcf')
 genes = []
 rs = []
 
-for i,record in enumerate(reader): #iteruj po wierszach vcf-a
+for i,record in enumerate(reader): 
     try:
         gene_infos = record.INFO['GENEINFO']
     except KeyError:
@@ -20,11 +20,7 @@ for i,record in enumerate(reader): #iteruj po wierszach vcf-a
         rs.append(record.ID[0])
 
     if i%3000000==0:
-        print(f'{i/37303035*100}%') # print progress in percents
-
-    # if i==1000:
-    #     break
-
+        print(f'{i/37303035*100}%') 
 print('Sort two arrays together')
 zipped_lists = zip(genes, rs)
 sorted_pairs = sorted(zipped_lists)

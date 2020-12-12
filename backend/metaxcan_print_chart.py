@@ -2,12 +2,7 @@ import math
 from PyQt5 import QtCore, QtWidgets, QtWebEngineWidgets
 import plotly.express as px
 import pandas as pd
-# df = px.data.tips()
-# fig = px.histogram(df, x="total_bill")
-#from definitions import ROOT_DIR
 import sys
-
-
 
 
 class Widget(QtWidgets.QWidget):
@@ -22,7 +17,6 @@ class Widget(QtWidgets.QWidget):
         self.show_graph()
 
     def show_graph(self):
-        # chart_file=f'{ROOT_DIR}/output/metaxcan_before_after.csv'
         chart_file=sys.argv[1]
         columns = ["gene","before","after"]
         dtypes ={"gene": str,"before":float,"after":float}

@@ -28,7 +28,7 @@ def _stats_with_children(process,writer):
     try:
         rss = process.memory_full_info().rss
         swap = process.memory_full_info().swap
-       cpu =process.cpu_percent(interval=0.1)
+        cpu =process.cpu_percent(interval=0.1)
         user  =process.cpu_times().user
         system = process.cpu_times().system
         read_bytes = process.io_counters().read_bytes
@@ -86,4 +86,4 @@ def observe_imputation_process(pid,method_name):
 if __name__ == "__main__":
 
 
-
+    pass

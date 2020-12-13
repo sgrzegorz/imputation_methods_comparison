@@ -1,9 +1,7 @@
 import csv
-
 import vcfpy
-from definitions import ROOT_DIR
 
-reader = vcfpy.Reader.from_path('../methods/00-common_all.vcf')
+reader = vcfpy.Reader.from_path('00-common_all.vcf')
 
 genes = []
 rs = []
@@ -28,7 +26,7 @@ tuples = zip(*sorted_pairs)
 genes, rs = [ list(tuple) for tuple in  tuples]
 
 
-with open(f'{ROOT_DIR}/methods/gene_snp_mapping1.csvfile', 'w+') as csvfile:
+with open(f'gene_snp_mapping1.csvfile', 'w+') as csvfile:
     writer = csv.writer(csvfile, delimiter='\t')
     writer.writerow(("gene", "snp"))
     for i in range(len(genes)):

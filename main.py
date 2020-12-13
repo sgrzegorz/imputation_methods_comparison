@@ -1384,10 +1384,7 @@ class Ui(QtWidgets.QMainWindow):
 
         self.process.start('/bin/bash', ['script.sh'])
         monitor.observe_imputation_process(self.process.pid(), 'smultixcan')
-        # monitor.execute(command,cwd)
-        # monitor.print_cpu_chart()
-        # monitor.print_write_read_operations_chart()
-        # monitor.print_rss_chart()
+
 
     def runMUL(self):
         command = self.validateMUL()
@@ -1405,10 +1402,6 @@ class Ui(QtWidgets.QMainWindow):
         monitor.observe_imputation_process(self.process.pid(), 'multixcan')
 
 
-        # monitor.execute(self, command, cwd)
-        # monitor.print_cpu_chart()
-        # monitor.print_write_read_operations_chart()
-        # monitor.print_rss_chart()
 
     def runMSP(self):
         command = self.validateMSP()
@@ -1425,10 +1418,7 @@ class Ui(QtWidgets.QMainWindow):
 
         self.process.start('/bin/bash', ['script.sh'])
         monitor.observe_imputation_process(self.process.pid(), 'spredixcan')
-        # monitor.execute(self,command, cwd)
-        # monitor.print_cpu_chart()
-        # monitor.print_write_read_operations_chart()
-        # monitor.print_rss_chart()
+
 
     def runMPX(self):
 
@@ -1485,7 +1475,7 @@ class Ui(QtWidgets.QMainWindow):
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
         with open('script.sh', 'w+') as file:
-            self.write_intro_to_script(file, 'inzynierka')
+            self.write_intro_to_script(file, 'tigar')
             file.write(f'cd {cwd}\n')
             file.write(command+'\n')
             file.write('echo "**Finished**"\n')
@@ -1495,10 +1485,6 @@ class Ui(QtWidgets.QMainWindow):
         monitor.observe_imputation_process(self.process.pid(), 'tigar_cov_matrix')
 
 
-        # monitor.print_cpu_chart()
-        # monitor.print_write_read_operations_chart()
-        # monitor.print_rss_chart()
-
     def runTTW(self):
         command = self.validateTTW()
         print(command)
@@ -1507,7 +1493,7 @@ class Ui(QtWidgets.QMainWindow):
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
         with open('script.sh', 'w+') as file:
-            self.write_intro_to_script(file, 'inzynierka')
+            self.write_intro_to_script(file, 'tigar')
             file.write(f'cd {cwd}\n')
             file.write(command+'\n')
             file.write('echo "**Finished**"\n')
@@ -1517,10 +1503,6 @@ class Ui(QtWidgets.QMainWindow):
         monitor.observe_imputation_process(self.process.pid(), 'tigar_twas')
 
 
-        # monitor.execute(self,command, cwd)
-        # monitor.print_cpu_chart()
-        # monitor.print_write_read_operations_chart()
-        # monitor.print_rss_chart()
 
     def runTGR(self):
         command = self.validateTGR()
@@ -1530,7 +1512,7 @@ class Ui(QtWidgets.QMainWindow):
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
         with open('script.sh', 'w+') as file:
-            self.write_intro_to_script(file, 'inzynierka')
+            self.write_intro_to_script(file, 'tigar')
             file.write(f'cd {cwd}\n')
             file.write(command+'\n')
             file.write('echo "**Finished**"\n')
@@ -1540,11 +1522,6 @@ class Ui(QtWidgets.QMainWindow):
         monitor.observe_imputation_process(self.process.pid(), 'tigar_grex')
 
 
-        # monitor.execute(self,command, cwd)
-        # monitor.print_cpu_chart()
-        # monitor.print_write_read_operations_chart()
-        # monitor.print_rss_chart()
-
     def runTMT(self):
         command = self.validateTMT()
         print(command)
@@ -1553,7 +1530,7 @@ class Ui(QtWidgets.QMainWindow):
         self.runCancel()
         self.CONSSCREEN.appendPlainText(command)
         with open('script.sh', 'w+') as file:
-            self.write_intro_to_script(file, 'inzynierka')
+            self.write_intro_to_script(file, 'tigar')
             file.write(f'cd {cwd}\n')
             file.write(command+'\n')
             file.write('echo "**Finished**"\n')
@@ -1561,10 +1538,7 @@ class Ui(QtWidgets.QMainWindow):
         self.process.start('/bin/bash', ['script.sh'])
 
         monitor.observe_imputation_process(self.process.pid(), 'tigar_train')
-        # monitor.execute(self,command, cwd)
-        # monitor.print_cpu_chart()
-        # monitor.print_write_read_operations_chart()
-        # monitor.print_rss_chart()
+
 
     def run_FAT(self):
 
@@ -1578,10 +1552,6 @@ class Ui(QtWidgets.QMainWindow):
         self.process.start(command)
         monitor.observe_imputation_process(self.process.pid(), 'fusion_assoc')
 
-        # monitor.execute(self,command, cwd)
-        # monitor.print_cpu_chart()
-        # monitor.print_write_read_operations_chart()
-        # monitor.print_rss_chart()
 
     def run_FCW(self):
 
@@ -1594,11 +1564,6 @@ class Ui(QtWidgets.QMainWindow):
         self.process.setWorkingDirectory(cwd)
         self.process.start(command)
         monitor.observe_imputation_process(self.process.pid(), 'fusion_comp_weights')
-        # monitor.execute(command, cwd)
-
-        # monitor.print_cpu_chart()
-        # monitor.print_write_read_operations_chart()
-        # monitor.print_rss_chart()
 
     def run_FPP(self):
 
@@ -1612,9 +1577,6 @@ class Ui(QtWidgets.QMainWindow):
         self.process.start(command)
         monitor.observe_imputation_process(self.process.pid(),'fusion_post_process')
 
-        # monitor.print_cpu_chart()
-        # monitor.print_write_read_operations_chart()
-        # monitor.print_rss_chart()
 
     def runPLT1(self):
         self.runCancel()
@@ -1623,7 +1585,7 @@ class Ui(QtWidgets.QMainWindow):
         OUTPUT_PATH =f'{self.PLT1OUTLABEL.text()}/{self.PLT1OUTFILE.text()}'
 
         with open('script.sh', 'w+') as file:
-            self.write_intro_to_script(file, 'inzynierka')
+            self.write_intro_to_script(file, 'main')
             file.write(f'python {ROOT_DIR}/backend/input_pvalues.py {GWAS_PATH} {OUTPUT_PATH}')
 
         self.process.start('/bin/bash', ['script.sh'])
@@ -1633,7 +1595,7 @@ class Ui(QtWidgets.QMainWindow):
 
         with open('script.sh', 'w+') as file:
             method = self.PLT2METHOD.currentText()
-            self.write_intro_to_script(file,'inzynierka')
+            self.write_intro_to_script(file,'main')
 
             before =self.PLT2STEPFILELABEL.text()
             after = self.PLT2RESULTSLABEL.text()
@@ -1664,7 +1626,7 @@ class Ui(QtWidgets.QMainWindow):
 
 
         with open('script.sh', 'w+') as file:
-            self.write_intro_to_script(file, 'imc')
+            self.write_intro_to_script(file, 'main')
             file.write(f'python {ROOT_DIR}/backend/{method}_print_chart.py {self.PLT3FILELABEL.text()}')
 
         self.process.start('/bin/bash', ['script.sh'])

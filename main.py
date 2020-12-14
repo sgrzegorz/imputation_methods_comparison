@@ -938,9 +938,9 @@ class Ui(QtWidgets.QMainWindow):
             comm = comm + " --output " + str(self.MSPOUTLABEL.text()) + "/" + str(self.MSPOUTFILE.text())
             comm = comm + " --verbosity " + str(self.MSPVER.text())
             if (self.MSPTHROW.isChecked()):
-                comm = comm + " --keep_non_rsid "
-            if (self.MSPKEEP.isChecked()):
                 comm = comm + " --throw "
+            if (self.MSPKEEP.isChecked()):
+                comm = comm + " --keep_non_rsid "
             if (str(self.MSPSNP.text()) not in [""]):
                 comm = comm + " --snp_column " + str(self.MSPSNP.text())
             if (str(self.MSPEFF.text()) not in [""]):

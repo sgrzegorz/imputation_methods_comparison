@@ -52,7 +52,8 @@ python $METAXCAN/SPrediXcan.py \
 --snp_column panel_variant_id --effect_allele_column effect_allele --non_effect_allele_column non_effect_allele --zscore_column zscore \
 --model_db_path ${input}/models/eqtl/mashr/mashr_Whole_Blood.db \
 --covariance ${input}/models/eqtl/mashr/mashr_Whole_Blood.txt.gz \
---keep_non_rsid --additional_output --model_db_snp_key varID \
+--keep_non_rsid --additional_output \
+--model_db_snp_key varID \
 --throw \
 --output_file ${output}/spredixcan/eqtl/CARDIoGRAM_C4D_CAD_ADDITIVE__PM__Whole_Blood.csv
 

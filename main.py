@@ -908,7 +908,7 @@ class Ui(QtWidgets.QMainWindow):
         self.MSPADDITIONAL = self.findChild(QtWidgets.QCheckBox, 'MSPADDITIONAL')
         self.MSPSTREAM = self.findChild(QtWidgets.QCheckBox, 'MSPSTREAM')
         self.MSPTHROW = self.findChild(QtWidgets.QCheckBox, 'MSPTHROW')
-        
+        self.MSPKEEP = self.findChild(QtWidgets.QCheckBox, 'MSPKEEP')
 
     def validateMSP(self):
             comm = "./SPrediXcan.py "
@@ -938,6 +938,8 @@ class Ui(QtWidgets.QMainWindow):
             comm = comm + " --output " + str(self.MSPOUTLABEL.text()) + "/" + str(self.MSPOUTFILE.text())
             comm = comm + " --verbosity " + str(self.MSPVER.text())
             if (self.MSPTHROW.isChecked()):
+                comm = comm + " --keep_non_rsid "
+            if (self.MSPKEEP.isChecked()):
                 comm = comm + " --throw "
             if (str(self.MSPSNP.text()) not in [""]):
                 comm = comm + " --snp_column " + str(self.MSPSNP.text())

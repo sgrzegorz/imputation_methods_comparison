@@ -1016,12 +1016,15 @@
          <rect>
           <x>30</x>
           <y>380</y>
-          <width>551</width>
+          <width>521</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>results</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="MSPOUT">
@@ -1478,6 +1481,7 @@
 --overwrite: Overwrite the resulting file if it already exists.	
 --additional_output: If set, will output additional information.
 --throw: Option to throw exception on error. I.E. output a full stack trace in case of error.
+--keep_non_rsid: Keep non-rsid snps
 --stream_covariance: Option to better handle large covariances, slower but less memory consuming
 --verbosity: Controls logging verbosity. The lower value, the more logging you will get. In general, 5 is logging at individual SNP data level, and 10 is usually critical/status logic information. So, this is more of a -log parsimony- thing.
 --MAX_R: Run only for the first R genes
@@ -1516,6 +1520,19 @@
         </property>
         <property name="text">
          <string>/</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="MSPKEEP">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>190</y>
+          <width>161</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>--keep_non_rsid</string>
         </property>
        </widget>
       </widget>

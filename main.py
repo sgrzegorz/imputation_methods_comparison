@@ -63,7 +63,7 @@ class PVWidget(QtWidgets.QWidget):
             self.browser.setHtml("there was a problem with file or label, check the list")
 
 
-class Widget(QtWidgets.QWidget):
+class PERFWidget(QtWidgets.QWidget):
     def __init__(self, files, labels, parent=None):
         super().__init__(parent)
         self.browser = QtWebEngineWidgets.QWebEngineView(self)
@@ -233,7 +233,7 @@ class Ui(QtWidgets.QMainWindow):
     def RUNPERF(self):
         files = self.paths
         labels = [str(self.PERFLABELS.item(i).text()) for i in range(self.PERFLABELS.count())]
-        self.widget = Widget(files, labels)
+        self.widget = PERFWidget(files, labels)
         self.widget.show()
 
     def onReadyReadStandardError(self):

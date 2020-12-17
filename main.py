@@ -16,12 +16,52 @@ from backend.fusion_output_pvalues import fusion_output_pvalues
 from backend.metaxcan_output_pvalues import metaxcan_output_pvalues
 from backend.input_pvalues import input_pvalues
 import re
+import numpy as np
 
 
 FUSION_DIR = f'{ROOT_DIR}/methods/FUSION'
 TIGAR_DIR =f'{ROOT_DIR}/methods/TIGAR'
 METAXCAN_DIR= f'{ROOT_DIR}/methods/METAXCAN/software'
 METAXCAN_GWAS= f'{ROOT_DIR}/methods/METAXCAN/GWAS_TOOLS'
+
+class PVWidget(QtWidgets.QWidget):
+    def __init__(self, files, labels, parent=None):
+        super().__init__(parent)
+        self.browser = QtWebEngineWidgets.QWebEngineView(self)
+
+        vlayout = QtWidgets.QVBoxLayout(self)
+        vlayout.addWidget(self.browser)
+        self.cols = plotly.colors.DEFAULT_PLOTLY_COLORS
+
+        self.resize(1000, 1500)
+        self.show_graphPVAL(files, labels)
+
+    def show_graphPVAL(self, files, labels):
+
+        if (len(files) == 0 or len(labels) == 0 or len(files) != len(labels)):
+            self.browser.setHtml("number of files or labels is zero or the number of files is different than labels")
+        else:
+            fig = make_subplots(rows=1, cols=1,
+                                subplot_titles=(""))
+        chart_colors = random.sample(self.cols, len(files))
+        try:
+            for i in range(len(files)):
+                df = pd.read_csv(files[i], sep='\t')
+                df = df.sort_values(by=['gene'])
+                print("123")
+                df["abc"] = abs(np.log(abs(df['before'] - df['after'])))
+                print("abc")
+                fig.add_trace(go.Bar(x=df['gene'], y=df["abc"], name=labels[i],
+                                          marker=dict(color=chart_colors[i])), row=1, col=1)
+
+
+            fig.update_layout(barmode='group', height=1000, width=1500, title_text="Script Performance Comparison")
+            fig['layout']['xaxis']['title'] = 'gene'
+            fig['layout']['yaxis']['title'] = "| log| initialPvalue - finalPvalue ||"
+            self.browser.setHtml(fig.to_html(include_plotlyjs='cdn'))
+        except:
+            self.browser.setHtml("there was a problem with file or label, check the list")
+
 
 class Widget(QtWidgets.QWidget):
     def __init__(self, files, labels, parent=None):
@@ -116,8 +156,47 @@ class Ui(QtWidgets.QMainWindow):
         self.process = QtCore.QProcess()
         self.process.readyReadStandardError.connect(self.onReadyReadStandardError)
         self.process.readyReadStandardOutput.connect(self.onReadyReadStandardOutput)
-
+        #PVAL PLOTS
+        self.initPVAL()
         self.init_pvalues_plots()
+
+    def initPVAL(self):
+        self.paths = []
+        self.PVALFILELIST = self.findChild(QtWidgets.QListWidget, 'PVALFILELIST')
+        self.PVALLABELS = self.findChild(QtWidgets.QListWidget, 'PVALLABELS')
+
+        self.PVALLAUNCH = self.findChild(QtWidgets.QPushButton, 'PVALLAUNCH')
+        self.PVALLAUNCH.clicked.connect(lambda: self.RUNPVAL())
+        self.PVALADD = self.findChild(QtWidgets.QPushButton, 'PVALADD')
+        self.PVALADD.clicked.connect(
+            lambda: self.addItemPVAL(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
+        self.PVALDEL = self.findChild(QtWidgets.QPushButton, 'PVALDEL')
+        self.PVALDEL.clicked.connect(lambda: self.deleteItemPVAL())
+
+    def addItemPVAL(self, file):
+        if file == '':  # clicked cancel
+            return
+        self.paths.append(file)
+        filename = os.path.basename(file)
+        self.PVALFILELIST.addItem(filename)
+        self.PVALLABELS.addItem(filename)
+        for index in range(self.PVALLABELS.count()):
+            item = self.PVALLABELS.item(index)
+            item.setFlags(item.flags() | QtCore.Qt.ItemIsEditable)
+
+    def deleteItemPVAL(self):
+        selected = self.PVALFILELIST.selectedItems()
+        for index in range(self.PVALFILELIST.count()):
+            if self.PVALFILELIST.item(index) in selected:
+                self.PVALFILELIST.takeItem(index)
+                self.PVALLABELS.takeItem(index)
+                del self.paths[index]
+
+    def RUNPVAL(self):
+        files = self.paths
+        labels = [str(self.PVALLABELS.item(i).text()) for i in range(self.PVALLABELS.count())]
+        self.widget = PVWidget(files, labels)
+        self.widget.show()
 
     def initPERF(self):
         self.paths = []
@@ -908,7 +987,7 @@ class Ui(QtWidgets.QMainWindow):
         self.MSPADDITIONAL = self.findChild(QtWidgets.QCheckBox, 'MSPADDITIONAL')
         self.MSPSTREAM = self.findChild(QtWidgets.QCheckBox, 'MSPSTREAM')
         self.MSPTHROW = self.findChild(QtWidgets.QCheckBox, 'MSPTHROW')
-        self.MSPKEEP = self.findChild(QtWidgets.QCheckBox, 'MSPKEEP')
+        
 
     def validateMSP(self):
             comm = "./SPrediXcan.py "
@@ -939,8 +1018,6 @@ class Ui(QtWidgets.QMainWindow):
             comm = comm + " --verbosity " + str(self.MSPVER.text())
             if (self.MSPTHROW.isChecked()):
                 comm = comm + " --throw "
-            if (self.MSPKEEP.isChecked()):
-                comm = comm + " --keep_non_rsid "
             if (str(self.MSPSNP.text()) not in [""]):
                 comm = comm + " --snp_column " + str(self.MSPSNP.text())
             if (str(self.MSPEFF.text()) not in [""]):

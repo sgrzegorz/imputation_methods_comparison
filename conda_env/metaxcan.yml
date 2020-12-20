@@ -1,54 +1,18 @@
 name: metaxcan
 channels:
-  - anaconda
   - defaults
+  - conda-forge
+  - moble
+  - bioconda
 dependencies:
-  - _libgcc_mutex=0.1=main
-  - ca-certificates=2020.7.22=0
-  - certifi=2018.8.24=py35_1
-  - libedit=3.1.20191231=h14c3975_1
-  - libffi=3.2.1=hd88cf55_4
-  - libgcc-ng=9.1.0=hdf63c60_0
-  - libstdcxx-ng=9.1.0=hdf63c60_0
-  - ncurses=6.2=he6710b0_1
-  - openssl=1.0.2u=h7b6447c_0
-  - python=3.5.6=hc3d631a_0
-  - readline=7.0=h7b6447c_5
-  - setuptools=40.2.0=py35_0
-  - sqlite=3.32.3=h62c20be_0
-  - tk=8.6.10=hbc83047_0
-  - wheel=0.31.1=py35_0
-  - xz=5.2.5=h7b6447c_0
-  - zlib=1.2.11=h7b6447c_3
-  - pip:
-    - attrs==19.3.0
-    - cffi==1.14.1
-    - h5py==2.8.0
-    - importlib-metadata==1.7.0
-    - iniconfig==1.0.1
-    - jinja2==2.11.2
-    - markupsafe==1.1.1
-    - more-itertools==8.4.0
-    - numpy==1.15.4
-    - packaging==20.4
-    - pandas==0.23.4
-    - pathlib2==2.3.5
-    - patsy==0.5.1
-    - pip==20.2.2
-    - pluggy==0.13.1
-    - py==1.9.0
-    - pyarrow==0.9.0
-    - pycparser==2.20
-    - pyliftover==0.3
-    - pyparsing==2.4.7
-    - pytest==6.0.1
-    - python-dateutil==2.8.1
-    - pytz==2020.1
-    - rpy2==3.3.5
-    - scipy==1.1.0
-    - six==1.15.0
-    - statsmodels==0.9.0
-    - toml==0.10.1
-    - tzlocal==2.1
-    - zipp==1.2.0
-prefix: /home/x/anaconda3/envs/metaxcan
+  - python=3.7
+  - pandas=0.25.3
+  - scipy=1.4.1
+  - numpy=1.18.1
+  - bgen_reader=3.0.2
+  - cyvcf2=0.20.0
+  - pyliftover=0.4
+  - statsmodels=0.11.1
+  - h5py=2.10.0
+  - pyarrow=0.11.0
+

@@ -64,12 +64,15 @@
          <rect>
           <x>10</x>
           <y>70</y>
-          <width>181</width>
+          <width>411</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="MPXLIFT">
@@ -90,12 +93,15 @@
          <rect>
           <x>10</x>
           <y>180</y>
-          <width>181</width>
+          <width>421</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QCheckBox" name="MPXZEROPOS">
@@ -253,12 +259,15 @@
          <rect>
           <x>790</x>
           <y>140</y>
-          <width>181</width>
+          <width>471</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="MPXVCF">
@@ -279,12 +288,15 @@
          <rect>
           <x>790</x>
           <y>240</y>
-          <width>181</width>
+          <width>211</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="MPXVER">
@@ -305,7 +317,7 @@
          <rect>
           <x>790</x>
           <y>320</y>
-          <width>111</width>
+          <width>131</width>
           <height>23</height>
          </rect>
         </property>
@@ -325,18 +337,24 @@
         <property name="text">
          <string/>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLabel" name="MPXTXTIDLABEL">
         <property name="geometry">
          <rect>
           <x>1000</x>
           <y>350</y>
-          <width>181</width>
-          <height>16</height>
+          <width>271</width>
+          <height>21</height>
          </rect>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="MPXTXTID">
@@ -394,7 +412,7 @@
        <widget class="QLineEdit" name="MPXPREDOUTFILE">
         <property name="geometry">
          <rect>
-          <x>180</x>
+          <x>280</x>
           <y>370</y>
           <width>151</width>
           <height>20</height>
@@ -409,12 +427,15 @@
          <rect>
           <x>10</x>
           <y>370</y>
-          <width>181</width>
+          <width>241</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="MPXSUMOUT">
@@ -433,7 +454,7 @@
        <widget class="QLineEdit" name="MPXSUMOUTFILE">
         <property name="geometry">
          <rect>
-          <x>180</x>
+          <x>280</x>
           <y>440</y>
           <width>151</width>
           <height>20</height>
@@ -448,12 +469,15 @@
          <rect>
           <x>10</x>
           <y>440</y>
-          <width>181</width>
+          <width>241</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="MPXPHENLABEL">
@@ -539,12 +563,15 @@
          <rect>
           <x>450</x>
           <y>220</y>
-          <width>181</width>
+          <width>321</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="MPXCOVAR">
@@ -615,7 +642,7 @@
        <widget class="QLineEdit" name="MPXOUTFILE">
         <property name="geometry">
          <rect>
-          <x>620</x>
+          <x>880</x>
           <y>430</y>
           <width>151</width>
           <height>20</height>
@@ -630,12 +657,15 @@
          <rect>
           <x>450</x>
           <y>430</y>
-          <width>181</width>
+          <width>401</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QComboBox" name="MPXMODE">
@@ -674,7 +704,7 @@
        <widget class="QLabel" name="MPXPHENLABEL_11">
         <property name="geometry">
          <rect>
-          <x>160</x>
+          <x>260</x>
           <y>370</y>
           <width>16</width>
           <height>16</height>
@@ -687,7 +717,7 @@
        <widget class="QLabel" name="MPXPHENLABEL_12">
         <property name="geometry">
          <rect>
-          <x>160</x>
+          <x>260</x>
           <y>440</y>
           <width>16</width>
           <height>16</height>
@@ -700,7 +730,7 @@
        <widget class="QLabel" name="MPXPHENLABEL_13">
         <property name="geometry">
          <rect>
-          <x>600</x>
+          <x>860</x>
           <y>430</y>
           <width>16</width>
           <height>16</height>
@@ -752,6 +782,9 @@
             <width>1251</width>
             <height>211</height>
            </rect>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
           </property>
           <property name="plainText">
            <string>--model_db_path: path to a sqlite file containing prediction models
@@ -857,12 +890,15 @@
          <rect>
           <x>30</x>
           <y>80</y>
-          <width>771</width>
+          <width>401</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="MSPGWASFOLDER">
@@ -883,7 +919,7 @@
          <rect>
           <x>30</x>
           <y>320</y>
-          <width>121</width>
+          <width>131</width>
           <height>21</height>
          </rect>
         </property>
@@ -902,6 +938,9 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="MSPGWASPAT">
@@ -922,12 +961,15 @@
          <rect>
           <x>30</x>
           <y>220</y>
-          <width>791</width>
+          <width>381</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="MSPGWASFILE">
@@ -1013,12 +1055,15 @@
          <rect>
           <x>30</x>
           <y>380</y>
-          <width>551</width>
+          <width>521</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>results</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="MSPOUT">
@@ -1260,7 +1305,7 @@
          <rect>
           <x>860</x>
           <y>170</y>
-          <width>81</width>
+          <width>181</width>
           <height>21</height>
          </rect>
         </property>
@@ -1459,6 +1504,9 @@
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>--model_db_path: Path to the sqlite file holding transcriptome model information
 --model_db_snp_key: key to use as snp_id
@@ -1472,6 +1520,7 @@
 --overwrite: Overwrite the resulting file if it already exists.	
 --additional_output: If set, will output additional information.
 --throw: Option to throw exception on error. I.E. output a full stack trace in case of error.
+--keep_non_rsid: Keep non-rsid snps
 --stream_covariance: Option to better handle large covariances, slower but less memory consuming
 --verbosity: Controls logging verbosity. The lower value, the more logging you will get. In general, 5 is logging at individual SNP data level, and 10 is usually critical/status logic information. So, this is more of a -log parsimony- thing.
 --MAX_R: Run only for the first R genes
@@ -1512,6 +1561,19 @@
          <string>/</string>
         </property>
        </widget>
+       <widget class="QCheckBox" name="MSPKEEP">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>190</y>
+          <width>161</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>--keep_non_rsid</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
@@ -1520,9 +1582,9 @@
        <widget class="QPushButton" name="MULHDF">
         <property name="geometry">
          <rect>
-          <x>40</x>
+          <x>0</x>
           <y>70</y>
-          <width>141</width>
+          <width>181</width>
           <height>23</height>
          </rect>
         </property>
@@ -1561,7 +1623,7 @@
          <rect>
           <x>220</x>
           <y>70</y>
-          <width>111</width>
+          <width>141</width>
           <height>23</height>
          </rect>
         </property>
@@ -1600,7 +1662,7 @@
          <rect>
           <x>40</x>
           <y>150</y>
-          <width>141</width>
+          <width>161</width>
           <height>17</height>
          </rect>
         </property>
@@ -1613,7 +1675,7 @@
          <rect>
           <x>40</x>
           <y>170</y>
-          <width>141</width>
+          <width>201</width>
           <height>17</height>
          </rect>
         </property>
@@ -1626,7 +1688,7 @@
          <rect>
           <x>36</x>
           <y>220</y>
-          <width>131</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -1637,7 +1699,7 @@
        <widget class="QLineEdit" name="MULPAT">
         <property name="geometry">
          <rect>
-          <x>140</x>
+          <x>190</x>
           <y>220</y>
           <width>241</width>
           <height>20</height>
@@ -1652,12 +1714,15 @@
          <rect>
           <x>40</x>
           <y>290</y>
-          <width>181</width>
+          <width>481</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="MULCOV">
@@ -1665,7 +1730,7 @@
          <rect>
           <x>40</x>
           <y>260</y>
-          <width>111</width>
+          <width>151</width>
           <height>23</height>
          </rect>
         </property>
@@ -1678,7 +1743,7 @@
          <rect>
           <x>40</x>
           <y>350</y>
-          <width>111</width>
+          <width>151</width>
           <height>23</height>
          </rect>
         </property>
@@ -1691,7 +1756,7 @@
          <rect>
           <x>40</x>
           <y>410</y>
-          <width>121</width>
+          <width>181</width>
           <height>21</height>
          </rect>
         </property>
@@ -1704,18 +1769,21 @@
          <rect>
           <x>40</x>
           <y>380</y>
-          <width>181</width>
+          <width>491</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLineEdit" name="MULPHENCOL">
         <property name="geometry">
          <rect>
-          <x>200</x>
+          <x>220</x>
           <y>410</y>
           <width>113</width>
           <height>20</height>
@@ -1754,7 +1822,7 @@
        <widget class="QLabel" name="label_122">
         <property name="geometry">
          <rect>
-          <x>790</x>
+          <x>940</x>
           <y>130</y>
           <width>81</width>
           <height>21</height>
@@ -1767,7 +1835,7 @@
        <widget class="QLineEdit" name="MULVER">
         <property name="geometry">
          <rect>
-          <x>950</x>
+          <x>1100</x>
           <y>130</y>
           <width>113</width>
           <height>20</height>
@@ -1793,7 +1861,7 @@
        <widget class="QComboBox" name="MULMODE">
         <property name="geometry">
          <rect>
-          <x>790</x>
+          <x>940</x>
           <y>200</y>
           <width>69</width>
           <height>22</height>
@@ -1813,7 +1881,7 @@
        <widget class="QLabel" name="label_123">
         <property name="geometry">
          <rect>
-          <x>790</x>
+          <x>940</x>
           <y>180</y>
           <width>81</width>
           <height>21</height>
@@ -1826,7 +1894,7 @@
        <widget class="QLineEdit" name="MULMAXM">
         <property name="geometry">
          <rect>
-          <x>950</x>
+          <x>1100</x>
           <y>240</y>
           <width>113</width>
           <height>20</height>
@@ -1839,7 +1907,7 @@
        <widget class="QLabel" name="MPXPHENOSCOL_13">
         <property name="geometry">
          <rect>
-          <x>790</x>
+          <x>940</x>
           <y>240</y>
           <width>121</width>
           <height>21</height>
@@ -1852,7 +1920,7 @@
        <widget class="QLineEdit" name="MULPHENVAL">
         <property name="geometry">
          <rect>
-          <x>200</x>
+          <x>220</x>
           <y>440</y>
           <width>113</width>
           <height>20</height>
@@ -1867,7 +1935,7 @@
          <rect>
           <x>40</x>
           <y>440</y>
-          <width>131</width>
+          <width>181</width>
           <height>21</height>
          </rect>
         </property>
@@ -1878,22 +1946,25 @@
        <widget class="QLabel" name="MULOUTLABEL">
         <property name="geometry">
          <rect>
-          <x>400</x>
+          <x>550</x>
           <y>160</y>
-          <width>181</width>
+          <width>171</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>results</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QPushButton" name="MULOUT">
         <property name="geometry">
          <rect>
-          <x>400</x>
+          <x>550</x>
           <y>130</y>
-          <width>111</width>
+          <width>171</width>
           <height>23</height>
          </rect>
         </property>
@@ -1904,7 +1975,7 @@
        <widget class="QLineEdit" name="MULOUTFILE">
         <property name="geometry">
          <rect>
-          <x>590</x>
+          <x>740</x>
           <y>160</y>
           <width>151</width>
           <height>20</height>
@@ -1917,9 +1988,9 @@
        <widget class="QPushButton" name="MULCOEFF">
         <property name="geometry">
          <rect>
-          <x>400</x>
+          <x>550</x>
           <y>210</y>
-          <width>141</width>
+          <width>181</width>
           <height>23</height>
          </rect>
         </property>
@@ -1930,7 +2001,7 @@
        <widget class="QLabel" name="MULCOEFFLABEL">
         <property name="geometry">
          <rect>
-          <x>400</x>
+          <x>550</x>
           <y>240</y>
           <width>181</width>
           <height>16</height>
@@ -1939,11 +2010,14 @@
         <property name="text">
          <string/>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLineEdit" name="MULCOEFFFILE">
         <property name="geometry">
          <rect>
-          <x>590</x>
+          <x>740</x>
           <y>240</y>
           <width>151</width>
           <height>20</height>
@@ -1956,9 +2030,9 @@
        <widget class="QPushButton" name="MULLOAD">
         <property name="geometry">
          <rect>
-          <x>400</x>
+          <x>550</x>
           <y>280</y>
-          <width>151</width>
+          <width>181</width>
           <height>23</height>
          </rect>
         </property>
@@ -1969,7 +2043,7 @@
        <widget class="QLabel" name="MULLOADLABEL">
         <property name="geometry">
          <rect>
-          <x>400</x>
+          <x>550</x>
           <y>310</y>
           <width>181</width>
           <height>16</height>
@@ -1978,11 +2052,14 @@
         <property name="text">
          <string/>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLineEdit" name="MULLOADFILE">
         <property name="geometry">
          <rect>
-          <x>590</x>
+          <x>740</x>
           <y>310</y>
           <width>151</width>
           <height>20</height>
@@ -1995,7 +2072,7 @@
        <widget class="QLineEdit" name="MULCOND">
         <property name="geometry">
          <rect>
-          <x>560</x>
+          <x>710</x>
           <y>370</y>
           <width>113</width>
           <height>20</height>
@@ -2008,7 +2085,7 @@
        <widget class="QLineEdit" name="MULEIG">
         <property name="geometry">
          <rect>
-          <x>560</x>
+          <x>710</x>
           <y>400</y>
           <width>113</width>
           <height>20</height>
@@ -2021,7 +2098,7 @@
        <widget class="QLabel" name="label_124">
         <property name="geometry">
          <rect>
-          <x>400</x>
+          <x>550</x>
           <y>400</y>
           <width>111</width>
           <height>21</height>
@@ -2034,7 +2111,7 @@
        <widget class="QLabel" name="label_125">
         <property name="geometry">
          <rect>
-          <x>400</x>
+          <x>550</x>
           <y>370</y>
           <width>131</width>
           <height>21</height>
@@ -2047,7 +2124,7 @@
        <widget class="QLabel" name="MPXPHENLABEL_14">
         <property name="geometry">
          <rect>
-          <x>570</x>
+          <x>720</x>
           <y>240</y>
           <width>16</width>
           <height>16</height>
@@ -2060,7 +2137,7 @@
        <widget class="QLabel" name="MPXPHENLABEL_15">
         <property name="geometry">
          <rect>
-          <x>570</x>
+          <x>720</x>
           <y>310</y>
           <width>16</width>
           <height>16</height>
@@ -2073,7 +2150,7 @@
        <widget class="QLabel" name="MPXPHENLABEL_17">
         <property name="geometry">
          <rect>
-          <x>570</x>
+          <x>720</x>
           <y>160</y>
           <width>16</width>
           <height>16</height>
@@ -2117,6 +2194,9 @@
           <width>1251</width>
           <height>211</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
         <property name="plainText">
          <string>--hdf5_expression_folder: Folder with predicted gene expressions. (HDF5 format)
@@ -2188,7 +2268,7 @@
        <widget class="QLineEdit" name="SMXDBKEY">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>200</x>
           <y>220</y>
           <width>161</width>
           <height>20</height>
@@ -2203,7 +2283,7 @@
          <rect>
           <x>26</x>
           <y>220</y>
-          <width>131</width>
+          <width>141</width>
           <height>20</height>
          </rect>
         </property>
@@ -2216,12 +2296,15 @@
          <rect>
           <x>30</x>
           <y>190</y>
-          <width>291</width>
+          <width>351</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="SMXCLEAR">
@@ -2242,18 +2325,21 @@
          <rect>
           <x>40</x>
           <y>120</y>
-          <width>291</width>
+          <width>351</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLineEdit" name="SMXFILTER">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>200</x>
           <y>250</y>
           <width>161</width>
           <height>20</height>
@@ -2268,7 +2354,7 @@
          <rect>
           <x>26</x>
           <y>250</y>
-          <width>131</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -2279,7 +2365,7 @@
        <widget class="QLineEdit" name="SMXPAT">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>200</x>
           <y>280</y>
           <width>161</width>
           <height>20</height>
@@ -2294,7 +2380,7 @@
          <rect>
           <x>30</x>
           <y>280</y>
-          <width>131</width>
+          <width>171</width>
           <height>20</height>
          </rect>
         </property>
@@ -2305,7 +2391,7 @@
        <widget class="QPushButton" name="SMXGWAS">
         <property name="geometry">
          <rect>
-          <x>100</x>
+          <x>30</x>
           <y>310</y>
           <width>111</width>
           <height>23</height>
@@ -2318,14 +2404,17 @@
        <widget class="QLabel" name="SMXGWASFOLDERLABEL">
         <property name="geometry">
          <rect>
-          <x>100</x>
+          <x>40</x>
           <y>420</y>
-          <width>331</width>
-          <height>16</height>
+          <width>391</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="MPXPHENOSCOL_15">
@@ -2333,7 +2422,7 @@
          <rect>
           <x>100</x>
           <y>450</y>
-          <width>121</width>
+          <width>141</width>
           <height>21</height>
          </rect>
         </property>
@@ -2344,7 +2433,7 @@
        <widget class="QLabel" name="MPXPHENLABEL_16">
         <property name="geometry">
          <rect>
-          <x>200</x>
+          <x>40</x>
           <y>360</y>
           <width>31</width>
           <height>16</height>
@@ -2357,20 +2446,23 @@
        <widget class="QLabel" name="SMXGWASLABEL">
         <property name="geometry">
          <rect>
-          <x>100</x>
+          <x>30</x>
           <y>340</y>
-          <width>301</width>
-          <height>16</height>
+          <width>371</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLineEdit" name="SMXGWASPAT">
         <property name="geometry">
          <rect>
-          <x>230</x>
+          <x>240</x>
           <y>450</y>
           <width>113</width>
           <height>20</height>
@@ -2383,7 +2475,7 @@
        <widget class="QPushButton" name="SMXGWASFOLDER">
         <property name="geometry">
          <rect>
-          <x>100</x>
+          <x>30</x>
           <y>390</y>
           <width>111</width>
           <height>23</height>
@@ -2424,7 +2516,7 @@
          <rect>
           <x>804</x>
           <y>320</y>
-          <width>111</width>
+          <width>131</width>
           <height>23</height>
          </rect>
         </property>
@@ -2456,6 +2548,9 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="label_130">
@@ -2489,7 +2584,7 @@
          <rect>
           <x>410</x>
           <y>60</y>
-          <width>161</width>
+          <width>211</width>
           <height>20</height>
          </rect>
         </property>
@@ -2500,7 +2595,7 @@
        <widget class="QLineEdit" name="SMXCOND">
         <property name="geometry">
          <rect>
-          <x>580</x>
+          <x>600</x>
           <y>60</y>
           <width>113</width>
           <height>20</height>
@@ -2513,7 +2608,7 @@
        <widget class="QLineEdit" name="SMXREG">
         <property name="geometry">
          <rect>
-          <x>580</x>
+          <x>600</x>
           <y>30</y>
           <width>113</width>
           <height>20</height>
@@ -2528,7 +2623,7 @@
          <rect>
           <x>410</x>
           <y>90</y>
-          <width>131</width>
+          <width>201</width>
           <height>20</height>
          </rect>
         </property>
@@ -2552,7 +2647,7 @@
        <widget class="QLineEdit" name="SMXTHR">
         <property name="geometry">
          <rect>
-          <x>580</x>
+          <x>600</x>
           <y>120</y>
           <width>113</width>
           <height>20</height>
@@ -2565,7 +2660,7 @@
        <widget class="QLineEdit" name="SMXEIGEN">
         <property name="geometry">
          <rect>
-          <x>580</x>
+          <x>600</x>
           <y>90</y>
           <width>113</width>
           <height>20</height>
@@ -2591,7 +2686,7 @@
        <widget class="QLineEdit" name="SMXTRAC">
         <property name="geometry">
          <rect>
-          <x>580</x>
+          <x>600</x>
           <y>150</y>
           <width>113</width>
           <height>20</height>
@@ -2606,7 +2701,7 @@
          <rect>
           <x>410</x>
           <y>260</y>
-          <width>141</width>
+          <width>211</width>
           <height>17</height>
          </rect>
         </property>
@@ -2632,7 +2727,7 @@
          <rect>
           <x>410</x>
           <y>280</y>
-          <width>161</width>
+          <width>231</width>
           <height>17</height>
          </rect>
         </property>
@@ -2658,7 +2753,7 @@
          <rect>
           <x>810</x>
           <y>450</y>
-          <width>111</width>
+          <width>131</width>
           <height>23</height>
          </rect>
         </property>
@@ -2684,7 +2779,7 @@
          <rect>
           <x>410</x>
           <y>310</y>
-          <width>111</width>
+          <width>121</width>
           <height>23</height>
          </rect>
         </property>
@@ -2695,7 +2790,7 @@
        <widget class="QLineEdit" name="SMXMAXM">
         <property name="geometry">
          <rect>
-          <x>580</x>
+          <x>600</x>
           <y>180</y>
           <width>113</width>
           <height>20</height>
@@ -2723,7 +2818,7 @@
          <rect>
           <x>410</x>
           <y>370</y>
-          <width>111</width>
+          <width>121</width>
           <height>23</height>
          </rect>
         </property>
@@ -2743,6 +2838,9 @@
         <property name="text">
          <string>.</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLineEdit" name="SMXOUTFILE">
         <property name="geometry">
@@ -2760,7 +2858,7 @@
        <widget class="QLineEdit" name="SMXVER">
         <property name="geometry">
          <rect>
-          <x>580</x>
+          <x>600</x>
           <y>210</y>
           <width>113</width>
           <height>20</height>
@@ -2786,7 +2884,7 @@
        <widget class="QLineEdit" name="SMXOR">
         <property name="geometry">
          <rect>
-          <x>990</x>
+          <x>1040</x>
           <y>200</y>
           <width>113</width>
           <height>20</height>
@@ -2801,7 +2899,7 @@
          <rect>
           <x>860</x>
           <y>80</y>
-          <width>121</width>
+          <width>171</width>
           <height>21</height>
          </rect>
         </property>
@@ -2812,7 +2910,7 @@
        <widget class="QLineEdit" name="SMXBETA">
         <property name="geometry">
          <rect>
-          <x>990</x>
+          <x>1040</x>
           <y>140</y>
           <width>113</width>
           <height>20</height>
@@ -2825,7 +2923,7 @@
        <widget class="QLineEdit" name="SMXNON">
         <property name="geometry">
          <rect>
-          <x>990</x>
+          <x>1040</x>
           <y>110</y>
           <width>113</width>
           <height>20</height>
@@ -2851,7 +2949,7 @@
        <widget class="QLineEdit" name="SMXSIGN">
         <property name="geometry">
          <rect>
-          <x>990</x>
+          <x>1040</x>
           <y>170</y>
           <width>113</width>
           <height>20</height>
@@ -2877,7 +2975,7 @@
        <widget class="QLineEdit" name="SMXSNP">
         <property name="geometry">
          <rect>
-          <x>990</x>
+          <x>1040</x>
           <y>50</y>
           <width>113</width>
           <height>20</height>
@@ -2903,7 +3001,7 @@
        <widget class="QLineEdit" name="SMXPVAL">
         <property name="geometry">
          <rect>
-          <x>990</x>
+          <x>1040</x>
           <y>260</y>
           <width>113</width>
           <height>20</height>
@@ -2918,7 +3016,7 @@
          <rect>
           <x>860</x>
           <y>110</y>
-          <width>131</width>
+          <width>191</width>
           <height>21</height>
          </rect>
         </property>
@@ -2929,7 +3027,7 @@
        <widget class="QLineEdit" name="SMXSEP">
         <property name="geometry">
          <rect>
-          <x>990</x>
+          <x>1040</x>
           <y>290</y>
           <width>113</width>
           <height>20</height>
@@ -2942,7 +3040,7 @@
        <widget class="QLineEdit" name="SMXEFF">
         <property name="geometry">
          <rect>
-          <x>990</x>
+          <x>1040</x>
           <y>80</y>
           <width>113</width>
           <height>20</height>
@@ -2957,7 +3055,7 @@
          <rect>
           <x>860</x>
           <y>260</y>
-          <width>81</width>
+          <width>171</width>
           <height>21</height>
          </rect>
         </property>
@@ -2981,7 +3079,7 @@
        <widget class="QLineEdit" name="SMXZSCORE">
         <property name="geometry">
          <rect>
-          <x>990</x>
+          <x>1040</x>
           <y>230</y>
           <width>113</width>
           <height>20</height>
@@ -2996,7 +3094,7 @@
          <rect>
           <x>860</x>
           <y>230</y>
-          <width>81</width>
+          <width>171</width>
           <height>21</height>
          </rect>
         </property>
@@ -3009,7 +3107,7 @@
          <rect>
           <x>860</x>
           <y>140</y>
-          <width>81</width>
+          <width>181</width>
           <height>21</height>
          </rect>
         </property>
@@ -3022,7 +3120,7 @@
          <rect>
           <x>860</x>
           <y>170</y>
-          <width>111</width>
+          <width>181</width>
           <height>21</height>
          </rect>
         </property>
@@ -3042,13 +3140,16 @@
         <property name="text">
          <string/>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLabel" name="SMXSNPLABEL_2">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>30</y>
-          <width>311</width>
+          <x>10</x>
+          <y>20</y>
+          <width>441</width>
           <height>61</height>
          </rect>
         </property>
@@ -3106,6 +3207,9 @@
           <width>1251</width>
           <height>211</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
         <property name="plainText">
          <string>--cleared_snps: SNPS to analyze. If you don't provide this, you must provide GWAS and models.
@@ -3269,7 +3373,7 @@
         <property name="geometry">
          <rect>
           <x>330</x>
-          <y>300</y>
+          <y>450</y>
           <width>141</width>
           <height>20</height>
          </rect>
@@ -3307,7 +3411,7 @@
        <widget class="QPushButton" name="GSIOUT">
         <property name="geometry">
          <rect>
-          <x>570</x>
+          <x>620</x>
           <y>100</y>
           <width>141</width>
           <height>23</height>
@@ -3335,12 +3439,15 @@
          <rect>
           <x>60</x>
           <y>100</y>
-          <width>491</width>
+          <width>501</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="GSIGWASLABEL">
@@ -3355,18 +3462,24 @@
         <property name="text">
          <string>REQUIRED</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLabel" name="GSIPARGENLABEL">
         <property name="geometry">
          <rect>
           <x>60</x>
           <y>230</y>
-          <width>511</width>
+          <width>501</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="GSIGENMETLABEL">
@@ -3374,25 +3487,31 @@
          <rect>
           <x>60</x>
           <y>290</y>
-          <width>511</width>
+          <width>501</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="GSIOUTLABEL">
         <property name="geometry">
          <rect>
-          <x>570</x>
+          <x>620</x>
           <y>130</y>
-          <width>491</width>
-          <height>16</height>
+          <width>441</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="GSIPARS">
@@ -3438,7 +3557,7 @@
         <property name="geometry">
          <rect>
           <x>490</x>
-          <y>300</y>
+          <y>450</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -3625,6 +3744,9 @@
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>-by_region_file: If provided, run imputation grouping by regions. Much faster.
 -parquet_genotype: Parquet Genotype file
@@ -3656,7 +3778,7 @@
          <rect>
           <x>60</x>
           <y>110</y>
-          <width>901</width>
+          <width>1121</width>
           <height>16</height>
          </rect>
         </property>
@@ -3780,12 +3902,15 @@
          <rect>
           <x>60</x>
           <y>310</y>
-          <width>491</width>
+          <width>921</width>
           <height>21</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLineEdit" name="GSPOUTFILE">
@@ -3832,7 +3957,7 @@
          <rect>
           <x>60</x>
           <y>180</y>
-          <width>861</width>
+          <width>1151</width>
           <height>16</height>
          </rect>
         </property>
@@ -3888,6 +4013,9 @@
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>--gwas_file: GWAS file. For the moment, uniform-formatted hg38-based files are accepted
 --folder: How far to extend in each direction when searching for variants
@@ -3928,7 +4056,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
@@ -3978,7 +4106,7 @@
          <rect>
           <x>60</x>
           <y>300</y>
-          <width>75</width>
+          <width>111</width>
           <height>23</height>
          </rect>
         </property>
@@ -3991,7 +4119,7 @@
          <rect>
           <x>60</x>
           <y>350</y>
-          <width>81</width>
+          <width>111</width>
           <height>23</height>
          </rect>
         </property>
@@ -4004,7 +4132,7 @@
          <rect>
           <x>60</x>
           <y>400</y>
-          <width>81</width>
+          <width>111</width>
           <height>23</height>
          </rect>
         </property>
@@ -4015,7 +4143,7 @@
        <widget class="QComboBox" name="FCWVERBOSE">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>840</x>
           <y>60</y>
           <width>69</width>
           <height>22</height>
@@ -4040,7 +4168,7 @@
        <widget class="QCheckBox" name="FCWNOCLEAN">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>840</x>
           <y>110</y>
           <width>111</width>
           <height>17</height>
@@ -4053,7 +4181,7 @@
        <widget class="QLabel" name="label">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>840</x>
           <y>250</y>
           <width>81</width>
           <height>21</height>
@@ -4066,7 +4194,7 @@
        <widget class="QLabel" name="label_2">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>840</x>
           <y>310</y>
           <width>81</width>
           <height>21</height>
@@ -4079,7 +4207,7 @@
        <widget class="QLabel" name="label_3">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>840</x>
           <y>370</y>
           <width>81</width>
           <height>21</height>
@@ -4092,7 +4220,7 @@
        <widget class="QLabel" name="label_4">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>840</x>
           <y>40</y>
           <width>81</width>
           <height>21</height>
@@ -4105,7 +4233,7 @@
        <widget class="QCheckBox" name="FCWRN">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>840</x>
           <y>150</y>
           <width>101</width>
           <height>17</height>
@@ -4118,7 +4246,7 @@
        <widget class="QCheckBox" name="FCWSAVEHSQ">
         <property name="geometry">
          <rect>
-          <x>380</x>
+          <x>840</x>
           <y>190</y>
           <width>111</width>
           <height>17</height>
@@ -4133,7 +4261,7 @@
          <rect>
           <x>60</x>
           <y>450</y>
-          <width>81</width>
+          <width>111</width>
           <height>23</height>
          </rect>
         </property>
@@ -4144,7 +4272,7 @@
        <widget class="QLabel" name="label_5">
         <property name="geometry">
          <rect>
-          <x>620</x>
+          <x>1080</x>
           <y>50</y>
           <width>81</width>
           <height>21</height>
@@ -4157,7 +4285,7 @@
        <widget class="QCheckBox" name="FCWBLUP">
         <property name="geometry">
          <rect>
-          <x>620</x>
+          <x>1080</x>
           <y>80</y>
           <width>71</width>
           <height>17</height>
@@ -4170,7 +4298,7 @@
        <widget class="QCheckBox" name="FCWBSLMM">
         <property name="geometry">
          <rect>
-          <x>620</x>
+          <x>1080</x>
           <y>110</y>
           <width>71</width>
           <height>17</height>
@@ -4183,7 +4311,7 @@
        <widget class="QCheckBox" name="FCWENET">
         <property name="geometry">
          <rect>
-          <x>620</x>
+          <x>1080</x>
           <y>140</y>
           <width>71</width>
           <height>17</height>
@@ -4196,7 +4324,7 @@
        <widget class="QCheckBox" name="FCWLASSO">
         <property name="geometry">
          <rect>
-          <x>620</x>
+          <x>1080</x>
           <y>170</y>
           <width>71</width>
           <height>17</height>
@@ -4209,7 +4337,7 @@
        <widget class="QCheckBox" name="FCWTOP1">
         <property name="geometry">
          <rect>
-          <x>620</x>
+          <x>1080</x>
           <y>200</y>
           <width>71</width>
           <height>17</height>
@@ -4224,12 +4352,15 @@
          <rect>
           <x>60</x>
           <y>90</y>
-          <width>311</width>
+          <width>741</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="FCWOUTLABEL">
@@ -4237,12 +4368,15 @@
          <rect>
           <x>60</x>
           <y>150</y>
-          <width>311</width>
+          <width>531</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="FCWTMPLABEL">
@@ -4250,12 +4384,15 @@
          <rect>
           <x>60</x>
           <y>210</y>
-          <width>311</width>
+          <width>741</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="FCWCOVARLABEL">
@@ -4263,12 +4400,15 @@
          <rect>
           <x>60</x>
           <y>250</y>
-          <width>311</width>
+          <width>741</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>OPTIONAL</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="FCWPATHGCTALABEL">
@@ -4276,7 +4416,7 @@
          <rect>
           <x>60</x>
           <y>330</y>
-          <width>311</width>
+          <width>121</width>
           <height>16</height>
          </rect>
         </property>
@@ -4326,7 +4466,7 @@
        <widget class="QLineEdit" name="FCWCROSSVAL">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>920</x>
           <y>250</y>
           <width>113</width>
           <height>20</height>
@@ -4339,7 +4479,7 @@
        <widget class="QLineEdit" name="FCWHSQP">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>920</x>
           <y>310</y>
           <width>113</width>
           <height>20</height>
@@ -4352,7 +4492,7 @@
        <widget class="QLineEdit" name="FCWHSQSET">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>920</x>
           <y>370</y>
           <width>113</width>
           <height>20</height>
@@ -4394,9 +4534,9 @@
        <widget class="QLineEdit" name="FCWOUTFILE">
         <property name="geometry">
          <rect>
-          <x>220</x>
+          <x>610</x>
           <y>150</y>
-          <width>131</width>
+          <width>191</width>
           <height>21</height>
          </rect>
         </property>
@@ -4407,7 +4547,7 @@
        <widget class="QLabel" name="MPXPHENLABEL_27">
         <property name="geometry">
          <rect>
-          <x>210</x>
+          <x>600</x>
           <y>150</y>
           <width>16</width>
           <height>16</height>
@@ -4438,6 +4578,9 @@
           <width>1251</width>
           <height>211</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
         <property name="plainText">
          <string>--bfile	Path to PLINK binary input file prefix (minus bed/bim/fam)	required
@@ -4787,12 +4930,15 @@ top1	Single best eQTL.</string>
          <rect>
           <x>70</x>
           <y>130</y>
-          <width>331</width>
+          <width>421</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="FATREFLDCHRLABEL">
@@ -4807,18 +4953,24 @@ top1	Single best eQTL.</string>
         <property name="text">
          <string>REQUIRED</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLabel" name="FATSUMSTATSLABEL">
         <property name="geometry">
          <rect>
           <x>70</x>
           <y>250</y>
-          <width>441</width>
+          <width>711</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="FATWEIGHTSLABEL">
@@ -4826,12 +4978,15 @@ top1	Single best eQTL.</string>
          <rect>
           <x>70</x>
           <y>300</y>
-          <width>421</width>
+          <width>711</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="FATWEIGHTSDIRLABEL">
@@ -4839,12 +4994,15 @@ top1	Single best eQTL.</string>
          <rect>
           <x>70</x>
           <y>350</y>
-          <width>421</width>
+          <width>711</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="FATLAUNCH">
@@ -4949,6 +5107,9 @@ top1	Single best eQTL.</string>
           <width>1251</width>
           <height>211</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
         <property name="plainText">
          <string>--chr	Chromosome to analyze	required
@@ -5152,6 +5313,9 @@ top1	Single best eQTL.</string>
         <property name="text">
          <string>REQUIRED</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLabel" name="FPPOUTLABEL">
         <property name="geometry">
@@ -5164,6 +5328,9 @@ top1	Single best eQTL.</string>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="FPPREFLDCHR">
@@ -5392,6 +5559,9 @@ top1	Single best eQTL.</string>
         <property name="text">
          <string>REQUIRED</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLabel" name="FPPSUMSTATSLABEL">
         <property name="geometry">
@@ -5404,6 +5574,9 @@ top1	Single best eQTL.</string>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="FPPLAUNCH">
@@ -5547,6 +5720,9 @@ top1	Single best eQTL.</string>
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>--chr	Chromosome to analyze	required
 --input	Path to TWAS test output	required
@@ -5589,7 +5765,7 @@ top1	Single best eQTL.</string>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab_16">
        <attribute name="title">
@@ -5598,7 +5774,7 @@ top1	Single best eQTL.</string>
        <widget class="QLabel" name="label_25">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>950</x>
           <y>310</y>
           <width>47</width>
           <height>13</height>
@@ -5721,7 +5897,7 @@ top1	Single best eQTL.</string>
        <widget class="QComboBox" name="TMTGENFORMAT">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>950</x>
           <y>110</y>
           <width>81</width>
           <height>21</height>
@@ -5744,7 +5920,7 @@ top1	Single best eQTL.</string>
        <widget class="QLabel" name="ThreadLabel_4">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>950</x>
           <y>230</y>
           <width>81</width>
           <height>16</height>
@@ -5760,7 +5936,7 @@ top1	Single best eQTL.</string>
        <widget class="QLabel" name="windowLabel_4">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>950</x>
           <y>270</y>
           <width>71</width>
           <height>21</height>
@@ -5776,7 +5952,7 @@ top1	Single best eQTL.</string>
        <widget class="QLabel" name="MafLabel_4">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>950</x>
           <y>150</y>
           <width>81</width>
           <height>21</height>
@@ -5792,7 +5968,7 @@ top1	Single best eQTL.</string>
        <widget class="QLabel" name="MafLabel_5">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>950</x>
           <y>190</y>
           <width>81</width>
           <height>21</height>
@@ -5909,12 +6085,15 @@ top1	Single best eQTL.</string>
          <rect>
           <x>290</x>
           <y>170</y>
-          <width>961</width>
+          <width>631</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="TMTIDLABEL">
@@ -5922,12 +6101,15 @@ top1	Single best eQTL.</string>
          <rect>
           <x>290</x>
           <y>220</y>
-          <width>961</width>
+          <width>631</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="TMTGENFILELABEL">
@@ -5935,12 +6117,15 @@ top1	Single best eQTL.</string>
          <rect>
           <x>290</x>
           <y>330</y>
-          <width>961</width>
+          <width>631</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="TMTOUTLABEL">
@@ -5948,18 +6133,21 @@ top1	Single best eQTL.</string>
          <rect>
           <x>290</x>
           <y>380</y>
-          <width>961</width>
+          <width>631</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string>.</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLineEdit" name="TMTCHR">
         <property name="geometry">
          <rect>
-          <x>550</x>
+          <x>1040</x>
           <y>310</y>
           <width>131</width>
           <height>21</height>
@@ -6068,7 +6256,7 @@ top1	Single best eQTL.</string>
        <widget class="QLabel" name="TMTGENFILELABEL_2">
         <property name="geometry">
          <rect>
-          <x>460</x>
+          <x>950</x>
           <y>90</y>
           <width>71</width>
           <height>20</height>
@@ -6107,7 +6295,7 @@ top1	Single best eQTL.</string>
        <widget class="QLineEdit" name="TMTMAF">
         <property name="geometry">
          <rect>
-          <x>550</x>
+          <x>1040</x>
           <y>150</y>
           <width>131</width>
           <height>21</height>
@@ -6120,7 +6308,7 @@ top1	Single best eQTL.</string>
        <widget class="QLineEdit" name="TMTHWE">
         <property name="geometry">
          <rect>
-          <x>550</x>
+          <x>1040</x>
           <y>190</y>
           <width>131</width>
           <height>21</height>
@@ -6133,7 +6321,7 @@ top1	Single best eQTL.</string>
        <widget class="QLineEdit" name="TMTTHREAD">
         <property name="geometry">
          <rect>
-          <x>550</x>
+          <x>1040</x>
           <y>230</y>
           <width>131</width>
           <height>21</height>
@@ -6146,7 +6334,7 @@ top1	Single best eQTL.</string>
        <widget class="QLineEdit" name="TMTWINDOW">
         <property name="geometry">
          <rect>
-          <x>550</x>
+          <x>1040</x>
           <y>270</y>
           <width>131</width>
           <height>21</height>
@@ -6177,6 +6365,9 @@ top1	Single best eQTL.</string>
           <width>1251</width>
           <height>211</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
         <property name="plainText">
          <string>• model : elastic_net or DPR. Training imputation model for transcriptomic data.
@@ -6429,12 +6620,15 @@ components in mixture prior.
          <rect>
           <x>30</x>
           <y>190</y>
-          <width>811</width>
+          <width>801</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="TGRINFOLABEL">
@@ -6442,12 +6636,15 @@ components in mixture prior.
          <rect>
           <x>30</x>
           <y>249</y>
-          <width>811</width>
+          <width>801</width>
           <height>21</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="TGRGENLABEL">
@@ -6455,12 +6652,15 @@ components in mixture prior.
          <rect>
           <x>30</x>
           <y>300</y>
-          <width>811</width>
+          <width>801</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="TGRIDLABEL">
@@ -6468,12 +6668,15 @@ components in mixture prior.
          <rect>
           <x>30</x>
           <y>420</y>
-          <width>811</width>
+          <width>801</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="TGROUT">
@@ -6503,6 +6706,9 @@ components in mixture prior.
         </property>
         <property name="text">
          <string>.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="TMT_8">
@@ -6655,6 +6861,9 @@ components in mixture prior.
           <width>1251</width>
           <height>211</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
         <property name="plainText">
          <string>• model : elastic_net or DPR. Training imputation model used for transcriptomic
@@ -6905,12 +7114,15 @@ Calculation and GReX Prediction. TIGAR will select snps with difference less tha
          <rect>
           <x>30</x>
           <y>330</y>
-          <width>631</width>
+          <width>641</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="TTWZSCORELABEL">
@@ -6925,18 +7137,24 @@ Calculation and GReX Prediction. TIGAR will select snps with difference less tha
         <property name="text">
          <string>REQUIRED</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLabel" name="TTWCOVARLABEL">
         <property name="geometry">
          <rect>
           <x>690</x>
           <y>330</y>
-          <width>561</width>
+          <width>571</width>
           <height>20</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="TTWWEIGHTLABEL">
@@ -6951,6 +7169,9 @@ Calculation and GReX Prediction. TIGAR will select snps with difference less tha
         <property name="text">
          <string>REQUIRED</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
        </widget>
        <widget class="QLabel" name="TTWASSOLABEL">
         <property name="geometry">
@@ -6963,6 +7184,9 @@ Calculation and GReX Prediction. TIGAR will select snps with difference less tha
         </property>
         <property name="text">
          <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="TTWOUT">
@@ -7109,6 +7333,9 @@ Calculation and GReX Prediction. TIGAR will select snps with difference less tha
           <width>1251</width>
           <height>211</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
         <property name="plainText">
          <string>• asso : 1 or 2. Method of association study.
@@ -7401,6 +7628,9 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
           <height>211</height>
          </rect>
         </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
         <property name="plainText">
          <string>• block : Genome block annotation file.
 • genofile_type : vcf or dosages.
@@ -7409,7 +7639,7 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
 • Format : GT or DS. Format using for Genotype Data.
 • maf : Threshold for Minor Allele Frequency (range from 0-1). Default is
 0.05.
-• out : otput file path </string>
+• out : output file path </string>
         </property>
        </widget>
       </widget>
@@ -7459,6 +7689,9 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
           <width>1171</width>
           <height>621</height>
          </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
         </property>
        </widget>
       </widget>
@@ -7559,79 +7792,24 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
        <widget class="QLabel" name="PLT2OUTLABEL">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>220</y>
-          <width>291</width>
+          <x>490</x>
+          <y>210</y>
+          <width>401</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
          <string>REQUIRED</string>
         </property>
-       </widget>
-       <widget class="QPushButton" name="PLT1OUT">
-        <property name="geometry">
-         <rect>
-          <x>140</x>
-          <y>60</y>
-          <width>71</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="text">
-         <string>--out</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="PLT2OUT">
-        <property name="geometry">
-         <rect>
-          <x>130</x>
-          <y>220</y>
-          <width>71</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="text">
-         <string>--out</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="PLT1GWAS">
-        <property name="geometry">
-         <rect>
-          <x>140</x>
-          <y>30</y>
-          <width>71</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>gwas</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="PLT2STEPFILE">
-        <property name="geometry">
-         <rect>
-          <x>130</x>
-          <y>180</y>
-          <width>141</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string> (STEP1 --out) </string>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="PLT1LAUNCH">
         <property name="geometry">
          <rect>
-          <x>730</x>
-          <y>90</y>
+          <x>820</x>
+          <y>80</y>
           <width>131</width>
           <height>23</height>
          </rect>
@@ -7640,76 +7818,37 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <string>LAUNCH STEP1</string>
         </property>
        </widget>
-       <widget class="QLabel" name="MPXPHENLABEL_28">
+       <widget class="QPushButton" name="PLT1GWAS">
         <property name="geometry">
          <rect>
-          <x>830</x>
-          <y>400</y>
-          <width>81</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="PLT3LAUNCH">
-        <property name="geometry">
-         <rect>
-          <x>720</x>
-          <y>320</y>
-          <width>141</width>
+          <x>180</x>
+          <y>20</y>
+          <width>71</width>
           <height>27</height>
          </rect>
         </property>
         <property name="text">
-         <string>show chart  STEP3</string>
+         <string>gwas</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="PLT2OUTFILE">
+       <widget class="QLabel" name="PLT2OUTLABEL_2">
         <property name="geometry">
          <rect>
-          <x>870</x>
-          <y>220</y>
-          <width>191</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>before_after.csv</string>
-        </property>
-       </widget>
-       <widget class="Line" name="line">
-        <property name="geometry">
-         <rect>
-          <x>100</x>
-          <y>120</y>
-          <width>841</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-       <widget class="QLabel" name="PLT1OUTLABEL">
-        <property name="geometry">
-         <rect>
-          <x>360</x>
-          <y>60</y>
-          <width>121</width>
+          <x>410</x>
+          <y>380</y>
+          <width>291</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>REQUIRED</string>
+         <string>COMPARISON CHARTS</string>
         </property>
        </widget>
        <widget class="QLabel" name="PLT2RESULTSLABEL">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>150</y>
+          <x>500</x>
+          <y>140</y>
           <width>761</width>
           <height>16</height>
          </rect>
@@ -7718,38 +7857,35 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <string>REQUIRED</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="PLT1OUTFILE">
+       <widget class="QListWidget" name="PVALFILELIST">
         <property name="geometry">
          <rect>
-          <x>600</x>
-          <y>60</y>
-          <width>201</width>
-          <height>20</height>
+          <x>170</x>
+          <y>490</y>
+          <width>391</width>
+          <height>192</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT2LAUNCH">
+        <property name="geometry">
+         <rect>
+          <x>820</x>
+          <y>230</y>
+          <width>141</width>
+          <height>23</height>
          </rect>
         </property>
         <property name="text">
-         <string>pvalues_input.csv</string>
+         <string>LAUNCH STEP2</string>
         </property>
        </widget>
-       <widget class="QLabel" name="MPXPHENLABEL_29">
+       <widget class="QLabel" name="PLT3FILELABEL">
         <property name="geometry">
          <rect>
-          <x>590</x>
-          <y>60</y>
-          <width>20</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>/</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="PLT2STEPFILELABEL">
-        <property name="geometry">
-         <rect>
-          <x>460</x>
-          <y>190</y>
-          <width>661</width>
+          <x>390</x>
+          <y>290</y>
+          <width>871</width>
           <height>16</height>
          </rect>
         </property>
@@ -7757,11 +7893,37 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <string>REQUIRED</string>
         </property>
        </widget>
+       <widget class="QLabel" name="PLT1GWASLABEL">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>30</y>
+          <width>931</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="Line" name="line_6">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>350</y>
+          <width>871</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
        <widget class="QPushButton" name="PLT3FILE">
         <property name="geometry">
          <rect>
-          <x>130</x>
-          <y>290</y>
+          <x>170</x>
+          <y>280</y>
           <width>191</width>
           <height>27</height>
          </rect>
@@ -7770,11 +7932,66 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <string>chart file (STEP2 --out)</string>
         </property>
        </widget>
+       <widget class="QLabel" name="PLT2STEPFILELABEL">
+        <property name="geometry">
+         <rect>
+          <x>500</x>
+          <y>180</y>
+          <width>761</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>470</y>
+          <width>151</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>FILE LABEL (editable)</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT2OUT">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>210</y>
+          <width>71</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>--out</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT2RESULTS">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>130</y>
+          <width>161</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>method's results</string>
+        </property>
+       </widget>
        <widget class="QComboBox" name="PLT2METHOD">
         <property name="geometry">
          <rect>
-          <x>130</x>
-          <y>140</y>
+          <x>170</x>
+          <y>130</y>
           <width>111</width>
           <height>31</height>
          </rect>
@@ -7795,122 +8012,11 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          </property>
         </item>
        </widget>
-       <widget class="Line" name="line_5">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>270</y>
-          <width>871</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="PLT2LAUNCH">
-        <property name="geometry">
-         <rect>
-          <x>730</x>
-          <y>240</y>
-          <width>141</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>LAUNCH STEP2</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="PLT2RESULTS">
-        <property name="geometry">
-         <rect>
-          <x>270</x>
-          <y>140</y>
-          <width>161</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>method's results</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="PLT1GWASLABEL">
-        <property name="geometry">
-         <rect>
-          <x>360</x>
-          <y>40</y>
-          <width>381</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>REQUIRED</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="PLT3FILELABEL">
-        <property name="geometry">
-         <rect>
-          <x>350</x>
-          <y>300</y>
-          <width>431</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>REQUIRED</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="PVALADD">
-        <property name="geometry">
-         <rect>
-          <x>430</x>
-          <y>440</y>
-          <width>75</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>add file</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_8">
-        <property name="geometry">
-         <rect>
-          <x>520</x>
-          <y>480</y>
-          <width>151</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>FILE LABEL (editable)</string>
-        </property>
-       </widget>
-       <widget class="QListWidget" name="PVALFILELIST">
-        <property name="geometry">
-         <rect>
-          <x>130</x>
-          <y>500</y>
-          <width>391</width>
-          <height>192</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QListWidget" name="PVALLABELS">
-        <property name="geometry">
-         <rect>
-          <x>520</x>
-          <y>500</y>
-          <width>391</width>
-          <height>192</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QPushButton" name="PVALLAUNCH">
         <property name="geometry">
          <rect>
-          <x>250</x>
-          <y>440</y>
+          <x>290</x>
+          <y>430</y>
           <width>75</width>
           <height>23</height>
          </rect>
@@ -7919,11 +8025,95 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <string>Launch</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="PLT1OUT">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>50</y>
+          <width>71</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>--out</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT3LAUNCH">
+        <property name="geometry">
+         <rect>
+          <x>820</x>
+          <y>310</y>
+          <width>141</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>show chart  STEP3</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PVALADD">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>430</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>add file</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="MPXPHENLABEL_29">
+        <property name="geometry">
+         <rect>
+          <x>810</x>
+          <y>50</y>
+          <width>20</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
+       <widget class="Line" name="line">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>110</y>
+          <width>841</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="PLT1OUTLABEL">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>50</y>
+          <width>531</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>REQUIRED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
        <widget class="QPushButton" name="PVALDEL">
         <property name="geometry">
          <rect>
-          <x>590</x>
-          <y>440</y>
+          <x>630</x>
+          <y>430</y>
           <width>161</width>
           <height>23</height>
          </rect>
@@ -7932,11 +8122,86 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <string>remove selected files</string>
         </property>
        </widget>
-       <widget class="Line" name="line_6">
+       <widget class="QLabel" name="label_9">
         <property name="geometry">
          <rect>
-          <x>110</x>
-          <y>360</y>
+          <x>180</x>
+          <y>470</y>
+          <width>91</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>FILE PATH</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="PLT1OUTFILE">
+        <property name="geometry">
+         <rect>
+          <x>820</x>
+          <y>50</y>
+          <width>311</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>pvalues_input.csv</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="MPXPHENLABEL_28">
+        <property name="geometry">
+         <rect>
+          <x>870</x>
+          <y>390</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="PLT2STEPFILE">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>170</y>
+          <width>141</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string> (STEP1 --out) </string>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="PVALLABELS">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>490</y>
+          <width>391</width>
+          <height>192</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="PLT2OUTFILE">
+        <property name="geometry">
+         <rect>
+          <x>910</x>
+          <y>210</y>
+          <width>191</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>before_after.csv</string>
+        </property>
+       </widget>
+       <widget class="Line" name="line_5">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>260</y>
           <width>871</width>
           <height>20</height>
          </rect>
@@ -7945,30 +8210,17 @@ same format in cis-eQTL Effect-Sizes Calculation [4.1].
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
-       <widget class="QLabel" name="PLT2OUTLABEL_2">
+       <widget class="QLabel" name="MPXPHENLABEL_32">
         <property name="geometry">
          <rect>
-          <x>370</x>
-          <y>390</y>
-          <width>291</width>
-          <height>16</height>
+          <x>900</x>
+          <y>210</y>
+          <width>20</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="text">
-         <string>COMPARISON CHARTS</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_9">
-        <property name="geometry">
-         <rect>
-          <x>140</x>
-          <y>480</y>
-          <width>91</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>FILE PATH</string>
+         <string>/</string>
         </property>
        </widget>
       </widget>

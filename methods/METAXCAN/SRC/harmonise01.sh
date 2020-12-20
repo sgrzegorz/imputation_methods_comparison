@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# run "harmonise.sh" before this script
 cd ..
 
 GWAS_TOOLS=./GWAS_TOOLS

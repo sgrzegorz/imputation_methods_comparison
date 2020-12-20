@@ -814,6 +814,7 @@ class Ui(QtWidgets.QMainWindow):
         self.MPXCOVAR = self.findChild(QtWidgets.QLineEdit, 'MPXCOVAR')
         self.MPXVER = self.findChild(QtWidgets.QLineEdit, 'MPXVER')
         self.MPXOUTFILE = self.findChild(QtWidgets.QLineEdit, 'MPXOUTFILE')
+        self.MPXVCFFILE = self.findChild(QtWidgets.QLineEdit, 'MPXVCFFILE')
 
         self.MPXVCFMODE = self.findChild(QtWidgets.QComboBox, 'MPXVCFMODE')
 
@@ -833,7 +834,7 @@ class Ui(QtWidgets.QMainWindow):
         self.MPXVCFLABEL = self.findChild(QtWidgets.QLabel, 'MPXVCFLABEL')
         self.MPXVCF = self.findChild(QtWidgets.QPushButton, 'MPXVCF')
         self.MPXVCF.clicked.connect(
-            lambda: self.MPXVCFLABEL.setText(QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',options=native)[0]))
+            lambda: self.MPXVCFLABEL.setText(QtWidgets.QFileDialog.getExistingDirectory(self, 'Choose directory', '')))
 
         self.MPXTXTLABEL = self.findChild(QtWidgets.QLabel, 'MPXTXTLABEL')
         self.MPXTXT = self.findChild(QtWidgets.QPushButton, 'MPXTXT')
@@ -900,7 +901,7 @@ class Ui(QtWidgets.QMainWindow):
             if (self.MPXBGENRSID.isChecked()):
                 comm = comm + " --bgen_use_rsid "
         if (str(self.MPXVCFLABEL.text()) not in [""]):
-            comm = comm + " --vcf_genotypes " + str(self.MPXVCFLABEL.text())
+            comm = comm + " --vcf_genotypes " + str(self.MPXVCFLABEL.text()) + "/" + str(self.MPXVCFFILE.text())
             comm = comm + " --vcf_mode "+str(self.MPXVCFMODE.currentText())
         if (self.MPXMAPPED.isChecked()):
             comm = comm + " --force_mapped_metadata "
@@ -924,8 +925,10 @@ class Ui(QtWidgets.QMainWindow):
         comm = comm + " --input_phenos_file " + str(self.MPXPHENLABEL.text())
         comm = comm + " --input_phenos_column " + str(self.MPXPHENCOL.text())
 
-        comm = comm + " --covariates_file " + str(self.MPXCOVLABEL.text())
-        comm = comm + " --covariates " + str(self.MPXCOVAR.text())
+        if (str(self.MPXCOVLABEL.text()) not in [""]):
+            comm = comm + " --covariates_file " + str(self.MPXCOVLABEL.text())
+        if (str(self.MPXCOVAR.text()) not in [""]):
+            comm = comm + " --covariates " + str(self.MPXCOVAR.text())
 
         comm = comm + " --output " + str(self.MPXOUTLABEL.text())+ "/" + str(self.MPXOUTFILE.text())
         comm = comm + " --verbosity " + str(self.MPXVER.text())

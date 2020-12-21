@@ -13,7 +13,7 @@ echo harmonize input gWAS to our reference
 
 # output_column_map effect_allele effect_allele tutaj nie uzylem hm_effect_allele bo program sie gubil i widzial dwie kolumny effect_allele
 python $GWAS_TOOLS/gwas_parsing.py \
--gwas_file /home/x/DEVELOPER1/WORK/inzynierka/DATA/GWAS/27989323-GCST004430-EFO_0008173.h.tsv \
+-gwas_file ../../COMMON_INPUT/27989323-GCST004430-EFO_0008173.h.tsv \
 -liftover ${input}/liftover/hg19ToHg38.over.chain.gz \
 -snp_reference_metadata ${input}/reference_panel_1000G/variant_metadata.txt.gz METADATA \
 -output_column_map hm_other_allele non_effect_allele \

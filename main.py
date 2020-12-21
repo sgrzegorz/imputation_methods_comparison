@@ -1237,6 +1237,7 @@ class Ui(QtWidgets.QMainWindow):
         self.SMXTRIMM = self.findChild(QtWidgets.QCheckBox, 'SMXTRIMM')
         self.SMXPERM = self.findChild(QtWidgets.QCheckBox, 'SMXPERM')
         self.SMXTHROW = self.findChild(QtWidgets.QCheckBox, 'SMXTHROW')
+        self.SMXKEEP = self.findChild(QtWidgets.QCheckBox, 'SMXKEEP')
 
     def validateSMX(self):
         comm = "./SMulTiXcan.py "
@@ -1262,8 +1263,8 @@ class Ui(QtWidgets.QMainWindow):
                 comm = comm + " --metaxcan_filter " + str(self.SMXMETAXFILTER.text())
             if (str(self.SMXMETAXPAT.text()) not in [""]):
                 comm = comm + " --metaxcan_file_name_parse_pattern " + str(self.SMXMETAXPAT.text())
-        if (str(self.SMXMODELLABEL.text()) not in [""]):
-            comm = comm + " --model_product " + str(self.SMXMODELLABEL.text())
+        if (str(self.SMXPRODUCTLABEL.text()) not in [""]):
+            comm = comm + " --model_product " + str(self.SMXPRODUCTLABEL.text())
 
         if (self.SMXTRIMM.isChecked()):
             comm = comm + " --trimmed_ensemble_id "
@@ -1287,6 +1288,8 @@ class Ui(QtWidgets.QMainWindow):
         comm = comm + " --verbosity " + str(self.SMXVER.text())
         if (self.SMXTHROW.isChecked()):
             comm = comm + " --throw "
+        if (self.SMXKEEP.isChecked()):
+            comm = comm + " --keep_non_rsid "
 
         if (str(self.SMXSNP.text()) not in [""]):
             comm = comm + " --snp_column " + str(self.SMXSNP.text())

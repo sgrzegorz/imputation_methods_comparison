@@ -2286,7 +2286,7 @@
          <rect>
           <x>30</x>
           <y>160</y>
-          <width>111</width>
+          <width>121</width>
           <height>23</height>
          </rect>
         </property>
@@ -2339,9 +2339,9 @@
        <widget class="QPushButton" name="SMXCLEAR">
         <property name="geometry">
          <rect>
-          <x>40</x>
+          <x>30</x>
           <y>90</y>
-          <width>111</width>
+          <width>121</width>
           <height>23</height>
          </rect>
         </property>
@@ -2517,9 +2517,9 @@
        <widget class="QLineEdit" name="SMXMETAXPAT">
         <property name="geometry">
          <rect>
-          <x>1000</x>
+          <x>1060</x>
           <y>410</y>
-          <width>113</width>
+          <width>211</width>
           <height>20</height>
          </rect>
         </property>
@@ -2530,9 +2530,9 @@
        <widget class="QLabel" name="label_129">
         <property name="geometry">
          <rect>
-          <x>804</x>
+          <x>800</x>
           <y>410</y>
-          <width>191</width>
+          <width>261</width>
           <height>20</height>
          </rect>
         </property>
@@ -2556,9 +2556,9 @@
        <widget class="QLineEdit" name="SMXMETAXFILTER">
         <property name="geometry">
          <rect>
-          <x>1000</x>
+          <x>1060</x>
           <y>380</y>
-          <width>113</width>
+          <width>211</width>
           <height>20</height>
          </rect>
         </property>
@@ -2767,14 +2767,17 @@
        <widget class="QLabel" name="SMXPRODUCTLABEL">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>690</y>
-          <width>181</width>
-          <height>16</height>
+          <x>810</x>
+          <y>480</y>
+          <width>461</width>
+          <height>21</height>
          </rect>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QPushButton" name="SMXPRODUCT">
@@ -2913,9 +2916,9 @@
        <widget class="QLineEdit" name="SMXOR">
         <property name="geometry">
          <rect>
-          <x>1040</x>
+          <x>1070</x>
           <y>200</y>
-          <width>113</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -2939,9 +2942,9 @@
        <widget class="QLineEdit" name="SMXBETA">
         <property name="geometry">
          <rect>
-          <x>1040</x>
+          <x>1070</x>
           <y>140</y>
-          <width>113</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -2952,9 +2955,9 @@
        <widget class="QLineEdit" name="SMXNON">
         <property name="geometry">
          <rect>
-          <x>1040</x>
+          <x>1070</x>
           <y>110</y>
-          <width>113</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -2978,9 +2981,9 @@
        <widget class="QLineEdit" name="SMXSIGN">
         <property name="geometry">
          <rect>
-          <x>1040</x>
+          <x>1070</x>
           <y>170</y>
-          <width>113</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -3004,9 +3007,9 @@
        <widget class="QLineEdit" name="SMXSNP">
         <property name="geometry">
          <rect>
-          <x>1040</x>
+          <x>1070</x>
           <y>50</y>
-          <width>113</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -3030,9 +3033,9 @@
        <widget class="QLineEdit" name="SMXPVAL">
         <property name="geometry">
          <rect>
-          <x>1040</x>
+          <x>1070</x>
           <y>260</y>
-          <width>113</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -3056,9 +3059,9 @@
        <widget class="QLineEdit" name="SMXSEP">
         <property name="geometry">
          <rect>
-          <x>1040</x>
+          <x>1070</x>
           <y>290</y>
-          <width>113</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -3069,9 +3072,9 @@
        <widget class="QLineEdit" name="SMXEFF">
         <property name="geometry">
          <rect>
-          <x>1040</x>
+          <x>1070</x>
           <y>80</y>
-          <width>113</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -3108,9 +3111,9 @@
        <widget class="QLineEdit" name="SMXZSCORE">
         <property name="geometry">
          <rect>
-          <x>1040</x>
+          <x>1070</x>
           <y>230</y>
-          <width>113</width>
+          <width>151</width>
           <height>20</height>
          </rect>
         </property>
@@ -3274,6 +3277,19 @@
 --beta_sign_column: Name of column holding sign of beta.	
 --zscore_column	Name of column holding zscore of beta.	
 --pvalue_column	Name of column holding p-values data.</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="SMXKEEP">
+        <property name="geometry">
+         <rect>
+          <x>640</x>
+          <y>240</y>
+          <width>141</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>--keep_non_rsid</string>
         </property>
        </widget>
       </widget>

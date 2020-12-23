@@ -21,6 +21,7 @@ echo Elastic-Net Regression
 --Gene_Exp ${Gene_Exp_path} --sampleID ${sampleID} \
 --chr 1 --genofile_type vcf \
 --genofile ${genofile} --Format GT \
+--thread 8 \
 --out ${out_prefix}
 
 # ---------------------- DPR ---------------------------------
@@ -30,6 +31,7 @@ echo DPR
 --Gene_Exp ${Gene_Exp_path} --sampleID ${sampleID} \
 --chr 1 --genofile_type vcf \
 --genofile ${genofile} --Format GT \
+--thread 8 \
 --out ${out_prefix}
 
 
@@ -54,6 +56,7 @@ train_info_path=${output}/elastic_net_CHR1/CHR1_elastic_net_training_info.txt
 --genofile ${genofile} \
 --sampleID ${sampleID} \
 --Format GT \
+--thread 8 \
 --out ${out_prefix}
 
 # --------------------------------- DPR Based---------------------------------
@@ -70,6 +73,7 @@ train_info_path=${output}/DPR_CHR1/CHR1_DPR_training_info.txt
 --genofile ${genofile} \
 --sampleID ${sampleID} \
 --Format GT \
+--thread 8 \
 --out ${out_prefix}
 
 ################################################################ 4 TWAS ##################################################################################

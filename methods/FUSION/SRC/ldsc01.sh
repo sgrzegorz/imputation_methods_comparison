@@ -3,9 +3,7 @@
 
 # "conda activate ldsc"
 
-file=../../COMMON_INPUT/27989323-GCST004430-EFO_0008173.h.tsv
-
-
+file=$COMMON_INPUT/27989323-GCST004430-EFO_0008173.h.tsv
 
 cd $FUSION/ldsc
 python munge_sumstats.py  \

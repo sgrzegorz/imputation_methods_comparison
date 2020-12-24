@@ -9,7 +9,7 @@ output=./OUTPUT
 cat ${output}/PGC2.SCZ.22.dat | awk 'NR == 1 || $NF < 0.05/2058' > ${output}/PGC2.SCZ.22.top
 
 Rscript FUSION.post_process.R \
---sumstats ${input}/PGC2.SCZ.sumstats \
+--sumstats ${output}/PGC2.SCZ.sumstats \
 --input ${output}/PGC2.SCZ.22.top \
 --out ${output}/PGC2.SCZ.22.top.analysis \
 --ref_ld_chr ./LDREF/1000G.EUR. \

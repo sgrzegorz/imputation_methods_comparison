@@ -1673,7 +1673,8 @@ class Ui(QtWidgets.QMainWindow):
 
         with open('script.sh', 'w+') as file:
             self.write_intro_to_script(file, 'main')
-            file.write(f'python {ROOT_DIR}/backend/input_pvalues.py {GWAS_PATH} {OUTPUT_PATH}')
+            file.write(f'cd {ROOT_DIR}/backend\n')
+            file.write(f'python -u input_pvalues.py {GWAS_PATH} {OUTPUT_PATH}')
 
         self.process.start('/bin/bash', ['script.sh'])
 
@@ -1688,10 +1689,11 @@ class Ui(QtWidgets.QMainWindow):
             after = self.PLT2RESULTSLABEL.text()
             output = f'{self.PLT2OUTLABEL.text()}/{method}--{self.PLT2OUTFILE.text()}'
 
+            file.write(f'cd {ROOT_DIR}/backend\n')
             if method == 'fusion':
-                file.write(f'python {ROOT_DIR}/backend/fusion_output_pvalues.py {before} {after} {output}')
+                file.write(f'python -u fusion_output_pvalues.py {before} {after} {output}')
             elif method == 'metaxcan':
-                file.write(f'python {ROOT_DIR}/backend/metaxcan_output_pvalues.py {before} {after} {output}')
+                file.write(f'python -u metaxcan_output_pvalues.py {before} {after} {output}')
             else:
                 print('Shouldnt be here')
 
@@ -1714,7 +1716,8 @@ class Ui(QtWidgets.QMainWindow):
 
         with open('script.sh', 'w+') as file:
             self.write_intro_to_script(file, 'main')
-            file.write(f'python {ROOT_DIR}/backend/{method}_print_chart.py {self.PLT3FILELABEL.text()}')
+            file.write(f'cd {ROOT_DIR}/backend\n')
+            file.write(f'python -u {method}_print_chart.py {self.PLT3FILELABEL.text()}')
 
         self.process.start('/bin/bash', ['script.sh'])
 

@@ -59,6 +59,7 @@ Type `R` in and install plink `install.packages('plink2R-master/plink2R/',repos=
 Type `R` and install:
 ```
 install.packages(c('optparse','RColorBrewer'))
+install.packages("corrplot")
 install.packages(c('glmnet','methods'))
 ```
 #### Tigar dependencies

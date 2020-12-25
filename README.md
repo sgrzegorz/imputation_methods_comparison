@@ -32,8 +32,8 @@ conda env create -f tigar.yml
 
 Optional conda installation commands, not necessary for a basic usage:
 ```
-conda env create -f ldsc
-conda env create -f second
+conda env create -f ldsc.yml
+conda env create -f second.yml
 ```
 
 #### R environment (for Fusion only)
@@ -73,7 +73,9 @@ sudo apt-get install -y tabix
 #### Project dependencies
 Open file *imputation_methods_comparison/definitions.py*. Update CONDA variable in this file, if a path to *conda.sh* file in your system is different.
 
+Add path to *imputation_methods_comparison* directory to your PYTHONPATH.  In order to do it, you should add similar line to the end of our  */home/username/.bashrc* file:
 
+`export PYTHONPATH="${PYTHONPATH}:/home/username/Desktop/imputation_methods_comparison"`
 
 ## Run
 
@@ -89,4 +91,5 @@ python main.py
 - To complete installing conda environments, you may need to run  `sudo apt-get install gcc python3-dev`
  - `python main.py` does not start, because of [QT5 problem](https://askubuntu.com/questions/308128/failed-to-load-platform-plugin-xcb-while-launching-qt5-app-on-linux-without) . Try: `sudo apt-get install --reinstall libxcb-xinerama0`
  - When you run an imputation method and see *LINE 19: 123456 Killed* check system logs in */var/log/syslog*. Probably you have too little RAM on your machine and kernel stops the bash script. A solution for this issue could be creating a [swap file](https://help.ubuntu.com/community/SwapFaq)
+ - To develop our project you may need to install git-lfs, however for normal usage it is unnecessary.
 

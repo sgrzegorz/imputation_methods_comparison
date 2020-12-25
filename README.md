@@ -15,7 +15,10 @@ Currently we support an user friendly GUI interface for the following imputation
 
 ## Installation 
 
-The installation was tested on Ubuntu18.04
+The installation was tested on Ubuntu18.04. Requirements:
+- R language
+- anaconda
+- git
 
 Download this repository from github, then:
 
